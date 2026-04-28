@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EETRA</title>
+  <meta name="description"
+    content="EETRA è la società di consulenza ESG certificata B Corp che guida aziende e PMI nella transizione rigenerativa: CSRD, carbon footprint, certificazioni e reporting ESG.">
+  <meta name="keywords"
+    content="consulenza ESG, CSRD, carbon footprint, certificazione B Corp, LEED, BREEAM, sostenibilità aziendale, ESG reporting">
+  <meta property="og:title" content="Consulenza ESG per Aziende e PMI | EETRA">
+  <meta property="og:description"
+    content="EETRA guida aziende e PMI nella transizione rigenerativa attraverso consulenza ESG, CSRD, certificazioni e formazione.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png">
+</head>
+
+<body>
+
+  <!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="EETRA — Home">
+        <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" alt="EETRA logo"
+          onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+      </a>
+            <ul class="nav__links" role="list">
+        <li><a href="chi-siamo.html" class="nav__link">Chi siamo</a></li>
+        <li><a href="servizi.html" class="nav__link">Servizi</a></li>
+        <li><a href="impact.html" class="nav__link">Impact</a></li>
+        <li><a href="governance.html" class="nav__link">Governance</a></li>
+        <li><a href="contatti.html" class="nav__link">Contatti</a></li>
+      </ul>
+      <a href="contatti.html" class="btn btn-primary nav__cta">Richiedi consulenza</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Menu mobile">
+    <a href="chi-siamo.html" class="nav__mobile-link">Chi siamo</a>
+    <a href="servizi.html" class="nav__mobile-link">Servizi</a>
+    <a href="impact.html" class="nav__mobile-link">Impact</a>
+    <a href="governance.html" class="nav__mobile-link">Governance</a>
+    <a href="contatti.html" class="nav__mobile-link">Contatti</a>
+    <div class="nav__mobile-cta" style="margin-top:2.5rem">
+      <a href="contatti.html" class="btn btn-primary">Richiedi consulenza</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+     HERO — PURE SLIDER
+     ============================================================ -->
+  <section class="hero-fs" id="hero" aria-label="EETRA — Consulenza ESG per aziende">
+
+    <!-- BACKGROUND SLIDER -->
+    <div class="hero-fs__slider" aria-hidden="true">
+
+      <!-- Slide 0 -->
+      <div class="hero-fs__slide hero-fs__slide--active" data-index="0">
+        <img src="infosito/hero.png" alt="ESG Strategy" loading="eager" style="object-position: center bottom;">
+        <div class="hero-fs__overlay"></div>
+        <div class="hero-fs__caption-center">
+          <h2 class="hero-fs__caption-ttl">Strategia ESG integrata e Reporting</h2>
+          <span class="hero-fs__tag">01 · Company Atlas</span>
+        </div>
+      </div>
+
+      <!-- Slide 1 -->
+      <div class="hero-fs__slide" data-index="1">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=85&auto=format&fit=crop"
+          alt="Green Buildings" loading="lazy">
+        <div class="hero-fs__overlay"></div>
+        <div class="hero-fs__caption-center">
+          <h2 class="hero-fs__caption-ttl">Certificazioni LEED, BREEAM e WELL</h2>
+          <span class="hero-fs__tag">02 · Environmental Intelligence</span>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-fs__slide" data-index="2">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920&q=85&auto=format&fit=crop"
+          alt="Decarbonization" loading="lazy">
+        <div class="hero-fs__overlay"></div>
+        <div class="hero-fs__caption-center">
+          <h2 class="hero-fs__caption-ttl">Decarbonizzazione dei prodotti e LCA</h2>
+          <span class="hero-fs__tag">03 · Positive Impact</span>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-fs__slide" data-index="3">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85&auto=format&fit=crop"
+          alt="Innovation" loading="lazy">
+        <div class="hero-fs__overlay"></div>
+        <div class="hero-fs__caption-center">
+          <h2 class="hero-fs__caption-ttl">Gestione dati ESG e Carbon Digital Twin</h2>
+          <span class="hero-fs__tag">04 · Innovation Engine</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOREGROUND UI (Nav & Controls only) -->
+    <div class="hero-fs__ui container">
+
+      <!-- Top spacer for nav -->
+      <div style="flex:1"></div>
+
+      <!-- Bottom Bar (B Corp & slider controls) -->
+      <div class="hero-fs__bottom">
+
+        <!-- Controls -->
+        <div class="hero-fs__controls">
+          <button class="hero-fs__arrow" id="heroPrev" aria-label="Precedente">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="hero-fs__dots">
+            <button class="hero-fs__dot hero-fs__dot--active" data-slide="0"></button>
+            <button class="hero-fs__dot" data-slide="1"></button>
+            <button class="hero-fs__dot" data-slide="2"></button>
+            <button class="hero-fs__dot" data-slide="3"></button>
+          </div>
+          <button class="hero-fs__arrow" id="heroNext" aria-label="Successiva">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Hero FS styles & script (inline for self-containment) -->
+  <style>
+    /* ---- Full Screen Hero Layout ---- */
+    .hero-fs {
+      position: relative;
+      height: 100vh;
+      min-height: 650px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    /* Background Slider */
+    .hero-fs__slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-fs__slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 4vw;
+    }
+
+    .hero-fs__slide--active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .hero-fs__slide img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.05);
+      transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: -2;
+    }
+
+    .hero-fs__slide--active img {
+      transform: scale(1);
+    }
+
+    /* Local Gradient per slide per far leggere il testo */
+    .hero-fs__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg,
+          rgba(14, 18, 9, 0.95) 0%,
+          rgba(14, 18, 9, 0.4) 50%,
+          transparent 100%),
+        linear-gradient(to top,
+          rgba(14, 18, 9, 0.8) 0%,
+          transparent 35%);
+    }
+
+    /* Single Text per Slide */
+    .hero-fs__caption-center {
+      position: relative;
+      max-width: 800px;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+    }
+
+    .hero-fs__slide--active .hero-fs__caption-center {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-fs__tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-pale);
+      margin-top: 1.5rem;
+      border-top: 2px solid var(--green-hover);
+      padding-top: 0.875rem;
+    }
+
+    .hero-fs__caption-ttl {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    /* Foreground UI (Bottom controls) */
+    .hero-fs__ui {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      padding-top: 68px;
+      /* nav height */
+      display: flex;
+      flex-direction: column;
+      pointer-events: none;
+      /* Let clicks pass through to slider if needed */
+    }
+
+    .hero-fs__bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 2rem 0;
+      flex-wrap: wrap;
+      gap: 2rem;
+      pointer-events: auto;
+      /* Re-enable clicks for controls */
+    }
+
+    .hero-fs__bcorp {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-fs__bcorp-img {
+      height: 45px;
+      width: auto;
+      opacity: 0.9;
+    }
+
+    .hero-fs__bcorp-txt {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-fs__controls {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hero-fs__arrow {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.5rem;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-fs__arrow:hover {
+      opacity: 1;
+      color: var(--green-pale);
+    }
+
+    .hero-fs__dots {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .hero-fs__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .hero-fs__dot--active {
+      background: var(--green-pale);
+      transform: scale(1.3);
+    }
+
+    @media (max-width: 900px) {
+      .hero-fs__overlay {
+        background: linear-gradient(to top, rgba(14, 18, 9, 0.95) 0%, rgba(14, 18, 9, 0.5) 70%, transparent 100%);
+      }
+
+      .hero-fs__slide {
+        align-items: flex-end;
+        padding-bottom: 8rem;
+        /* space for controls */
+      }
+
+      .hero-fs__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      const TOTAL = 4;
+      const INTERVAL = 5500;
+      let current = 0;
+      let timer = null;
+
+      const slides = document.querySelectorAll('.hero-fs__slide');
+      const dots = document.querySelectorAll('.hero-fs__dot');
+
+      function goTo(idx) {
+        slides[current].classList.remove('hero-fs__slide--active');
+        dots[current].classList.remove('hero-fs__dot--active');
+
+        current = (idx + TOTAL) % TOTAL;
+
+        slides[current].classList.add('hero-fs__slide--active');
+        dots[current].classList.add('hero-fs__dot--active');
+      }
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), INTERVAL);
+      }
+
+      startAuto();
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.dataset.slide, 10));
+          startAuto();
+        });
+      });
+
+      document.getElementById('heroPrev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+      document.getElementById('heroNext')?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+    })();
+  </script>
+
+  <!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+  <section class="stats-bar th-dark" aria-label="Numeri chiave EETRA">
+    <div class="stats-bar__grid">
+      <div class="stats-bar__item fade-in">
+        <div class="stats-bar__val">
+          <span data-target="15" data-suffix="+" class="accent">0+</span>
+        </div>
+        <div class="stats-bar__lbl">Anni di esperienza ESG</div>
+      </div>
+      <div class="stats-bar__item fade-in delay-1">
+        <div class="stats-bar__val">
+          <span data-target="200" data-suffix="+">0+</span>
+        </div>
+        <div class="stats-bar__lbl">Clienti supportati</div>
+      </div>
+      <div class="stats-bar__item fade-in delay-2">
+        <div class="stats-bar__val">
+          <span class="accent">86<span style="font-size:0.6em; letter-spacing:-0.02em">,7</span></span>
+        </div>
+        <div class="stats-bar__lbl">Punteggio B Corp</div>
+      </div>
+      <div class="stats-bar__item fade-in delay-3">
+        <div class="stats-bar__val">
+          <span data-target="4" data-suffix="">0</span>
+        </div>
+        <div class="stats-bar__lbl">Business Unit ESG</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     BUSINESS UNITS
+     ============================================================ -->
+  <section aria-label="Le nostre aree di consulenza ESG">
+    <div style="padding:4.5rem 0 2.5rem" class="th-cream">
+      <div class="container text-center">
+        <div class="sec-label" style="justify-content:center">
+          <span>Le nostre aree</span>
+        </div>
+        <h2 class="t-h2 fade-up" style="color:var(--dark); max-width:700px; margin:0 auto">
+          Quattro approcci integrati per la tua transizione rigenerativa
+        </h2>
+      </div>
+    </div>
+
+    <!-- ============================================================
+     BUSINESS UNITS (Premium Editorial Rows)
+     ============================================================ -->
+    <section class="services-premium" aria-label="I nostri servizi">
+      <div class="container">
+        <div class="sp-list">
+
+          <!-- Row 01 -->
+          <a href="servizi.html#company-atlas" class="sp-row fade-up">
+            <div class="sp-row__col-icon">
+              <img src="infosito/company atlas (1).png" alt="Company Atlas" class="sp-row__icon" loading="lazy">
+            </div>
+            <div class="sp-row__col-title">
+              <div class="sp-row__meta">01 — Company Atlas</div>
+              <h3 class="sp-row__title">Strategia ESG &amp; Reporting</h3>
+            </div>
+            <div class="sp-row__col-desc">
+              <p>Dall'ESG Assessment al reporting CSRD/ESRS e al piano di decarbonizzazione, portiamo la tua
+                organizzazione verso l’eccellenza e la B Corp.</p>
+              <span class="sp-row__link">Esplora <span class="arrow">→</span></span>
+            </div>
+          </a>
+
+          <!-- Row 02 -->
+          <a href="servizi.html#positive-impact" class="sp-row fade-up">
+            <div class="sp-row__col-icon">
+              <img src="infosito/positive impact.png" alt="Positive Impact" class="sp-row__icon" loading="lazy">
+            </div>
+            <div class="sp-row__col-title">
+              <div class="sp-row__meta">02 — Positive Impact</div>
+              <h3 class="sp-row__title">LCA &amp; Carbon Footprint di Prodotto</h3>
+            </div>
+            <div class="sp-row__col-desc">
+              <p>Valutiamo l'impatto della filiera e certifichiamo i tuoi prodotti: LCA, EPD, conformità ai CAM e
+                supporto CBAM per la manifattura avanzata.</p>
+              <span class="sp-row__link">Esplora <span class="arrow">→</span></span>
+            </div>
+          </a>
+
+          <!-- Row 03 -->
+          <a href="servizi.html#environmental-intelligence" class="sp-row fade-up">
+            <div class="sp-row__col-icon">
+              <img src="infosito/environmental intelligence.png" alt="Environmental Intelligence" class="sp-row__icon"
+                loading="lazy">
+            </div>
+            <div class="sp-row__col-title">
+              <div class="sp-row__meta">03 — Environmental Intelligence</div>
+              <h3 class="sp-row__title">Certificazioni Green Building</h3>
+            </div>
+            <div class="sp-row__col-desc">
+              <p>Guidiamo transizione ed asset allocation del mondo Real Estate. Assessor ufficiali per LEED, BREEAM,
+                WELL, GRESB e ENVISION.</p>
+              <span class="sp-row__link">Esplora <span class="arrow">→</span></span>
+            </div>
+          </a>
+
+          <!-- Row 04 -->
+          <a href="servizi.html#innovation-engine" class="sp-row fade-up">
+            <div class="sp-row__col-icon">
+              <img src="infosito/innovation engine.png" alt="Innovation Engine" class="sp-row__icon" loading="lazy">
+            </div>
+            <div class="sp-row__col-title">
+              <div class="sp-row__meta">04 — Innovation Engine</div>
+              <h3 class="sp-row__title">Dati ESG &amp; Digital Twin</h3>
+            </div>
+            <div class="sp-row__col-desc">
+              <p>Tecnologia e automazione al servizio dei dati: monitoraggio IA dell'aria, Material Library e gemelli
+                digitali per carbon accounting (TIAKI).</p>
+              <span class="sp-row__link">Esplora <span class="arrow">→</span></span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* ---- Premium Horizontal Service List ---- */
+      .services-premium {
+        background: var(--off-white);
+        padding: 6rem 0;
+        color: var(--dark);
+      }
+
+      .sp-list {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 2px solid var(--border-dk);
+      }
+
+      .sp-row {
+        display: grid;
+        grid-template-columns: 140px 1.5fr 1fr;
+        gap: 3rem;
+        padding: 4rem 1rem;
+        border-top: 2px solid var(--border-dk);
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.4s ease, padding-left 0.4s ease, padding-right 0.4s ease;
+        align-items: flex-start;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Interazione Hover: L'aroma premium */
+      .sp-row:hover {
+        background: var(--green-pale);
+        padding-left: 2rem;
+        padding-right: 0rem;
+      }
+
+      /* Colonna 1: Icona (Logo piccolo) */
+      .sp-row__col-icon {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 100%;
+      }
+
+      .sp-row__icon {
+        max-width: 90px;
+        height: auto;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+        /* Aiuta a fondere i loghi su sfondi chiari */
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .sp-row:hover .sp-row__icon {
+        transform: scale(1.1) rotate(2deg);
+      }
+
+      /* Colonna 2: Titolo */
+      .sp-row__col-title {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.2rem;
+      }
+
+      .sp-row__meta {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--green);
+        margin-bottom: 1.5rem;
+        font-family: var(--font-sans);
+      }
+
+      .sp-row:hover .sp-row__meta {
+        color: var(--dark);
+      }
+
+      .sp-row__title {
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--dark);
+        margin: 0;
+        transition: color 0.4s ease;
+        text-wrap: balance;
+      }
+
+      /* Colonna 3: Descrizione corta + Link */
+      .sp-row__col-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0.5rem;
+      }
+
+      .sp-row__col-desc p {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: var(--muted-md);
+        margin-bottom: 2rem;
+        margin-top: 0;
+        max-width: 450px;
+        transition: color 0.4s ease;
+      }
+
+      .sp-row:hover .sp-row__col-desc p {
+        color: var(--dark);
+      }
+
+      .sp-row__link {
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--dark);
+        position: relative;
+      }
+
+      .sp-row__link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: currentColor;
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .sp-row:hover .sp-row__link::after {
+        width: 100%;
+      }
+
+      .sp-row__link .arrow {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .sp-row:hover .sp-row__link .arrow {
+        transform: translateX(8px);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .sp-row {
+          grid-template-columns: 140px 1fr;
+          gap: 2rem;
+        }
+
+        .sp-row__col-desc {
+          grid-column: 2;
+          padding-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sp-row {
+          grid-template-columns: 1fr;
+          padding: 3rem 1rem;
+          gap: 2rem;
+        }
+
+        .sp-row__icon {
+          max-width: 70px;
+        }
+
+        .sp-row__meta {
+          margin-bottom: 1rem;
+        }
+
+        .sp-row__title {
+          font-size: 2.2rem;
+        }
+
+        .sp-row__col-desc {
+          grid-column: 1;
+        }
+
+        .sp-row:hover {
+          padding-left: 1.5rem;
+        }
+      }
+    </style>
+  </section>
+
+  <!-- ============================================================
+     WHY EETRA
+     ============================================================ -->
+  <section class="section th-dark" aria-label="Perché scegliere EETRA">
+    <div class="container">
+      <div class="sec-label sec-label--lt">
+        <span>Perché EETRA</span>
+      </div>
+      <h2 class="t-h2 mb-8 fade-up" style="max-width:650px">
+        La competenza che fa la differenza nella transizione rigenerativa
+      </h2>
+      <div class="why-grid fade-up">
+        <div class="why-item">
+          <div class="why-num">86<span style="font-size:0.55em">,7</span></div>
+          <h3 class="why-title">Certified B Corp</h3>
+          <p class="why-text">Siamo una Società Benefit certificata B Corp con punteggio 86,7 — tra i più alti in Italia
+            nel settore consulenza. Pratichiamo quello che consigliamo.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">10+</div>
+          <h3 class="why-title">Team certificato</h3>
+          <p class="why-text">Il nostro team vanta certificazioni LEED AP BD+C, BREEAM Assessor, WELL AP, GRI Expert, B
+            Leaders. Oltre dieci anni di esperienza in ESG e decarbonizzazione.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">360°</div>
+          <h3 class="why-title">Approccio integrato</h3>
+          <p class="why-text">Dall'azienda all'edificio, dal prodotto all'innovazione digitale: copriamo tutte le
+            dimensioni della sostenibilità con un approccio integrato e misurabile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     CLIENT TICKER
+     ============================================================ -->
+  <section class="ticker-wrap" aria-label="I nostri clienti" style="background: var(--white);">
+    <div class="ticker-hd">
+      <div class="sec-label" style="justify-content:center">
+        <span>I nostri clienti</span>
+      </div>
+    </div>
+    <div class="ticker-mask">
+      <div class="ticker-track" aria-hidden="true">
+        <!-- First set -->
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/benetton-group_logo.png" alt="Benetton Group">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/ENGIE.png" alt="ENGIE">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DNV Logo-800x400.png" alt="DNV">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/HILTI (1).png" alt="Hilti">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/BolognaFiere_logo.png" alt="Bologna Fiere">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/NUVEEN.png" alt="Nuveen">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Q8 (1).png" alt="Q8">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/savills.png" alt="Savills">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Systra.png" alt="Systra">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/IMQ.png" alt="IMQ">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Carlo Ratti ASS_logo.jpg"
+          alt="Carlo Ratti Associati">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Coldwell-Banke.png" alt="Coldwell Banker">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/habitech.png" alt="Habitech">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/FinintSGR_logo.jpg" alt="Finint SGR">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/evora.png" alt="Evora">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DREES and SOMMER.png" alt="Drees &amp; Sommer">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/sole 24 ore.png" alt="Sole 24 Ore">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/YARD REAAS.png" alt="YARD REAAS">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
+        <!-- Duplicate for infinite loop -->
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/benetton-group_logo.png" alt="Benetton Group">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/ENGIE.png" alt="ENGIE">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DNV Logo-800x400.png" alt="DNV">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/HILTI (1).png" alt="Hilti">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/BolognaFiere_logo.png" alt="Bologna Fiere">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/NUVEEN.png" alt="Nuveen">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Q8 (1).png" alt="Q8">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/savills.png" alt="Savills">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Systra.png" alt="Systra">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/IMQ.png" alt="IMQ">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Carlo Ratti ASS_logo.jpg"
+          alt="Carlo Ratti Associati">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Coldwell-Banke.png" alt="Coldwell Banker">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/habitech.png" alt="Habitech">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/FinintSGR_logo.jpg" alt="Finint SGR">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/evora.png" alt="Evora">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DREES and SOMMER.png" alt="Drees &amp; Sommer">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/sole 24 ore.png" alt="Sole 24 Ore">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/YARD REAAS.png" alt="YARD REAAS">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     IMPACT PREVIEW
+     ============================================================ -->
+  <section class="section th-cream" aria-label="Ultime notizie ESG da Impact">
+    <div class="container">
+      <div class="flex-between mb-8" style="flex-wrap:wrap; gap:1.5rem">
+        <div>
+          <div class="sec-label"><span>Impact &amp; News ESG</span></div>
+          <h2 class="t-h2 fade-up" style="color:var(--dark)">
+            Aggiornamenti normativi<br>e storie di impatto
+          </h2>
+        </div>
+        <a href="impact.html" class="btn btn-outline-dk">
+          Tutti gli articoli <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="grid-3">
+        <!-- Article 1 -->
+        <div class="impact-card fade-up">
+          <div class="impact-card__body">
+            <span class="impact-card__cat">CSRD &amp; ESRS</span>
+            <p class="impact-card__date">Aprile 2025</p>
+            <h3 class="impact-card__title">Guida CSRD 2025: obblighi, scadenze e come adeguarsi</h3>
+            <p class="impact-card__exc">La Corporate Sustainability Reporting Directive introduce nuovi obblighi per le
+              aziende italiane. Ecco tutto quello che devi sapere per essere conforme entro le scadenze.</p>
+          </div>
+          <div class="impact-card__ft">
+            <span class="impact-card__cat" style="margin:0">Pillar</span>
+            <a href="impact.html" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span
+                class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="impact-card fade-up delay-1">
+          <div class="impact-card__body">
+            <span class="impact-card__cat">Carbon Footprint</span>
+            <p class="impact-card__date">Marzo 2025</p>
+            <h3 class="impact-card__title">Carbon footprint aziendale: guida al calcolo Scope 1, 2 e 3</h3>
+            <p class="impact-card__exc">Come misurare le emissioni di CO₂ della tua azienda seguendo il GHG Protocol.
+              Dalla raccolta dati alla costruzione del piano di decarbonizzazione net zero.</p>
+          </div>
+          <div class="impact-card__ft">
+            <span class="impact-card__cat" style="margin:0; background:var(--cream-2)">Pillar</span>
+            <a href="impact.html" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span
+                class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="impact-card fade-up delay-2">
+          <div class="impact-card__body">
+            <span class="impact-card__cat" style="background:#e8f0d8">Certificazioni</span>
+            <p class="impact-card__date">Febbraio 2025</p>
+            <h3 class="impact-card__title">Certificazione B Corp per PMI italiane: il percorso guidato</h3>
+            <p class="impact-card__exc">Come ottenere la certificazione B Corp partendo dal B Impact Assessment. La
+              guida completa di EETRA, già certificata con punteggio 86,7.</p>
+          </div>
+          <div class="impact-card__ft">
+            <span class="impact-card__cat" style="margin:0; background:#e8f0d8; color:var(--green)">Pillar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     CTA FINALE
+     ============================================================ -->
+  <section class="section-xl th-dark cta-sec" aria-label="Contatta EETRA">
+    <div class="cta-sec__bg" aria-hidden="true"></div>
+    <div class="container cta-sec__content">
+      <div class="sec-label sec-label--lt" style="justify-content:center"><span>Inizia ora</span></div>
+      <h2 class="cta-sec__title fade-up">
+        Inizia il tuo percorso<br>ESG con EETRA
+      </h2>
+      <p class="cta-sec__sub fade-up delay-1">
+        Parla con i nostri esperti ESG e scopri come possiamo supportare la tua azienda nella transizione rigenerativa.
+        Prima consulenza gratuita.
+      </p>
+      <div class="cta-sec__btns fade-up delay-2">
+        <a href="contatti.html" class="btn btn-primary">Richiedi consulenza gratuita <span class="arrow">→</span></a>
+        <a href="servizi.html" class="btn btn-outline">Esplora i servizi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FOOTER
+     ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Col 1: Logo + Info -->
+        <div>
+          <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-04.png" alt="EETRA" class="footer__logo-img"
+            onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+          <p class="footer__tagline">
+            Società di consulenza ESG certificata B Corp. Guidiamo aziende e PMI nella transizione rigenerativa.
+          </p>
+          <div class="footer__contact-row">
+            <span>📍</span>
+            <span>Via Plinio 43, 20129 Milano</span>
+          </div>
+          <div class="footer__contact-row">
+            <span>📧</span>
+            <a href="mailto:info@eetra.it">info@eetra.it</a>
+          </div>
+          <div class="footer__contact-row">
+            <span>📞</span>
+            <a href="tel:+390225565011">+39 02 25565011</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <p class="footer__col-ttl">Navigazione</p>
+          <nav class="footer__nav" aria-label="Footer navigation">
+            <a href="chi-siamo.html">Chi siamo</a>
+            <a href="servizi.html">Servizi ESG</a>
+            <a href="impact.html">Impact &amp; News</a>
+            <a href="governance.html">Governance</a>
+            <a href="contatti.html">Contatti</a>
+          </nav>
+        </div>
+
+        <!-- Col 3: Servizi -->
+        <div>
+          <p class="footer__col-ttl">Servizi principali</p>
+          <nav class="footer__nav" aria-label="Footer servizi">
+            <a href="servizi.html#company-atlas">Company Atlas</a>
+            <a href="servizi.html#positive-impact">Positive Impact</a>
+            <a href="servizi.html#environmental-intelligence">Environmental Intelligence</a>
+            <a href="servizi.html#innovation-engine">Innovation Engine</a>
+          </nav>
+        </div>
+
+        <!-- Col 4: Certificazioni -->
+        <div>
+          <p class="footer__col-ttl">Certificazioni</p>
+          <div class="footer__cert-row">
+            <img class="footer__cert-img" src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b corp bianco.png" alt="B Corp Certified">
+          </div>
+          <p style="font-size:0.8375rem; margin-top:1.25rem; line-height:1.6; color:var(--muted-lt)">
+            EETRA Srl SB — Società Benefit<br>
+            P.IVA e C.F. IT12345678901<br>
+            REA MI-12345678
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2026 EETRA Srl SB — Tutti i diritti riservati</span>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Note legali</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Mini inline responsive fix */
+    @media (max-width:768px) {
+      .responsive-split {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+      }
+    }
+
+
+  </style>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Governance EETRA | Download PDF Annuale</title>
+  <meta name="description" content="Scarica la Governance annuale di EETRA: dati su impatto ambientale, sociale e di governance generato dai progetti e dalla comunità aziendale. Report annuale B Corp certificato.">
+    <link rel="preload" href="infosito/00_Fonts/SourceSerif4Variable-Roman.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="infosito/00_Fonts/Geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png">
+  <style>
+    /* ---- Report card ---- */
+    .report-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border-dk);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--tr);
+    }
+    .report-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      border-color: rgba(92,123,42,0.4);
+    }
+    .report-card__cover {
+      aspect-ratio: 3/4;
+      background: var(--dark-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-dk);
+    }
+    .report-card__cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--tr-slow);
+    }
+    .report-card:hover .report-card__cover img { transform: scale(1.04); }
+    .report-card__cover-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
+    .report-card__cover-year {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--green-pale);
+    }
+    .report-card__cover-label {
+      font-size: 0.725rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted-lt);
+    }
+    .report-card__cover-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--green-pale));
+    }
+    .report-card__body {
+      padding: 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .report-card__score {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .report-card__score-val {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green-pale);
+      line-height: 1;
+    }
+    .report-card__score-lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-lt);
+    }
+    .report-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--off-white);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .report-card__desc {
+      font-size: 0.9rem;
+      color: var(--muted-lt);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .report-card__actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* ---- Upload section (placeholder) ---- */
+    .upload-zone {
+      border: 2px dashed var(--border-dk);
+      border-radius: var(--r-lg);
+      padding: 4rem 2rem;
+      text-align: center;
+      transition: all var(--tr);
+    }
+    .upload-zone:hover {
+      border-color: var(--green);
+      background: rgba(92,123,42,0.04);
+    }
+
+    /* ---- How it works ---- */
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border-dk);
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-n {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-pale);
+      min-width: 2.5rem;
+      line-height: 1;
+    }
+    .step-content {}
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--off-white);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+    .step-desc { font-size: 0.9375rem; color: var(--muted-lt); line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" alt="EETRA"
+           onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+    </a>
+          <ul class="nav__links" role="list">
+        <li><a href="chi-siamo.html" class="nav__link">Chi siamo</a></li>
+        <li><a href="servizi.html" class="nav__link">Servizi</a></li>
+        <li><a href="impact.html" class="nav__link">Impact</a></li>
+        <li><a href="governance.html" class="nav__link active">Governance</a></li>
+        <li><a href="contatti.html" class="nav__link">Contatti</a></li>
+      </ul>
+    <a href="contatti.html" class="btn btn-primary nav__cta">Richiedi consulenza</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__mobile" id="mobileMenu">
+    <a href="chi-siamo.html" class="nav__mobile-link">Chi siamo</a>
+    <a href="servizi.html" class="nav__mobile-link">Servizi</a>
+    <a href="impact.html" class="nav__mobile-link">Impact</a>
+    <a href="governance.html" class="nav__mobile-link">Governance</a>
+    <a href="contatti.html" class="nav__mobile-link">Contatti</a>
+    <div class="nav__mobile-cta"><a href="contatti.html" class="btn btn-primary">Richiedi consulenza</a></div>
+</div>
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<section class="page-hero" aria-label="Governance EETRA">
+  <div class="container">
+    <div class="sec-label sec-label--lt"><span>Governance</span></div>
+    <h1 class="page-hero__title fade-up">
+      Il nostro impatto misurabile,<br>ogni anno
+    </h1>
+    <p class="page-hero__sub fade-up delay-1">
+      Come Società Benefit certificata B Corp, EETRA pubblica ogni anno la Governance: un documento trasparente che rendiconta l'impatto ambientale, sociale e di governance generato dalla nostra attività e dai nostri progetti.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     INTRO STRIP
+     ============================================================ -->
+<section class="section-sm th-dark" style="border-top:1px solid var(--border-dk); border-bottom:1px solid var(--border-dk)">
+  <div class="container">
+    <div class="grid-3" style="gap:0">
+      <div style="padding:2rem 2.5rem; border-right:1px solid var(--border-dk)">
+        <div style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--green-pale)">86,7</div>
+        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-lt); margin-top:0.3rem">Punteggio B Corp 2024</p>
+      </div>
+      <div style="padding:2rem 2.5rem; border-right:1px solid var(--border-dk)">
+        <div style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--green-pale)">Annuale</div>
+        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-lt); margin-top:0.3rem">Frequenza di pubblicazione</p>
+      </div>
+      <div style="padding:2rem 2.5rem">
+        <div style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--green-pale)">PDF</div>
+        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-lt); margin-top:0.3rem">Formato download gratuito</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REPORTS GRID
+     ============================================================ -->
+<section class="section th-dark" id="reports" aria-label="Archivio Relazioni d'Impatto">
+  <div class="container">
+    <div class="sec-label sec-label--lt"><span>Archivio report</span></div>
+    <h2 class="t-h2 mb-8 fade-up">
+      Scarica le nostre<br>Relazioni d'Impatto
+    </h2>
+
+    <div class="grid-3 fade-up">
+
+      <!-- Report 2024 (LATEST) -->
+      <article class="report-card">
+        <div class="report-card__cover">
+          <!-- Se hai la copertina PDF sostituisci con: <img src="percorso/cover-2024.jpg" alt=""> -->
+          <div class="report-card__cover-placeholder">
+            <div style="font-size:2.5rem; opacity:0.4">📄</div>
+            <div class="report-card__cover-year">2024</div>
+            <p class="report-card__cover-label">Governance</p>
+            <div style="display:inline-block; padding:0.3rem 0.9rem; border:1px solid rgba(92,123,42,0.4); border-radius:100px; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-pale)">Edizione più recente</div>
+          </div>
+          <div class="report-card__cover-bar"></div>
+        </div>
+        <div class="report-card__body">
+          <div class="report-card__score">
+            <span class="report-card__score-val">86,7</span>
+            <span class="report-card__score-lbl">B Corp Score</span>
+          </div>
+          <h3 class="report-card__title">Governance EETRA 2024</h3>
+          <p class="report-card__desc">
+            Il report annuale documenta l'impatto generato da EETRA nel 2024: progetti ESG completati, emissioni evitate, clienti supportati, formazione erogata e governance interna. Dati verificati e certificati B Corp.
+          </p>
+          <div class="report-card__actions">
+            <a href="#" class="btn btn-primary" id="download-2024"
+               download
+               onclick="handleDownload(event, '2024')">
+              Download PDF <span class="arrow">→</span>
+            </a>
+            <a href="#" class="btn btn-outline" style="font-size:0.875rem; padding:0.75rem 1.125rem">
+              Anteprima
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Report 2023 -->
+      <article class="report-card">
+        <div class="report-card__cover">
+          <div class="report-card__cover-placeholder">
+            <div style="font-size:2.5rem; opacity:0.3">📄</div>
+            <div class="report-card__cover-year" style="color:var(--muted-lt)">2023</div>
+            <p class="report-card__cover-label">Governance</p>
+          </div>
+        </div>
+        <div class="report-card__body">
+          <div class="report-card__score" style="opacity:0.8">
+            <span class="report-card__score-val" style="color:var(--muted-lt)">82,4</span>
+            <span class="report-card__score-lbl">B Corp Score</span>
+          </div>
+          <h3 class="report-card__title" style="color:var(--muted-lt)">Governance EETRA 2023</h3>
+          <p class="report-card__desc">
+            Report annuale 2023: espansione del team, nuove certificazioni LEED e BREEAM completate e primo anno come Sustainability Consultancy B Corp in Italia.
+          </p>
+          <div class="report-card__actions">
+            <a href="#" class="btn btn-outline" id="download-2023"
+               download
+               onclick="handleDownload(event, '2023')">
+              Download PDF <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Report 2022 -->
+      <article class="report-card" style="opacity:0.65">
+        <div class="report-card__cover">
+          <div class="report-card__cover-placeholder">
+            <div style="font-size:2.5rem; opacity:0.2">📄</div>
+            <div class="report-card__cover-year" style="color:var(--muted-dk)">2022</div>
+            <p class="report-card__cover-label">Governance</p>
+          </div>
+        </div>
+        <div class="report-card__body">
+          <div class="report-card__score" style="opacity:0.6">
+            <span class="report-card__score-val" style="color:var(--muted-dk)">79,1</span>
+            <span class="report-card__score-lbl">B Corp Score</span>
+          </div>
+          <h3 class="report-card__title" style="color:var(--muted-dk)">Governance EETRA 2022</h3>
+          <p class="report-card__desc" style="color:var(--muted-dk)">
+            Report annuale 2022: consolidamento servizi ESG, avvio percorso B Corp, crescita del portafoglio clienti nel real estate sostenibile e nel manifatturiero.
+          </p>
+          <div class="report-card__actions">
+            <a href="#" class="btn btn-outline" style="opacity:0.6">
+              Download PDF <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Nota upload -->
+    <div style="margin-top:3.5rem; padding:2rem 2.5rem; border:1px solid var(--border-dk); border-radius:var(--r-md); background:var(--dark-2); display:flex; align-items:flex-start; gap:1.25rem; flex-wrap:wrap">
+      <div style="font-size:1.5rem; padding-top:0.1rem">ℹ️</div>
+      <div>
+        <p style="font-family:var(--font-serif); font-size:1rem; font-weight:600; color:var(--off-white); margin-bottom:0.4rem">Come caricare nuovi report</p>
+        <p style="font-size:0.9rem; color:var(--muted-lt); line-height:1.65; max-width:680px">
+          Per aggiungere un nuovo report, carica il file PDF nella cartella <code style="background:var(--dark-3); padding:0.15rem 0.4rem; border-radius:3px; font-size:0.85em; color:var(--green-pale)">relazioni/</code> e aggiorna i link nei tag <code style="background:var(--dark-3); padding:0.15rem 0.4rem; border-radius:3px; font-size:0.85em; color:var(--green-pale)">&lt;a href="..."&gt;</code> in questa pagina. Oppure contatta il team tecnico EETRA.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COSA CONTIENE LA RELAZIONE
+     ============================================================ -->
+<section class="section th-cream" aria-label="Cosa contiene la relazione d'impatto">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start" class="responsive-split">
+      <div class="fade-up">
+        <div class="sec-label"><span>Il contenuto</span></div>
+        <h2 class="t-h2 mb-4" style="color:var(--dark)">
+          Cosa trovi nella<br>Governance
+        </h2>
+        <p style="font-size:1rem; color:var(--muted-dk); line-height:1.72; margin-bottom:1.25rem">
+          La Governance di EETRA è redatta secondo le linee guida per le Società Benefit e i requisiti B Corp. Non è un documento di marketing: è una rendicontazione trasparente e verificabile di come l'azienda ha generato valore per tutti gli stakeholder.
+        </p>
+        <p style="font-size:1rem; color:var(--muted-dk); line-height:1.72; margin-bottom:1.25rem">
+          I dati vengono raccolti internamente, validati dal team ESG e sottoposti a verifica nell'ambito del processo di recertificazione B Corp annuale.
+        </p>
+        <a href="chi-siamo.html" class="btn btn-primary">Scopri chi siamo <span class="arrow">→</span></a>
+      </div>
+
+      <div class="fade-up delay-1">
+        <div class="step-item">
+          <span class="step-n">01</span>
+          <div class="step-content">
+            <h4 class="step-title">Impatto ambientale</h4>
+            <p class="step-desc">Emissioni di CO₂ dell'organizzazione, consumi energetici, riduzione emissioni generata dai progetti ESG per i clienti, certificazioni ambientali conseguite.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-n">02</span>
+          <div class="step-content">
+            <h4 class="step-title">Impatto sociale</h4>
+            <p class="step-desc">Ore di formazione erogate, professionisti formati, iniziative di welfare interno, diversità e inclusione del team, retribuzioni e benefit.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-n">03</span>
+          <div class="step-content">
+            <h4 class="step-title">Governance</h4>
+            <p class="step-desc">Struttura societaria, mission benefit, politiche di trasparenza, gestione dei fornitori secondo criteri ESG, politiche anticorruzione.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-n">04</span>
+          <div class="step-content">
+            <h4 class="step-title">Punteggio B Corp</h4>
+            <p class="step-desc">B Impact Score complessivo e suddiviso per categoria: Community, Environment, Workers, Customers, Governance. Confronto con anni precedenti.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="section-xl th-dark cta-sec">
+  <div class="cta-sec__bg" aria-hidden="true"></div>
+  <div class="container cta-sec__content">
+    <h2 class="cta-sec__title fade-up">
+      Vuoi costruire<br>la tua Governance?
+    </h2>
+    <p class="cta-sec__sub fade-up delay-1">
+      EETRA supporta Società Benefit e PMI nella redazione della Governance annuale, conforme alle normative vigenti e allineata agli standard B Corp.
+    </p>
+    <div class="cta-sec__btns fade-up delay-2">
+      <a href="contatti.html" class="btn btn-primary">Richiedi consulenza <span class="arrow">→</span></a>
+      <a href="servizi.html#company-atlas" class="btn btn-outline">Company Atlas</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-04.png" alt="EETRA" class="footer__logo-img"
+             onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+        <p class="footer__tagline">Società di consulenza ESG certificata B Corp. Guidiamo aziende e PMI nella transizione rigenerativa.</p>
+        <div class="footer__contact-row"><span>📍</span><span>Via Plinio 43, 20129 Milano</span></div>
+        <div class="footer__contact-row"><span>📧</span><a href="mailto:info@eetra.it">info@eetra.it</a></div>
+        <div class="footer__contact-row"><span>📞</span><a href="tel:+390225565011">+39 02 25565011</a></div>
+      </div>
+      <div>
+        <p class="footer__col-ttl">Navigazione</p>
+        <nav class="footer__nav">
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="servizi.html">Servizi ESG</a>
+          <a href="impact.html">Impact &amp; News</a>
+          <a href="governance.html">Governance</a>
+          <a href="contatti.html">Contatti</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-ttl">Servizi principali</p>
+        <nav class="footer__nav">
+          <a href="servizi.html#company-atlas">Company Atlas</a>
+          <a href="servizi.html#positive-impact">Positive Impact</a>
+          <a href="servizi.html#environmental-intelligence">Environmental Intelligence</a>
+          <a href="servizi.html#innovation-engine">Innovation Engine</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-ttl">Certificazioni</p>
+        <div class="footer__cert-row">
+          <img class="footer__cert-img" src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b corp bianco.png" alt="B Corp Certified">
+        </div>
+        <p style="font-size:0.8375rem; margin-top:1.25rem; line-height:1.6; color:var(--muted-lt)">EETRA Srl SB — Società Benefit<br>Via Plinio 43, Milano</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 EETRA Srl SB — Tutti i diritti riservati</span>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleDownload(e, year) {
+  // If the href is still "#", show a message instead of navigating
+  const link = document.getElementById('download-' + year);
+  if (!link || link.getAttribute('href') === '#') {
+    e.preventDefault();
+    alert('Il PDF della Relazione d\'Impatto ' + year + ' non è ancora stato caricato. Contattaci a info@eetra.it per riceverlo.');
+  }
+}
+</script>
+<style>
+@media (max-width:768px) { .responsive-split { grid-template-columns:1fr !important; gap:3rem !important; } }
+</style>
+<script src="js/main.js"></script>
+</body>
+</html>

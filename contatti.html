@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti | Preventivo Consulenza ESG | EETRA Milano</title>
+  <meta name="description" content="Contatta EETRA per una consulenza ESG su misura: ESG reporting, CSRD, carbon footprint, certificazioni LEED, BREEAM o B Corp. Sede a Milano, operiamo in tutta Italia.">
+    <link rel="preload" href="infosito/00_Fonts/SourceSerif4Variable-Roman.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="infosito/00_Fonts/Geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo"><img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" alt="EETRA" onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'"></a>
+          <ul class="nav__links" role="list">
+        <li><a href="chi-siamo.html" class="nav__link">Chi siamo</a></li>
+        <li><a href="servizi.html" class="nav__link">Servizi</a></li>
+        <li><a href="impact.html" class="nav__link">Impact</a></li>
+        <li><a href="governance.html" class="nav__link">Governance</a></li>
+        <li><a href="contatti.html" class="nav__link active">Contatti</a></li>
+      </ul>
+    <a href="contatti.html" class="btn btn-primary nav__cta">Richiedi consulenza</a>
+    <button class="nav__hamburger" id="hamburger" aria-label="Apri menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile" id="mobileMenu">
+    <a href="chi-siamo.html" class="nav__mobile-link">Chi siamo</a>
+    <a href="servizi.html" class="nav__mobile-link">Servizi</a>
+    <a href="impact.html" class="nav__mobile-link">Impact</a>
+    <a href="governance.html" class="nav__mobile-link">Governance</a>
+    <a href="contatti.html" class="nav__mobile-link">Contatti</a>
+    <div class="nav__mobile-cta"><a href="#contact-form" class="btn btn-primary">Scrivi a EETRA</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="sec-label sec-label--lt"><span>Contatti</span></div>
+    <h1 class="page-hero__title fade-up">
+      Contattaci per una consulenza ESG:<br>
+      CSRD, carbon footprint e certificazioni
+    </h1>
+    <p class="page-hero__sub fade-up delay-1">
+      Il team EETRA è a disposizione per una prima valutazione gratuita del tuo percorso ESG. Rispondiamo entro 24 ore lavorative.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT MAIN
+     ============================================================ -->
+<section class="section th-cream" id="contact-form" aria-label="Modulo di contatto">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="fade-up">
+        <div class="sec-label"><span>Scrivi a EETRA</span></div>
+        <h2 class="t-h2 mb-6" style="color:var(--dark)">
+          Parla con i nostri<br>esperti ESG
+        </h2>
+
+        <form id="contactForm" novalidate
+              action="#" method="POST"
+              onsubmit="handleSubmit(event)">
+
+          <div class="grid-2" style="gap:1.25rem; margin-bottom:0">
+            <div class="form-group">
+              <label for="nome" class="form-lbl">Nome *</label>
+              <input type="text" id="nome" name="nome" class="form-input"
+                     placeholder="Mario" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="cognome" class="form-lbl">Cognome *</label>
+              <input type="text" id="cognome" name="cognome" class="form-input"
+                     placeholder="Rossi" required autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="azienda" class="form-lbl">Azienda</label>
+            <input type="text" id="azienda" name="azienda" class="form-input"
+                   placeholder="Nome dell'azienda" autocomplete="organization">
+          </div>
+
+          <div class="grid-2" style="gap:1.25rem; margin-bottom:0">
+            <div class="form-group">
+              <label for="email" class="form-lbl">Email *</label>
+              <input type="email" id="email" name="email" class="form-input"
+                     placeholder="mario.rossi@azienda.it" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="telefono" class="form-lbl">Telefono</label>
+              <input type="tel" id="telefono" name="telefono" class="form-input"
+                     placeholder="+39 02..." autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="servizio" class="form-lbl">Servizio di interesse</label>
+            <select id="servizio" name="servizio" class="form-select">
+              <option value="" disabled selected>Seleziona un servizio…</option>
+              <optgroup label="Company Atlas">
+                <option value="esg-reporting">ESG Reporting CSRD / ESRS</option>
+                <option value="carbon-footprint">Carbon Footprint Scope 1-2-3</option>
+                <option value="bilancio-sostenibilita">Bilancio di Sostenibilità</option>
+                <option value="bcorp">Certificazione B Corp</option>
+                <option value="tassonomia-ue">Tassonomia UE e DNSH</option>
+                <option value="fractional-esg">Fractional ESG Manager</option>
+                <option value="materialita">Analisi di Materialità</option>
+              </optgroup>
+              <optgroup label="Positive Impact">
+                <option value="lca">Analisi LCA e Carbon Footprint di Prodotto</option>
+                <option value="epd">EPD Dichiarazione Ambientale</option>
+                <option value="cbam">Supporto CBAM</option>
+                <option value="cam">Conformità CAM</option>
+                <option value="c2c">Certificazione Cradle to Cradle</option>
+              </optgroup>
+              <optgroup label="Environmental Intelligence">
+                <option value="leed">Certificazione LEED</option>
+                <option value="breeam">Certificazione BREEAM</option>
+                <option value="well">WELL Building Standard</option>
+                <option value="gresb">GRESB Assessment</option>
+                <option value="crrem">CRREM Energy Modeling</option>
+              </optgroup>
+              <optgroup label="Innovation Engine">
+                <option value="aria">ARIA Air Quality</option>
+                <option value="material-library">Material Library</option>
+                <option value="carbon-digital-twin">Carbon Digital Twin</option>
+                <option value="tiaki">TIAKI Logistics</option>
+              </optgroup>
+              </optgroup>
+              <option value="altro">Altro / Non so ancora</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="messaggio" class="form-lbl">Messaggio *</label>
+            <textarea id="messaggio" name="messaggio" class="form-textarea"
+                      placeholder="Descrivi brevemente la tua azienda, la dimensione e le esigenze ESG su cui vorresti un supporto…"
+                      required></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              <label for="privacy">
+                Ho letto e accetto la <a href="#">Privacy Policy</a> di EETRA Srl SB. Acconsento al trattamento dei miei dati personali per ricevere una risposta alla mia richiesta di contatto. *
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:0">
+            <div class="form-check" style="margin-bottom:1.5rem">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">
+                Desidero ricevere aggiornamenti normativi ESG, news e approfondimenti da EETRA (newsletter mensile).
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary w-full" id="submitBtn"
+                    style="justify-content:center; padding:1rem; font-size:1rem">
+              Invia richiesta <span class="arrow">→</span>
+            </button>
+          </div>
+
+          <!-- Success message (hidden by default) -->
+          <div id="formSuccess" style="display:none; margin-top:1.5rem; padding:1.5rem; background:rgba(92,123,42,0.1); border:1px solid rgba(92,123,42,0.3); border-radius:var(--r-md)">
+            <p style="font-family:var(--font-serif); font-size:1.1rem; color:var(--dark); font-weight:600; margin-bottom:0.5rem">✓ Messaggio inviato con successo!</p>
+            <p style="font-size:0.9rem; color:var(--muted-dk)">Grazie per averci contattato. Il team EETRA ti risponderà entro 24 ore lavorative.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIDEBAR INFO -->
+      <div class="contact-info fade-up delay-1">
+        <div class="sec-label" style="margin-bottom:0"><span>Dove siamo</span></div>
+        <h2 style="font-family:var(--font-serif); font-size:1.75rem; font-weight:600; color:var(--dark); letter-spacing:-0.015em; margin:1.25rem 0 0.5rem">EETRA Srl SB</h2>
+        <p style="font-size:0.9375rem; color:var(--muted-dk); margin-bottom:2rem; line-height:1.65">Società Benefit · B Corp Certificata · Consulenza ESG</p>
+
+        <div class="contact-info__item">
+          <span class="contact-info__icon">📍</span>
+          <div>
+            <p class="contact-info__lbl">Sede legale e operativa</p>
+            <p class="contact-info__val">Via Plinio 43<br>20129 Milano (MI), Italia</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <span class="contact-info__icon">📧</span>
+          <div>
+            <p class="contact-info__lbl">Email generale</p>
+            <p class="contact-info__val">
+              <a href="mailto:info@eetra.it">info@eetra.it</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <span class="contact-info__icon">📞</span>
+          <div>
+            <p class="contact-info__lbl">Telefono</p>
+            <p class="contact-info__val">
+              <a href="tel:+390225565011">+39 02 25565011</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <span class="contact-info__icon">🌐</span>
+          <div>
+            <p class="contact-info__lbl">Sito web</p>
+            <p class="contact-info__val">
+              <a href="https://www.eetra.it" target="_blank" rel="noopener">www.eetra.it</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <span class="contact-info__icon">⏰</span>
+          <div>
+            <p class="contact-info__lbl">Orari di risposta</p>
+            <p class="contact-info__val">Lun–Ven, 9:00–18:00<br>
+              <span style="font-size:0.875rem; color:var(--muted-dk)">Risposta garantita entro 24h lavorative</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- B Corp badge -->
+        <div style="margin-top:2.5rem; padding:1.75rem; border:1px solid var(--border-lt); border-radius:var(--r-md); background:var(--white); display:flex; align-items:center; gap:1.25rem">
+          <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png"
+               alt="EETRA B Corp"
+               style="height:56px; width:auto"
+               onerror="this.style.display='none'">
+          <div>
+            <p style="font-family:var(--font-serif); font-size:1rem; font-weight:600; color:var(--dark)">B Corp Certificata</p>
+            <p style="font-size:0.875rem; color:var(--muted-dk)">Punteggio 86,7 — Società Benefit</p>
+          </div>
+        </div>
+
+        <!-- Services quick links -->
+        <div style="margin-top:2rem; padding:1.75rem; border:1px solid var(--border-lt); border-radius:var(--r-md); background:var(--cream)">
+          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-dk); margin-bottom:1rem">Servizi più richiesti</p>
+          <div style="display:flex; flex-direction:column; gap:0.5rem">
+            <a href="servizi.html#company-atlas" style="font-size:0.9rem; color:var(--dark); padding:0.5rem 0; border-bottom:1px solid var(--border-lt); display:flex; justify-content:space-between; align-items:center; transition:color var(--tr)">
+              ESG Reporting CSRD <span style="color:var(--green)">→</span>
+            </a>
+            <a href="servizi.html#company-atlas" style="font-size:0.9rem; color:var(--dark); padding:0.5rem 0; border-bottom:1px solid var(--border-lt); display:flex; justify-content:space-between; align-items:center">
+              Certificazione B Corp <span style="color:var(--green)">→</span>
+            </a>
+            <a href="servizi.html#environmental-intelligence" style="font-size:0.9rem; color:var(--dark); padding:0.5rem 0; display:flex; justify-content:space-between; align-items:center">
+              Certificazione LEED / BREEAM <span style="color:var(--green)">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAP PLACEHOLDER
+     ============================================================ -->
+<section class="section-sm th-dark" style="border-top:1px solid var(--border-dk); padding:0">
+  <div style="height:340px; background:var(--dark-2); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden">
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(92,123,42,0.08) 0%, transparent 70%)"></div>
+    <div style="text-align:center; position:relative; z-index:1">
+      <div style="font-size:2.5rem; margin-bottom:1rem">🗺️</div>
+      <p style="font-family:var(--font-serif); font-size:1.5rem; font-weight:600; color:var(--off-white); margin-bottom:0.5rem">Via Plinio 43, Milano</p>
+      <p style="font-size:0.9375rem; color:var(--muted-lt); margin-bottom:1.5rem">Metro M1 Porta Venezia · MM3 Turati</p>
+      <a href="https://maps.google.com/?q=Via+Plinio+43,+Milano" target="_blank" rel="noopener" class="btn btn-outline">
+        Apri in Google Maps <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CONTACT EETRA
+     ============================================================ -->
+<section class="section th-dark" aria-label="Perché scegliere EETRA">
+  <div class="container">
+    <div class="sec-label sec-label--lt"><span>Perché EETRA</span></div>
+    <h2 class="t-h2 mb-8 fade-up">Prima consulenza gratuita.<br>Risposta garantita in 24h.</h2>
+    <div class="why-grid fade-up">
+      <div class="why-item">
+        <div class="why-num">24h</div>
+        <h3 class="why-title">Risposta garantita</h3>
+        <p class="why-text">Il team EETRA risponde entro 24 ore lavorative. Per le richieste urgenti siamo disponibili direttamente via telefono durante gli orari d'ufficio.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">Free</div>
+        <h3 class="why-title">Prima consulenza gratuita</h3>
+        <p class="why-text">La prima valutazione del tuo percorso ESG è sempre gratuita. Ascoltiamo le tue esigenze e proponiamo la soluzione più adatta alla tua azienda.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">86,7</div>
+        <h3 class="why-title">B Corp certificata</h3>
+        <p class="why-text">Siamo una Società Benefit certificata B Corp. Ogni consulenza che offriamo riflette i valori che applichiamo ogni giorno nella nostra azienda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-04.png" alt="EETRA" class="footer__logo-img" onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+        <p class="footer__tagline">Società di consulenza ESG certificata B Corp. Guidiamo aziende e PMI nella transizione rigenerativa.</p>
+        <div class="footer__contact-row"><span>📍</span><span>Via Plinio 43, 20129 Milano</span></div>
+        <div class="footer__contact-row"><span>📧</span><a href="mailto:info@eetra.it">info@eetra.it</a></div>
+        <div class="footer__contact-row"><span>📞</span><a href="tel:+390225565011">+39 02 25565011</a></div>
+      </div>
+      <div>
+        <p class="footer__col-ttl">Navigazione</p>
+        <nav class="footer__nav">
+          <a href="chi-siamo.html">Chi siamo</a>
+          <a href="servizi.html">Servizi ESG</a>
+          <a href="impact.html">Impact &amp; News</a>
+          <a href="governance.html">Governance</a>
+          <a href="contatti.html">Contatti</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-ttl">Servizi principali</p>
+        <nav class="footer__nav">
+          <a href="servizi.html#company-atlas">Company Atlas</a>
+          <a href="servizi.html#positive-impact">Positive Impact</a>
+          <a href="servizi.html#environmental-intelligence">Environmental Intelligence</a>
+          <a href="servizi.html#innovation-engine">Innovation Engine</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-ttl">Certificazioni</p>
+        <div class="footer__cert-row">
+          <img class="footer__cert-img" src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b corp bianco.png" alt="B Corp Certified">
+        </div>
+        <p style="font-size:0.8375rem; margin-top:1.25rem; line-height:1.6; color:var(--muted-lt)">EETRA Srl SB — Società Benefit<br>Via Plinio 43, Milano</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 EETRA Srl SB — Tutti i diritti riservati</span>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const btn  = document.getElementById('submitBtn');
+  const success = document.getElementById('formSuccess');
+  // Basic validation
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  // Simulate send (replace with real endpoint)
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso…';
+  setTimeout(() => {
+    form.style.display = 'none';
+    success.style.display = 'block';
+  }, 800);
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

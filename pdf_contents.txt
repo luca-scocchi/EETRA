@@ -1,0 +1,1025 @@
+--- eetra_sitemap_v4.pdf ---
+EETRA  |  Alberatura SEO Sito Web  2026
+I nomi dei nodi sono keyword indicizzabili (H1 / Title di pagina)  ·  eetra.it
+LEGENDA
+Sezioni core (Company Profile)
+Impact  &  Relazione d'Impatto
+Formazione ESG / Academy
+Perché sceglierci
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  +39 02 25565011  ·  www.eetra.it
+© 2026 EETRA  ·  Tutti i diritti riservati
+Consulenza ESG
+per Aziende e PMI
+Chi siamo:
+Società Benefit
+certificata B Corp
+/chi-siamo
+Consulenza ESG Milano:
+chi siamo
+Missione rigenerativa
+e visione ESG
+Team esperti LEED AP,
+BREEAM AP, WELL AP, GRI
+Partnership aziendali ESG
+Academy & Partner
+istituzionali
+Certificazione B Corp
+Punteggio 86,7
+Servizi ESG
+per Aziende
+/servizi
+Consulenza ESG Aziendale
+Company Atlas
+Fractional ESG Manager
+in outsourcing
+ESG Reporting CSRD
+ESRS VSME
+Bilancio di Sostenibilità
+e Relazione d'Impatto
+Carbon Footprint Aziendale
+Scope 1, 2 e 3
+Piano di Decarbonizzazione
+Net Zero aziendale
+Certificazione B Corp
+SA8000 ISO 14001
+Tassonomia UE
+CSRD ESRS adeguamento
+Analisi di Materialità ESG
+double materiality
+Formazione ESG
+on-demand
+Decarbonizzazione Prodotti
+Positive Impact
+LCA Carbon Footprint
+di Prodotto ISO 14044
+Certificazione Cradle to Cradle
+EPD HPD Declare
+Eco-design per prodotti
+circolarità e materiali
+Conformità CAM
+appalti pubblici verdi
+Supporto CBAM
+Carbon Border Adjustment
+Formazione ESG
+on-demand prodotti
+Certificazioni Ambientali
+Edifici e Infrastrutture
+Certificazione LEED
+LEED AP BD+C ID+C
+Certificazione BREEAM
+BREEAM Assessor Italia
+Certificazione WELL
+benessere uffici
+ENVISION SITES
+infrastrutture sostenibili
+GRESB ESG Real Estate
+rating immobiliare
+CRREM Energy Modeling
+Decarbonizzazione edifici
+Tassonomia UE DNSH
+immobiliare
+Innovazione ESG
+Data-Driven
+ARIA Air Quality
+Monitoraggio qualità aria
+EETRA Material Library
+database materiali ESG
+Carbon Digital Twin
+Whole Life Carbon
+TIAKI Logistics
+sostenibilità supply chain
+Community Engagement
+Mobilità Inclusiva
+Formazione ESG
+per Aziende
+/academy
+Corso ESG Aziendale
+certificato
+Corso Sustainability Manager
+certificato PDR 109
+Corso CSRD ESRS
+rendicontazione ESG
+Formazione ESG
+on-demand e custom
+Impact:
+News ESG e
+Storie d'Impatto
+/impact
+Aggiornamenti normativi
+CSRD ESRS CBAM 2025
+Case Study ESG
+aziende italiane
+Guida CSRD 2025
+obblighi e scadenze
+Guida Carbon Footprint
+Scope 1 2 3
+Guida Certificazione
+B Corp PMI
+Archivio per categoria
+ESG Reporting · Certificazioni
+Decarbonizzazione · Normative
+Relazione d'Impatto
+Download PDF
+/relazione-di-impatto
+Download Relazione
+d'Impatto annuale PDF
+Impact Report B Corp
+punteggio e dati ESG
+Archivio report
+per anno
+Perché Scegliere
+EETRA
+/perche-sceglierci
+Certificazioni e Accreditamenti
+LEED BREEAM WELL GRI B Corp
+Clienti ESG:
+PMI e grandi aziende
+Partnership ESG
+aziendali e istituzionali
+Richiedi Consulenza
+ESG – Contatti
+/contatti
+
+
+
+--- eetra_seo_sitemap.pdf ---
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 1
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+Architettura SEO Sito Web
+Struttura completa con keyword, cluster tematici, labelling SEO e sitemap strategica
+Committente
+EETRA Srl SB – Società di consulenza ESG
+Target
+Aziende e PMI italiane (B2B) · Responsabili ESG · CFO · Compliance Manager · Real Estate Manager
+Obiettivo
+Dominare le SERP per query ad alta intenzione commerciale legate a consulenza ESG, CSRD, ESRS, carbon footprint, certificazioni ambientali e B Corp in Italia
+Lingua
+Italiano (IT) – con alcune pagine in EN per target internazionale (Real Estate, certification protocols)
+Dominio
+eetra.it
+Versione
+2026 – basata su Company Profile EETRA 2026
+Legenda intent
+● Commerciale
+L'utente valuta un fornitore o servizio
+● Transazionale
+L'utente vuole acquistare / richiedere un
+preventivo
+●
+Informazionale
+L'utente cerca informazioni / guide
+● Misto
+Intent combinato (valutazione + info)
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 2
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+1. Struttura del Sito (Sitemap)
+Alberatura completa di eetra.it con le sezioni derivate dal Company Profile 2026 e le aggiunte strategiche SEO (sezione Impact, Relazione d'Impatto, cluster Blog).
+Livello
+URL
+Tipo pagina
+Priorità SEO
+L0 – Home
+/
+Landing principale
+★★★★★
+L1
+/chi-siamo
+Istituzionale
+★★★
+L2
+/chi-siamo/mission-vision
+Istituzionale
+★★
+L2
+/chi-siamo/team
+Trust / E-E-A-T
+★★★
+L2
+/chi-siamo/certificazioni-accreditamenti
+Trust / Conversione
+★★★★
+L2
+/chi-siamo/b-corp
+Trust / SEO
+★★★★
+L2
+/chi-siamo/clienti
+Social proof
+★★★
+L2
+/chi-siamo/partnership
+Trust
+★★
+L1
+/servizi
+Hub servizi (SEO pillar)
+★★★★★
+L2
+/servizi/company-atlas
+Pillar ESG aziendale
+★★★★★
+L3
+/servizi/company-atlas/esg-reporting
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/company-atlas/bilancio-sostenibilita
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/company-atlas/carbon-footprint-ghg
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/company-atlas/certificazione-b-corp
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/company-atlas/sustainability-manager
+Servizio (comm.)
+★★★★
+L3
+/servizi/company-atlas/tassonomia-ue
+Servizio (norm.)
+★★★★★
+L3
+/servizi/company-atlas/csrd-esrs
+Servizio (norm.)
+★★★★★
+L3
+/servizi/company-atlas/analisi-materialita
+Servizio
+★★★★
+L2
+/servizi/positive-impact
+Pillar prodotti
+★★★★
+L3
+/servizi/positive-impact/lca-carbon-footprint-prodotto
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/positive-impact/cradle-to-cradle
+Servizio
+★★★★
+L3
+/servizi/positive-impact/epd-dichiarazione-ambientale
+Servizio
+★★★★
+L3
+/servizi/positive-impact/cbam-supporto
+Servizio (norm.)
+★★★★★
+L3
+/servizi/positive-impact/cam-conformita
+Servizio (norm.)
+★★★★
+L2
+/servizi/environmental-intelligence
+Pillar real estate
+★★★★
+L3
+/servizi/environmental-intelligence/leed
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/environmental-intelligence/breeam
+Servizio (transaz.)
+★★★★★
+L3
+/servizi/environmental-intelligence/well-certificazione
+Servizio
+★★★★
+L3
+/servizi/environmental-intelligence/gresb
+Servizio
+★★★★
+L3
+/servizi/environmental-intelligence/crrem-energy-modeling
+Servizio
+★★★★
+L2
+/servizi/innovation-engine
+Pillar innovazione
+★★★
+L3
+/servizi/innovation-engine/aria-air-quality
+Prodotto
+★★★
+L3
+/servizi/innovation-engine/material-library
+Prodotto
+★★★
+L3
+/servizi/innovation-engine/carbon-digital-twin
+Prodotto
+★★★
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 3
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+Livello
+URL
+Tipo pagina
+Priorità SEO
+L3
+/servizi/innovation-engine/tiaki-logistics
+Prodotto
+★★★
+L1
+/academy
+Hub formazione
+★★★★
+L2
+/academy/corso-esg
+Corso (transaz.)
+★★★★★
+L2
+/academy/corso-sustainability-manager
+Corso (transaz.)
+★★★★★
+L2
+/academy/corso-sostenibilita-aziendale
+Corso
+★★★★
+L1 – NEW
+/impact
+News / Storie d'impatto
+★★★★
+L2
+/impact/[slug-articolo]
+Articolo (info/comm.)
+★★★★
+L2
+/impact/categoria/[csrd-esrs|esg-reporting|...]
+Archivio categoria
+★★★
+L1 – NEW
+/relazione-di-impatto
+Repository PDF pubblici
+★★★★
+L2
+/relazione-di-impatto/[anno]
+Report annuale scaricabile
+★★★★
+L1
+/contatti
+Conversione (CTA)
+★★★★★
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 4
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+2. Cluster Tematici di Keyword
+Le keyword sono raggruppate in cluster strategici. Ogni cluster copre un'area tematica ad alta domanda B2B. Le keyword consumer e generiche sono escluse.
+Cluster A – Consulenza ESG
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+consulenza ESG aziendale
+consulenza ESG PMI, servizi ESG per aziende, advisor ESG Italia
+● Commerciale
+Alta
+consulenza sostenibilità aziendale B2B
+sostenibilità d'impresa, strategia ESG aziendale
+● Commerciale
+Alta
+fractional ESG manager
+ESG manager esterno, sustainability manager in outsourcing
+● Commerciale
+Alta
+piano di sostenibilità aziendale
+roadmap ESG, piano ESG lungo termine
+● Commerciale
+Media
+analisi di materialità ESG
+materiality assessment, temi ESG rilevanti per aziende
+● Commerciale
+Media
+ESG due diligence
+due diligence sostenibilità, ESG risk assessment
+● Commerciale
+Alta
+Cluster B – Normative (CSRD · ESRS · Tassonomia UE · SFDR)
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+consulenza CSRD Italia
+CSRD obblighi 2025, CSRD PMI, adeguamento CSRD
+● Transazionale
+Altissima
+ESRS rendicontazione non finanziaria
+ESRS standard reporting, double materiality ESRS
+● Commerciale
+Altissima
+tassonomia UE consulenza
+allineamento tassonomia europea, DNSH compliance
+● Commerciale
+Alta
+SFDR disclosure finanziaria
+SFDR art 8 art 9, sustainable finance disclosure
+● Informazionale
+Media
+DNSH do no significant harm
+DNSH verifica, DNSH immobiliare, DNSH criteri tecnici
+● Commerciale
+Alta
+rendicontazione non finanziaria obbligatoria
+NFRD successore, CSRD deadline, DNF aziendale
+● Transazionale
+Altissima
+Cluster C – Reporting & Bilancio di Sostenibilità
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+ESG reporting aziendale
+report ESG per PMI, reporting sostenibilità GRI, VSME reporting
+● Transazionale
+Altissima
+bilancio di sostenibilità
+redazione bilancio sostenibilità, bilancio ESG aziende
+● Transazionale
+Altissima
+GHG carbon footprint aziendale
+calcolo carbon footprint Scope 1 2 3, impronta carbonio azienda
+● Transazionale
+Alta
+piano di decarbonizzazione aziendale
+strategia net zero PMI, roadmap decarbonizzazione
+● Commerciale
+Alta
+VSME reporting volontario
+VSME standard PMI, voluntary SME reporting
+● Commerciale
+Alta
+bilancio ambientale aziendale
+environmental accounting, rendicontazione ambientale
+● Commerciale
+Media
+Cluster D – Certificazioni (B Corp · ISO · LEED · BREEAM)
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+certificazione B Corp Italia
+come diventare B Corp, B Corp consulenza, B Corp PMI
+● Transazionale
+Altissima
+certificazione LEED Italia
+LEED AP consulenza, LEED edifici, costo certificazione LEED
+● Transazionale
+Alta
+certificazione BREEAM Italia
+BREEAM assessor, BREEAM in use, BREEAM new construction
+● Transazionale
+Alta
+certificazione ISO 14001
+ISO 14001 consulenza, sistema gestione ambientale
+● Transazionale
+Alta
+certificazione ISO 50001
+ISO 50001 energia, gestione energia aziendale
+● Transazionale
+Media
+well building standard
+WELL AP certificazione, WELL benessere uffici
+● Commerciale
+Media
+GRESB real estate ESG
+GRESB rating immobiliare, GRESB assessment
+● Commerciale
+Alta
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 5
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+Cluster E – Prodotti & Filiera (LCA · EPD · CBAM · CAM)
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+analisi LCA prodotto Italia
+life cycle assessment aziende, impronta ambientale prodotto
+● Transazionale
+Alta
+dichiarazione ambientale di prodotto EPD
+EPD certificazione prodotto, environmental product declaration
+● Transazionale
+Alta
+CBAM supporto aziende
+Carbon Border Adjustment Mechanism Italia, CBAM dichiarazione
+● Transazionale
+Altissima
+CAM criteri ambientali minimi
+conformità CAM appalti, CAM edilizia, mappatura CAM
+● Commerciale
+Alta
+carbon footprint di prodotto
+PCF product carbon footprint, emissioni prodotto
+● Transazionale
+Alta
+Cradle to Cradle certificazione
+C2C certificazione prodotto, economia circolare prodotto
+● Commerciale
+Media
+Cluster F – Formazione ESG (Academy)
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+corso sustainability manager certificato
+corso ESG manager, formazione sustainability manager Italia
+● Transazionale
+Altissima
+corso ESG aziendale
+formazione ESG dipendenti, training sostenibilità aziendale
+● Transazionale
+Alta
+corso CSRD ESRS
+formazione CSRD 2025, corso rendicontazione ESG
+● Transazionale
+Altissima
+formazione ESG PMI
+ESG onboarding team, sensibilizzazione ESG dipendenti
+● Commerciale
+Alta
+Cluster G – Impact (News) & Relazione d'Impatto
+Keyword Primaria
+Keyword Secondarie / Long-tail
+Search Intent
+Volume B2B
+impact report aziendale
+relazione di impatto B Corp, impact report PMI
+● Informazionale
+Alta
+notizie ESG Italia 2025
+aggiornamenti normativi ESG, news sostenibilità aziendale
+● Informazionale
+Media
+case study sostenibilità aziendale
+esempi ESG PMI, best practice sostenibilità imprese
+● Informazionale
+Alta
+download relazione impatto PDF
+relazione annuale sostenibilità download, PDF impact report
+● Transazionale
+Media
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 6
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+3. Labelling SEO per Pagina (Title · Meta · H1)
+Per ogni pagina principale vengono definiti Title SEO (max 60 car.), Meta Description (max 155 car.) e H1. Le keyword B2B e normative sono posizionate all'inizio del Title.
+Pagina / URL
+Title SEO (≤60 car.)
+Meta Description (≤155 car.)
+H1
+Intent
+Home – /
+Title: Consulenza ESG per Aziende e PMI | EETRA
+Meta: EETRA è la società di consulenza ESG certificata B Corp che guida aziende e PMI nella
+transizione rigenerativa: CSRD, carbon footprint, certificazioni e reporting ESG.
+H1: Consulenza ESG per Aziende e PMI: strategia,
+certificazioni e reporting
+● Transazionale
+Chi siamo – /chi-siamo
+Title: Chi Siamo | EETRA – Consulenza ESG B Corp Certificata
+Meta: EETRA è una Società Benefit certificata B Corp con sede a Milano. Scopri il team di
+esperti ESG, le certificazioni e la nostra missione rigenerativa.
+H1: Chi siamo: esperti ESG certificati al servizio delle
+imprese italiane
+● Informazionale
+Team – /chi-siamo/team
+Title: Il Team EETRA | Esperti LEED AP, BREEAM AP, WELL AP,
+GRI
+Meta: Conosci il team EETRA: professionisti certificati LEED AP, BREEAM Assessor, WELL AP,
+GRI Expert e B Leaders. Oltre 10 anni di esperienza in ESG e decarbonizzazione.
+H1: Il nostro team di esperti in ESG, certificazioni
+ambientali e decarbonizzazione
+● Informazionale
+B Corp – /chi-siamo/b-corp
+Title: EETRA Certificata B Corp | Punteggio 86.7 – Società Benefit
+Meta: EETRA ha ottenuto la certificazione B Corp con un punteggio di 86,7. Scopri cosa
+significa essere una Società Benefit e come guidiamo la transizione rigenerativa.
+H1: EETRA Certified B Corp: impresa rigenerativa al
+servizio delle aziende
+● Informazionale
+Servizi – /servizi
+Title: Servizi di Consulenza ESG | EETRA – ESG, CSRD,
+Certificazioni
+Meta: Tutti i servizi ESG di EETRA: reporting CSRD/ESRS, carbon footprint, certificazioni LEED
+BREEAM B Corp, tassonomia UE, LCA prodotto e formazione ESG per aziende.
+H1: Servizi ESG per aziende: reporting,
+decarbonizzazione, certificazioni e formazione
+● Commerciale
+Company Atlas –
+/servizi/company-atlas
+Title: Consulenza ESG Aziendale | Company Atlas – EETRA
+Meta: Company Atlas è il servizio EETRA per le esigenze ESG di organizzazioni e PMI: CSRD,
+ESRS, carbon footprint Scope 1-2-3, certificazioni e sustainability management.
+H1: Company Atlas: la mappa strategica ESG per la
+tua azienda
+● Commerciale
+ESG Reporting – /servizi/compa
+ny-atlas/esg-reporting
+Title: ESG Reporting Aziendale | CSRD ESRS VSME | EETRA
+Meta: Realizziamo il tuo ESG report conforme a CSRD, ESRS e GRI. Servizio di
+rendicontazione ESG per PMI e grandi aziende italiane. Richiedi un preventivo.
+H1: ESG Reporting conforme CSRD ed ESRS: il tuo
+bilancio di sostenibilità
+● Transazionale
+Carbon Footprint – /servizi/com
+pany-atlas/carbon-footprint-ghg
+Title: Calcolo Carbon Footprint Aziendale Scope 1 2 3 | EETRA
+Meta: Misuriamo la tua carbon footprint aziendale (Scope 1, 2 e 3) e costruiamo il piano di
+decarbonizzazione. Esperti GHG protocol per PMI e imprese italiane.
+H1: Carbon footprint aziendale Scope 1, 2 e 3:
+misurazione e piano di decarbonizzazione
+● Transazionale
+CSRD/ESRS –
+/servizi/company-atlas/csrd-esrs
+Title: Consulenza CSRD ESRS 2025 per Aziende Italiane | EETRA
+Meta: EETRA ti guida nell'adeguamento alla CSRD e agli standard ESRS. Rendicontazione non
+finanziaria obbligatoria, double materiality e conformità normativa.
+H1: Adeguamento CSRD ed ESRS: consulenza per
+aziende italiane obbligate
+● Transazionale
+Tassonomia UE – /servizi/compa
+ny-atlas/tassonomia-ue
+Title: Allineamento Tassonomia UE e DNSH | Consulenza |
+EETRA
+Meta: Verifichiamo l'allineamento delle tue attività alla Tassonomia Europea e ai criteri DNSH.
+Supporto per rendicontazione Tassonomia UE e accesso a finanza verde.
+H1: Tassonomia UE e DNSH: allineamento e
+rendicontazione per aziende
+● Transazionale
+Certificazione B Corp – /servizi/c
+ompany-atlas/certificazione-b-co
+rp
+Title: Certificazione B Corp Italia | Percorso e Consulenza | EETRA
+Meta: Ottieni la certificazione B Corp con il supporto di EETRA, società già certificata con
+punteggio 86,7. Guida completa al percorso B Impact Assessment per PMI.
+H1: Certificazione B Corp: percorso guidato per
+aziende e PMI italiane
+● Transazionale
+Positive Impact –
+/servizi/positive-impact
+Title: Decarbonizzazione e Certificazioni di Prodotto | EETRA
+Meta: Positive Impact: LCA, EPD, Cradle to Cradle, HPD, CBAM e allineamento CAM per
+aziende di prodotto. Trasforma la sostenibilità del tuo prodotto in vantaggio competitivo.
+H1: Positive Impact: strumenti ESG per la
+trasformazione rigenerativa dei prodotti
+● Commerciale
+LCA – /servizi/positive-impact/lc
+a-carbon-footprint-prodotto
+Title: Analisi LCA e Carbon Footprint di Prodotto | EPD | EETRA
+Meta: Realizziamo l'analisi del ciclo di vita LCA e la carbon footprint di prodotto secondo ISO
+14044. Supporto per EPD e dichiarazioni ambientali per aziende manifatturiere.
+H1: LCA e carbon footprint di prodotto: analisi del ciclo
+di vita per aziende
+● Transazionale
+CBAM – /servizi/positive-impact/
+cbam-supporto
+Title: Supporto CBAM per Aziende Italiane | Carbon Border |
+EETRA
+Meta: Supportiamo le aziende italiane nell'adempimento al CBAM (Carbon Border Adjustment
+Mechanism): dichiarazioni, calcolo emissioni incorporate e compliance doganale.
+H1: CBAM: supporto per aziende italiane alla
+compliance Carbon Border Adjustment
+● Transazionale
+Environmental Intelligence – /se
+rvizi/environmental-intelligence
+Title: Certificazioni Ambientali Edifici | LEED BREEAM WELL |
+EETRA
+Meta: EETRA è Licensed Assessor per LEED, BREEAM, WELL, ENVISION e GRESB.
+Guidiamo la decarbonizzazione e la transizione rigenerativa del settore immobiliare.
+H1: Environmental Intelligence: certificazioni e
+protocolli per edifici e infrastrutture
+● Commerciale
+LEED – /servizi/environmental-in
+telligence/leed
+Title: Certificazione LEED Italia | Consulenza LEED AP | EETRA
+Meta: EETRA offre consulenza LEED AP BD+C, ID+C e O+M per edifici nuovi e ristrutturazioni.
+Gestiamo l'intero processo di certificazione LEED in Italia.
+H1: Certificazione LEED in Italia: consulenza LEED AP
+per edifici e progetti
+● Transazionale
+BREEAM – /servizi/environment
+al-intelligence/breeam
+Title: Certificazione BREEAM Italia | BREEAM Assessor | EETRA
+Meta: Siamo BREEAM Licensed Assessor per In-Use, Refurbishment e New Construction.
+Supportiamo fondi immobiliari, SGR e developer nella certificazione BREEAM in Italia.
+H1: Certificazione BREEAM in Italia: assessor
+accreditato per immobili e infrastrutture
+● Transazionale
+GRESB – /servizi/environmental-
+intelligence/gresb
+Title: GRESB ESG Real Estate | Rating e Assessment | EETRA
+Meta: EETRA supporta fondi, SGR e investitori nel GRESB assessment per immobili e
+infrastrutture. Migliora il tuo GRESB score e l'attrattività ESG del portafoglio.
+H1: GRESB assessment per real estate: rating ESG
+immobiliare con EETRA
+● Transazionale
+Innovation Engine –
+/servizi/innovation-engine
+Title: Innovazione ESG con AI e Dati | Innovation Engine | EETRA
+Meta: Innovation Engine è il laboratorio EETRA per soluzioni ESG basate su dati, AI e
+automazioni: ARIA air quality, material library, carbon digital twin e TIAKI logistics.
+H1: Innovation Engine: soluzioni ESG data-driven per
+aziende e territori
+● Commerciale
+Academy – /academy
+Title: Formazione ESG per Aziende | EETRA Academy Milano
+Meta: EETRA Academy offre corsi ESG, formazione Sustainability Manager e training
+CSRD/ESRS per aziende e PMI. Docenti Politecnico di Milano e IED.
+H1: EETRA Academy: formazione ESG professionale
+per aziende e PMI italiane
+● Commerciale
+Corso ESG –
+/academy/corso-esg
+Title: Corso ESG Aziendale Certificato | EETRA Academy
+Meta: Il corso ESG di EETRA Academy forma professionisti su reporting, carbon footprint,
+normative CSRD e strategie di sostenibilità. Attestato di partecipazione incluso.
+H1: Corso ESG certificato per aziende: reporting,
+CSRD e strategie ESG
+● Transazionale
+Corso Sustainability Manager – /
+academy/corso-sustainability-m
+anager
+Title: Corso Sustainability Manager Certificato PDR 109 | EETRA
+Meta: Diventa Sustainability Manager certificato PDR 109 con il corso EETRA. Formazione
+avanzata su ESG, CSRD, rendicontazione e stakeholder engagement.
+H1: Corso Sustainability Manager certificato:
+formazione avanzata ESG con EETRA
+● Transazionale
+Impact (News) – /impact
+Title: Impact | News ESG, Storie e Aggiornamenti Normativi |
+EETRA
+Meta: EETRA Impact raccoglie news ESG, aggiornamenti CSRD/ESRS, case study di impatto
+positivo e storie di trasformazione rigenerativa di aziende e territori italiani.
+H1: Impact: news ESG, aggiornamenti normativi e
+storie di rigenerazione aziendale
+● Informazionale
+Relazione d'Impatto –
+/relazione-di-impatto
+Title: Relazione d'Impatto EETRA | Download PDF Annuale
+Meta: Scarica la Relazione d'Impatto annuale di EETRA: dati su impatto ambientale, sociale e di
+governance generato dai progetti e dalla comunità aziendale.
+H1: Relazione d'Impatto EETRA: download del report
+annuale di sostenibilità
+● Transazionale
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 7
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+Pagina / URL
+Title SEO (≤60 car.)
+Meta Description (≤155 car.)
+H1
+Intent
+Contatti – /contatti
+Title: Contatti | Preventivo Consulenza ESG | EETRA Milano
+Meta: Contatta EETRA per una consulenza ESG su misura: ESG reporting, CSRD, carbon
+footprint, certificazioni LEED, BREEAM o B Corp. Sede a Milano, operiamo in tutta Italia.
+H1: Contattaci per una consulenza ESG: CSRD,
+carbon footprint e certificazioni
+● Transazionale
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 8
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+4. Sezione Impact (News) – Cluster Editoriali e Articoli Pillar
+La sezione /impact sostituisce la tradizionale 'News'. È organizzata per cluster tematici con articoli pillar (2000+ parole) e articoli satellite (800-1200 parole) per massimizzare la copertura semantica e il posizionamento su query informazionali e commerciali.
+Cluster CSRD & ESRS
+Titolo Articolo
+Tipo
+Keyword Target
+Intent
+Guida CSRD 2025: obblighi, scadenze e come adeguarsi
+Pillar
+CSRD obblighi aziende 2025
+● Transazionale
+ESRS: cosa sono gli standard europei di rendicontazione ESG
+Pillar
+ESRS rendicontazione aziendale
+● Informazionale
+Double materiality: come condurre l'analisi di doppia materialità
+Satellite
+double materiality ESG
+● Commerciale
+CSRD per PMI: quali sono gli obblighi e le scadenze 2026
+Satellite
+CSRD PMI italiane
+● Transazionale
+Cluster ESG Reporting & Bilancio Sostenibilità
+Titolo Articolo
+Tipo
+Keyword Target
+Intent
+Come redigere un bilancio di sostenibilità conforme GRI e VSME
+Pillar
+bilancio sostenibilità aziendale
+● Transazionale
+ESG Reporting: la guida completa per aziende italiane
+Pillar
+ESG reporting aziendale Italia
+● Transazionale
+Differenza tra bilancio di sostenibilità e relazione d'impatto
+Satellite
+bilancio sostenibilità relazione impatto
+● Informazionale
+VSME reporting volontario: la soluzione ESG per le PMI
+Satellite
+VSME PMI rendicontazione
+● Commerciale
+Cluster Carbon Footprint & Decarbonizzazione
+Titolo Articolo
+Tipo
+Keyword Target
+Intent
+Carbon footprint aziendale: guida al calcolo Scope 1, 2 e 3
+Pillar
+carbon footprint aziendale Scope 1 2 3
+● Transazionale
+Piano di decarbonizzazione: come costruire una roadmap net zero
+Pillar
+piano decarbonizzazione aziendale
+● Commerciale
+GHG Protocol: come si calcola la carbon footprint di un'azienda
+Satellite
+calcolo GHG protocol aziende
+● Informazionale
+CBAM 2025: obblighi per aziende italiane che importano da paesi terzi
+Satellite
+CBAM aziende italiane 2025
+● Transazionale
+Cluster Certificazioni (B Corp · LEED · BREEAM)
+Titolo Articolo
+Tipo
+Keyword Target
+Intent
+Certificazione B Corp: guida completa al percorso per PMI
+Pillar
+certificazione B Corp PMI Italia
+● Transazionale
+LEED vs BREEAM: quale certificazione scegliere per il tuo edificio
+Pillar
+LEED BREEAM differenze scelta
+● Commerciale
+Tassonomia UE 2025: come allineare le attività aziendali
+Satellite
+tassonomia UE allineamento aziende
+● Transazionale
+WELL Building Standard: benessere e produttività negli uffici
+Satellite
+WELL certificazione uffici benessere
+● Commerciale
+Cluster Formazione ESG
+Titolo Articolo
+Tipo
+Keyword Target
+Intent
+Sustainability Manager: chi è, cosa fa e come diventarlo
+Pillar
+sustainability manager ruolo competenze
+● Informazionale
+Corsi ESG per aziende: come formare il team alla sostenibilità
+Pillar
+formazione ESG aziende team
+● Transazionale
+ESG per PMI: da dove iniziare la transizione sostenibile
+Satellite
+ESG PMI italiane guida
+● Informazionale
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 9
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+5. Sezione Relazione d'Impatto – Specifiche Tecniche e SEO
+URL base
+/relazione-di-impatto
+Sotto-pagine
+/relazione-di-impatto/2024 · /relazione-di-impatto/2025 · /relazione-di-impatto/[anno]
+Funzione
+Repository pubblica di PDF scaricabili: Relazioni d'Impatto annuali di EETRA (B Corp Impact Report). Caricamento esterno via URL diretta o integrazione CMS.
+Funzionalità
+ Preview copertina PDF ·  Bottone download diretto ·  Filtro per anno ·  Descrizione sintetica del report ·  Badge B Corp e punteggio annuale
+Title SEO
+Relazione d'Impatto EETRA [Anno] | Download Report B Corp PDF
+Meta
+Scarica la Relazione d'Impatto EETRA [Anno]: dati su impatto ambientale, sociale e di governance. Report annuale B Corp certificato.
+H1
+Relazione d'Impatto EETRA: il nostro impatto misurabile ogni anno
+Keyword target
+relazione d'impatto aziendale · impact report B Corp · download report sostenibilità PDF · rendicontazione impatto PMI
+Link interni
+← Chi siamo / B Corp · → Contatti · → Servizi / Company Atlas (ESG reporting)
+Schema markup
+Dataset schema (Google) per il PDF · BreadcrumbList · Organization
+Note tecniche
+I PDF vengono caricati esternamente (es. CDN, Google Drive, S3) e linkati via URL diretta. Il tag canonical punta sempre a /relazione-di-impatto/[anno]. Ogni PDF deve avere titolo e metadati coerenti con il SEO della pagina.
+6. Sezione Impact – Specifiche Tecniche e SEO
+URL base
+/impact
+Sotto-pagine
+/impact/[slug] · /impact/categoria/[csrd-esrs | esg-reporting | carbon-footprint | certificazioni | formazione-esg]
+Funzione
+News, storie d'impatto, aggiornamenti normativi, case study e approfondimenti editoriali con focus ESG B2B per aziende e PMI italiane.
+Tipi di contenuto
+Articoli Pillar (2000+ parole, 1 per cluster) · Articoli Satellite (800-1200 parole) · News brevi (300-500 parole, aggiornamenti normativi) · Case Study clienti
+Frequenza
+Minimo 2 articoli/mese. Priorità: aggiornamenti CSRD/ESRS/CBAM nei mesi di scadenza normativa.
+Title template
+[Keyword principale] | EETRA
+Schema markup
+Article · BlogPosting · BreadcrumbList · FAQPage (dove applicabile)
+Link interni
+Ogni articolo linka almeno 2 pagine servizio correlate. Le pagine servizio linkano articoli Impact pertinenti (link bidirezionale).
+CTA in-article
+Banner «Hai bisogno di supporto per [topic]? Richiedi una consulenza ESG →» con link a /contatti e alla sottopagina servizio pertinente.
+
+EETRA  |  Architettura SEO Sito Web 2026
+eetra.it  ·  Pagina 10
+EETRA Srl SB  ·  Via Plinio 43, Milano  ·  info@eetra.it  ·  www.eetra.it  ·  Documento riservato
+© 2026 EETRA – Tutti i diritti riservati
+7. Priorità SEO e Roadmap di Implementazione
+Fase
+Pagine / Azioni
+Keyword prioritarie
+Timeline
+Impatto atteso
+FASE 1
+Fondamenta
+Home · /servizi · /servizi/company-atlas/csrd-esrs ·
+/servizi/company-atlas/esg-reporting ·
+/servizi/company-atlas/carbon-footprint-ghg · /contatti
+consulenza CSRD Italia · ESG reporting aziendale · carbon footprint
+Scope 1 2 3 · consulenza ESG PMI
+Mese 1-2
+Catturare domanda normativa urgente CSRD 2025
+FASE 2
+Certificazioni
+/servizi/company-atlas/certificazione-b-corp ·
+/servizi/environmental-intelligence/leed ·
+/servizi/environmental-intelligence/breeam ·
+/servizi/positive-impact/cbam-supporto
+certificazione B Corp Italia · consulenza LEED · certificazione
+BREEAM · CBAM aziende italiane
+Mese 2-3
+Intercettare query transazionali ad alto valore
+FASE 3
+Academy +
+Impact
+/academy/corso-sustainability-manager · /impact (lancio con 4
+articoli pillar) · /relazione-di-impatto
+corso sustainability manager · corso ESG aziendale · guida CSRD
+2025 · bilancio sostenibilità
+Mese 3-4
+Generare traffico organico informazionale e lead
+formazione
+FASE 4
+Long-tail &
+Satelliti
+Articoli satellite cluster (2/mese) · Sottopagine servizio
+rimanenti · Schema markup su tutte le pagine
+long-tail normative ESRS · LCA prodotto · GRESB real estate ·
+formazione ESG PMI
+Mese 4-6
+Consolidare autorità semantica su tutti i cluster
+Note finali · Tutti i Title SEO sono stati calibrati per rientrare nei 60 caratteri. Le Meta Description rispettano il limite di 155 caratteri. Le keyword evitano termini consumer generici (es. 'sostenibilità') e si concentrano su query B2B ad alta intenzione commerciale. Si raccomanda l'implementazione di Schema Markup (Organization, Service, Article,
+FAQPage) su tutte le pagine principali e l'aggiunta di una sitemap XML dinamica aggiornata ad ogni pubblicazione di contenuti nella sezione Impact.
+
+
+
+--- EETRA_CompanyProfile__Palette_Fonts_Colori.pdf ---
+P 30MASTRO FONTS E COLORI
+P 31Title Cover
+Title Big
+Headline
+Headline medium
+Headline small
+Text
+1. Text Numbers
+2. Text Numbers
+• Text Bullets
+• Text Bullets
+Text Small
+Text Index
+TEXT INDEX
+
+
