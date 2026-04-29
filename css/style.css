@@ -868,7 +868,7 @@ p {
 
 .ticker-track {
   display: flex;
-  gap: 5rem;
+  gap: 2rem;
   width: max-content;
   animation: ticker 60s linear infinite;
   align-items: center;
@@ -889,14 +889,15 @@ p {
 }
 
 .ticker-logo {
-  height: 50px;
+  height: 80px; /* Increased height for better visibility */
   width: auto;
-  max-width: 150px;
+  max-width: 250px; /* Increased max-width to allow wide logos to be taller */
   object-fit: contain;
   opacity: 0.8;
   filter: grayscale(1);
   transition: all var(--tr);
   flex-shrink: 0;
+  padding: 0 1.5rem; /* More horizontal spacing between logos */
 }
 
 .ticker-logo:hover {
@@ -1977,4 +1978,146 @@ p {
   .page-hero {
     padding: 8rem 0 3.5rem;
   }
+}
+
+/* ---------- ACTIVITY CARDS (CHI SIAMO) ---------- */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 1024px) {
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .activity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.activity-card {
+  padding: 2.5rem;
+  background: var(--dark-2);
+  border: 1px solid var(--border-dk);
+  border-radius: var(--r-md);
+  transition: all var(--tr);
+}
+
+.activity-card:hover {
+  background: var(--dark-3);
+  border-color: var(--green);
+  transform: translateY(-5px);
+}
+
+.activity-card__icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+}
+
+.activity-card__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.activity-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+}
+
+.activity-card__text {
+  font-size: 0.9375rem;
+  color: var(--muted-lt);
+  line-height: 1.6;
+}
+
+/* ---------- STRATEGY TABLE (CHI SIAMO) ---------- */
+.strategy-table-wrapper {
+  margin-top: 3.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-lt);
+  border-radius: var(--r-md);
+  background: var(--white);
+}
+
+.strategy-table {
+  width: 100%;
+  min-width: 900px;
+  display: flex;
+  flex-direction: column;
+}
+
+.strategy-table__header {
+  display: grid;
+  grid-template-columns: 140px repeat(4, 1fr);
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.strategy-table__col {
+  padding: 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+  border-left: 1px solid var(--border-lt);
+}
+
+.strategy-table__col-label {
+  padding: 1.25rem;
+}
+
+.strategy-table__row {
+  display: grid;
+  grid-template-columns: 140px repeat(4, 1fr);
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.strategy-table__row:last-child {
+  border-bottom: none;
+}
+
+.strategy-table__row-label {
+  padding: 1.5rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--muted-dk);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--off-white);
+  border-right: 1px solid var(--border-lt);
+  text-transform: uppercase;
+}
+
+.strategy-table__row--leader .strategy-table__row-label {
+  color: var(--green);
+  background: rgba(92, 123, 42, 0.08);
+}
+
+.strategy-table__cell {
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--dark-2);
+  border-left: 1px solid var(--border-lt);
+}
+
+.strategy-table__row--leader {
+  background: rgba(92, 123, 42, 0.03);
+}
+
+.strategy-table__row--leader .strategy-table__cell {
+  font-weight: 500;
 }
