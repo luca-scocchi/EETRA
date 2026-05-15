@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione Sito | EETRA</title>
+  <link rel="icon" type="image/png" href="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png">
+  <link rel="preload" href="infosito/00_Fonts/Geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Geist';
+      src: url('infosito/00_Fonts/Geist/Geist-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900; font-display: swap;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:        #1a1c14;
+      --dark-1:      #1e201a;
+      --dark-2:      #252720;
+      --dark-3:      #2c2e27;
+      --green:       #5c7b2a;
+      --green-pale:  #a8c060;
+      --green-hover: #7fa83c;
+      --off-white:   #f0ede6;
+      --cream:       #f5f2eb;
+      --muted-lt:    #a8a99e;
+      --muted-dk:    #6b6d63;
+      --border-dk:   rgba(255,255,255,0.08);
+      --border-lt:   rgba(0,0,0,0.10);
+      --r-md:        10px;
+      --r-lg:        16px;
+      --tr:          0.22s ease;
+      --font-main:   'Geist', system-ui, sans-serif;
+      --font-serif:  'Source Serif 4', Georgia, serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--dark-1);
+      color: var(--off-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: var(--dark-2);
+      border-bottom: 1px solid var(--border-dk);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .topbar__logo img { height: 52px; }
+    .topbar__title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--green-pale);
+    }
+    .topbar__link {
+      font-size: 0.8rem; color: var(--muted-lt); text-decoration: none;
+      padding: 0.5rem 1rem; border: 1px solid var(--border-dk);
+      border-radius: var(--r-md); transition: all var(--tr);
+    }
+    .topbar__link:hover { color: var(--off-white); border-color: var(--green); }
+
+    /* ── LAYOUT ── */
+    .page { display: flex; flex: 1; }
+    .sidebar {
+      width: 220px; flex-shrink: 0;
+      background: var(--dark-2);
+      border-right: 1px solid var(--border-dk);
+      padding: 2rem 0;
+    }
+    .sidebar__item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.875rem; color: var(--muted-lt);
+      cursor: pointer; transition: all var(--tr);
+      border-left: 2px solid transparent;
+    }
+    .sidebar__item.active {
+      color: var(--off-white); background: rgba(255,255,255,0.04);
+      border-left-color: var(--green);
+    }
+    .sidebar__item:hover { color: var(--off-white); background: rgba(255,255,255,0.03); }
+    .sidebar__icon { font-size: 1rem; }
+
+    .main { flex: 1; padding: 2.5rem; overflow-y: auto; max-width: 1100px; }
+
+    /* ── SECTION HEADER ── */
+    .section-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .section-hd h1 { font-size: 1.5rem; font-weight: 600; }
+    .section-hd p { font-size: 0.875rem; color: var(--muted-lt); margin-top: 0.25rem; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem; background: var(--green);
+      color: #fff; border: none; border-radius: var(--r-md);
+      font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      transition: background var(--tr);
+    }
+    .btn-primary:hover { background: var(--green-hover); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.2rem; background: transparent;
+      color: var(--muted-lt); border: 1px solid var(--border-dk);
+      border-radius: var(--r-md); font-size: 0.875rem; cursor: pointer;
+      transition: all var(--tr);
+    }
+    .btn-ghost:hover { color: var(--off-white); border-color: var(--green-pale); }
+    .btn-danger {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1rem; background: transparent;
+      color: #e05555; border: 1px solid rgba(224,85,85,0.3);
+      border-radius: var(--r-md); font-size: 0.8rem; cursor: pointer;
+      transition: all var(--tr);
+    }
+    .btn-danger:hover { background: rgba(224,85,85,0.1); }
+
+    /* ── CARDS LIST ── */
+    .cards-list { display: flex; flex-direction: column; gap: 1rem; }
+    .card-row {
+      display: flex; align-items: center; gap: 1.5rem;
+      background: var(--dark-2); border: 1px solid var(--border-dk);
+      border-radius: var(--r-lg); padding: 1.25rem 1.5rem;
+      transition: border-color var(--tr);
+    }
+    .card-row:hover { border-color: rgba(92,123,42,0.3); }
+    .card-row__year {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 700;
+      color: var(--green-pale); min-width: 4rem; line-height: 1;
+    }
+    .card-row__info { flex: 1; }
+    .card-row__title { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .card-row__meta {
+      font-size: 0.8rem; color: var(--muted-lt);
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .badge-latest {
+      display: inline-block; padding: 0.15rem 0.6rem;
+      background: rgba(92,123,42,0.2); color: var(--green-pale);
+      border-radius: 100px; font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .badge-pdf {
+      display: inline-block; padding: 0.15rem 0.6rem;
+      background: rgba(168,192,96,0.1); color: var(--green-pale);
+      border: 1px solid rgba(168,192,96,0.25);
+      border-radius: 100px; font-size: 0.65rem;
+    }
+    .card-row__actions { display: flex; gap: 0.5rem; align-items: center; }
+
+    /* ── MODAL OVERLAY ── */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      z-index: 200; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    }
+    .overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--dark-2); border: 1px solid var(--border-dk);
+      border-radius: var(--r-lg); width: 100%; max-width: 560px;
+      max-height: 90vh; overflow-y: auto;
+      transform: translateY(20px); transition: transform 0.25s;
+      padding: 2rem;
+    }
+    .overlay.open .modal { transform: translateY(0); }
+    .modal__hd {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.75rem;
+    }
+    .modal__title { font-size: 1.15rem; font-weight: 600; }
+    .modal__close {
+      background: none; border: none; color: var(--muted-lt);
+      font-size: 1.25rem; cursor: pointer; padding: 0.25rem 0.5rem;
+      border-radius: 6px; transition: color var(--tr);
+    }
+    .modal__close:hover { color: var(--off-white); }
+
+    /* ── FORM ── */
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted-lt); margin-bottom: 0.5rem;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%; padding: 0.7rem 1rem;
+      background: var(--dark-3); color: var(--off-white);
+      border: 1px solid var(--border-dk); border-radius: var(--r-md);
+      font-family: var(--font-main); font-size: 0.9rem;
+      transition: border-color var(--tr); outline: none;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--green);
+    }
+    .form-textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* ── TOGGLE ── */
+    .toggle-wrap {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; background: var(--dark-3);
+      border: 1px solid var(--border-dk); border-radius: var(--r-md);
+    }
+    .toggle-label { font-size: 0.875rem; flex: 1; }
+    .toggle { position: relative; width: 38px; height: 22px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute; inset: 0; background: var(--dark-1);
+      border-radius: 100px; cursor: pointer; transition: background 0.2s;
+    }
+    .toggle-slider::after {
+      content: ''; position: absolute; width: 16px; height: 16px;
+      background: var(--muted-lt); border-radius: 50%;
+      top: 3px; left: 3px; transition: all 0.2s;
+    }
+    .toggle input:checked + .toggle-slider { background: var(--green); }
+    .toggle input:checked + .toggle-slider::after {
+      left: 19px; background: #fff;
+    }
+
+    /* ── UPLOAD ZONE ── */
+    .upload-zone {
+      border: 2px dashed var(--border-dk); border-radius: var(--r-md);
+      padding: 2rem; text-align: center; cursor: pointer;
+      transition: all var(--tr); position: relative;
+    }
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: var(--green); background: rgba(92,123,42,0.05);
+    }
+    .upload-zone input[type=file] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer;
+    }
+    .upload-zone__icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .upload-zone__text { font-size: 0.875rem; color: var(--muted-lt); }
+    .upload-zone__filename {
+      margin-top: 0.5rem; font-size: 0.8rem; color: var(--green-pale);
+      font-weight: 600;
+    }
+
+    /* ── MODAL FOOTER ── */
+    .modal__footer {
+      display: flex; gap: 0.75rem; justify-content: flex-end;
+      margin-top: 1.75rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--border-dk);
+    }
+
+    /* ── TOAST ── */
+    .toast-wrap {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .toast {
+      padding: 0.85rem 1.25rem; background: var(--dark-2);
+      border: 1px solid var(--border-dk); border-radius: var(--r-md);
+      font-size: 0.875rem; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      animation: toastIn 0.3s ease, toastOut 0.3s ease 2.5s forwards;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .toast.success { border-color: rgba(92,123,42,0.5); }
+    .toast.error   { border-color: rgba(224,85,85,0.5); }
+    @keyframes toastIn  { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes toastOut { from { opacity:1; } to { opacity:0; } }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center; padding: 4rem 2rem;
+      border: 1px dashed var(--border-dk); border-radius: var(--r-lg);
+    }
+    .empty-state__icon { font-size: 3rem; margin-bottom: 1rem; }
+    .empty-state__text { color: var(--muted-lt); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <a href="index.html" class="topbar__logo">
+      <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png"
+           onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'" alt="EETRA">
+    </a>
+    <span class="topbar__title">Gestione Sito</span>
+    <a href="chi-siamo.html" class="topbar__link">← Torna al sito</a>
+  </header>
+
+  <div class="page">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <div class="sidebar__item active" onclick="showSection('reports')">
+        <span class="sidebar__icon">📄</span> Report &amp; Relazioni
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main" id="main-content">
+      <div class="section-hd">
+        <div>
+          <h1>Report &amp; Relazioni d'Impatto</h1>
+          <p>Gestisci le card mostrate nella pagina Chi Siamo</p>
+        </div>
+        <button class="btn-primary" onclick="openModal()">+ Aggiungi report</button>
+      </div>
+
+      <div class="cards-list" id="cards-list">
+        <div class="empty-state">
+          <div class="empty-state__icon">⏳</div>
+          <p class="empty-state__text">Caricamento…</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="overlay" id="overlay" onclick="overlayClick(event)">
+    <div class="modal" id="modal">
+      <div class="modal__hd">
+        <h2 class="modal__title" id="modal-title">Aggiungi Report</h2>
+        <button class="modal__close" onclick="closeModal()" aria-label="Chiudi">✕</button>
+      </div>
+
+      <form id="card-form" onsubmit="saveCard(event)">
+        <input type="hidden" id="f-id">
+
+        <div class="form-group">
+          <label class="form-label" for="f-anno">Anno</label>
+          <input class="form-input" id="f-anno" type="text" placeholder="es. 2025" required maxlength="4">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-titolo">Titolo della card</label>
+          <input class="form-input" id="f-titolo" type="text" placeholder="Governance EETRA 2025" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-desc">Descrizione</label>
+          <textarea class="form-textarea" id="f-desc" rows="3" placeholder="Breve descrizione del report…" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Immagine di copertina</label>
+          <div class="upload-zone" id="cover-zone" ondrop="onDropCover(event)">
+            <input type="file" id="f-cover" accept="image/*" onchange="onCoverChange(event)">
+            <div class="upload-zone__icon">🖼️</div>
+            <p class="upload-zone__text">Trascina un'immagine qui o clicca per selezionarla</p>
+            <p class="upload-zone__filename" id="cover-filename"></p>
+          </div>
+          <div id="cover-preview-wrap" style="margin-top:0.75rem;display:none">
+            <img id="cover-preview" src="" alt="Anteprima copertina"
+              style="width:100%;max-height:160px;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border-dk)">
+            <button type="button" onclick="removeCover()"
+              style="margin-top:0.4rem;font-size:0.75rem;color:#e05555;background:none;border:none;cursor:pointer">✕ Rimuovi immagine</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">File PDF</label>
+          <div class="upload-zone" id="upload-zone" ondrop="onDrop(event)">
+            <input type="file" id="f-pdf" accept="application/pdf" onchange="onFileChange(event)">
+            <div class="upload-zone__icon">📎</div>
+            <p class="upload-zone__text">Trascina il PDF qui o clicca per selezionarlo</p>
+            <p class="upload-zone__filename" id="pdf-filename"></p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="toggle-wrap">
+            <span class="toggle-label">Contrassegna come "Edizione più recente"</span>
+            <label class="toggle">
+              <input type="checkbox" id="f-latest">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <button type="button" class="btn-ghost" onclick="closeModal()">Annulla</button>
+          <button type="submit" class="btn-primary" id="save-btn">💾 Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOASTS -->
+  <div class="toast-wrap" id="toast-wrap"></div>
+
+  <script src="js/report-manager.js"></script>
+  <script>
+    let pdfBuffer      = null;   // ArrayBuffer of new PDF
+    let coverDataUrl   = null;   // base64 data URL of new cover image
+    let removeCoverFlag = false; // user explicitly removed cover
+
+    /* ── Load & render list ── */
+    async function loadList() {
+      const list = document.getElementById('cards-list');
+      const cards = await RM.getCards();
+      if (!cards.length) {
+        list.innerHTML = `<div class="empty-state">
+          <div class="empty-state__icon">📭</div>
+          <p class="empty-state__text">Nessun report ancora. Aggiungine uno!</p>
+        </div>`;
+        return;
+      }
+      list.innerHTML = cards.map(c => `
+        <div class="card-row" id="row-${c.id}">
+          ${c.coverDataUrl
+            ? `<img src="${c.coverDataUrl}" alt="copertina" style="width:56px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0">`
+            : `<div class="card-row__year">${c.anno}</div>`}
+          <div class="card-row__info">
+            <div class="card-row__title">
+              ${c.titolo}
+              ${c.isLatest ? '<span class="badge-latest">Più recente</span>' : ''}
+            </div>
+            <div class="card-row__meta">
+              ${c.coverDataUrl ? '<span class="badge-pdf">🖼️ Copertina</span>' : ''}
+              ${(c.pdfId || c.pdfPath) ? '<span class="badge-pdf">📄 PDF collegato</span>' : '<span style="color:#e05555">⚠️ Nessun PDF</span>'}
+            </div>
+          </div>
+          <div class="card-row__actions">
+            <button class="btn-ghost" onclick="editCard('${c.id}')">✏️ Modifica</button>
+            <button class="btn-danger" onclick="deleteCard('${c.id}')">🗑️</button>
+          </div>
+        </div>`).join('');
+    }
+
+    /* ── Modal open/close ── */
+    function openModal() {
+      pdfBuffer = null; coverDataUrl = null; removeCoverFlag = false;
+      document.getElementById('pdf-filename').textContent = '';
+      document.getElementById('cover-filename').textContent = '';
+      document.getElementById('cover-preview-wrap').style.display = 'none';
+      document.getElementById('cover-preview').src = '';
+      document.getElementById('card-form').reset();
+      document.getElementById('modal-title').textContent = 'Aggiungi Report';
+      document.getElementById('overlay').classList.add('open');
+    }
+    function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+    function overlayClick(e) { if (e.target === document.getElementById('overlay')) closeModal(); }
+
+    /* ── Edit ── */
+    async function editCard(id) {
+      const card = await RM.getCard(id);
+      if (!card) return;
+      pdfBuffer = null; coverDataUrl = null; removeCoverFlag = false;
+      document.getElementById('card-form').reset();
+      document.getElementById('modal-title').textContent = 'Modifica Report';
+      document.getElementById('f-id').value      = card.id;
+      document.getElementById('f-anno').value    = card.anno;
+      document.getElementById('f-titolo').value  = card.titolo;
+      document.getElementById('f-desc').value    = card.descrizione;
+      document.getElementById('f-latest').checked = !!card.isLatest;
+      document.getElementById('pdf-filename').textContent = (card.pdfId || card.pdfPath)
+        ? '📄 ' + (card.pdfPath ? card.pdfPath.split('/').pop() : 'PDF in memoria') : '';
+      if (card.coverDataUrl) {
+        document.getElementById('cover-preview').src = card.coverDataUrl;
+        document.getElementById('cover-preview-wrap').style.display = 'block';
+        document.getElementById('cover-filename').textContent = '🖼️ Immagine salvata';
+      }
+      document.getElementById('overlay').classList.add('open');
+    }
+
+    /* ── Save ── */
+    async function saveCard(e) {
+      e.preventDefault();
+      const btn = document.getElementById('save-btn');
+      btn.textContent = '⏳ Salvataggio…'; btn.disabled = true;
+      try {
+        const id = document.getElementById('f-id').value || null;
+        const existing = id ? (await RM.getCard(id)) || {} : {};
+        const isLatest = document.getElementById('f-latest').checked;
+        if (isLatest) {
+          for (const c of await RM.getCards()) {
+            if (c.id !== id && c.isLatest) await RM.saveCard({ ...c, isLatest: false });
+          }
+        }
+        let pdfId = existing.pdfId || null, pdfPath = existing.pdfPath || null;
+        if (pdfBuffer) { pdfId = await RM.savePDF(pdfBuffer); pdfPath = null; }
+        let finalCover = existing.coverDataUrl || null;
+        if (coverDataUrl)    finalCover = coverDataUrl;
+        if (removeCoverFlag) finalCover = null;
+        await RM.saveCard({
+          id: id || undefined,
+          anno:         document.getElementById('f-anno').value.trim(),
+          titolo:       document.getElementById('f-titolo').value.trim(),
+          descrizione:  document.getElementById('f-desc').value.trim(),
+          isLatest, pdfId, pdfPath,
+          coverDataUrl: finalCover,
+          createdAt:    existing.createdAt || Date.now()
+        });
+        closeModal(); await loadList();
+        toast('✅ Report salvato correttamente!', 'success');
+      } catch(err) { toast('❌ Errore: ' + err.message, 'error'); }
+      finally { btn.textContent = '💾 Salva'; btn.disabled = false; }
+    }
+
+    /* ── Delete ── */
+    async function deleteCard(id) {
+      if (!confirm("Eliminare questo report? L'operazione non è reversibile.")) return;
+      await RM.deleteCard(id); await loadList();
+      toast('🗑️ Report eliminato.', 'success');
+    }
+
+    /* ── Cover image handlers ── */
+    function onCoverChange(e) {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        coverDataUrl = ev.target.result; removeCoverFlag = false;
+        document.getElementById('cover-preview').src = coverDataUrl;
+        document.getElementById('cover-preview-wrap').style.display = 'block';
+        document.getElementById('cover-filename').textContent = '🖼️ ' + file.name;
+      };
+      reader.readAsDataURL(file);
+    }
+    function removeCover() {
+      coverDataUrl = null; removeCoverFlag = true;
+      document.getElementById('cover-preview-wrap').style.display = 'none';
+      document.getElementById('cover-preview').src = '';
+      document.getElementById('cover-filename').textContent = '';
+      document.getElementById('f-cover').value = '';
+    }
+    function onDropCover(e) {
+      e.preventDefault(); document.getElementById('cover-zone').classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) { onCoverChange({ target: { files: [file] } }); }
+    }
+
+    /* ── PDF handlers ── */
+    function onFileChange(e) {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => { pdfBuffer = ev.target.result; document.getElementById('pdf-filename').textContent = '📄 ' + file.name; };
+      reader.readAsArrayBuffer(file);
+    }
+    function onDrop(e) {
+      e.preventDefault(); document.getElementById('upload-zone').classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type === 'application/pdf') { onFileChange({ target: { files: [file] } }); }
+    }
+
+    /* ── Drag helpers ── */
+    document.getElementById('cover-zone').addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+    document.getElementById('cover-zone').addEventListener('dragleave', e => e.currentTarget.classList.remove('dragover'));
+    document.getElementById('upload-zone').addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+    document.getElementById('upload-zone').addEventListener('dragleave', e => e.currentTarget.classList.remove('dragover'));
+
+    /* ── Toast ── */
+    function toast(msg, type = 'success') {
+      const el = Object.assign(document.createElement('div'), { className: 'toast ' + type, textContent: msg });
+      document.getElementById('toast-wrap').appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+
+    /* ── Init ── */
+    loadList();
+  </script>
+</body>
+</html>

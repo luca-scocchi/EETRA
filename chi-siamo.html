@@ -11,7 +11,7 @@
   <link rel="preload" href="infosito/00_Fonts/Geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png">
-<style>
+  <style>
     /* ---- Report card ---- */
     .report-card {
       background: var(--dark-2);
@@ -22,11 +22,13 @@
       flex-direction: column;
       transition: all var(--tr);
     }
+
     .report-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-      border-color: rgba(92,123,42,0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      border-color: rgba(92, 123, 42, 0.4);
     }
+
     .report-card__cover {
       aspect-ratio: 3/4;
       background: var(--dark-3);
@@ -37,13 +39,18 @@
       overflow: hidden;
       border-bottom: 1px solid var(--border-dk);
     }
+
     .report-card__cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform var(--tr-slow);
     }
-    .report-card:hover .report-card__cover img { transform: scale(1.04); }
+
+    .report-card:hover .report-card__cover img {
+      transform: scale(1.04);
+    }
+
     .report-card__cover-placeholder {
       display: flex;
       flex-direction: column;
@@ -55,6 +62,7 @@
       width: 100%;
       height: 100%;
     }
+
     .report-card__cover-year {
       font-family: var(--font-serif);
       font-size: clamp(3rem, 6vw, 5.5rem);
@@ -62,6 +70,7 @@
       line-height: 1;
       color: var(--green-pale);
     }
+
     .report-card__cover-label {
       font-size: 0.725rem;
       font-weight: 700;
@@ -69,24 +78,30 @@
       text-transform: uppercase;
       color: var(--muted-lt);
     }
+
     .report-card__cover-bar {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 4px;
       background: linear-gradient(90deg, var(--green), var(--green-pale));
     }
+
     .report-card__body {
       padding: 1.75rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
+
     .report-card__score {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       margin-bottom: 1rem;
     }
+
     .report-card__score-val {
       font-family: var(--font-serif);
       font-size: 1.5rem;
@@ -94,6 +109,7 @@
       color: var(--green-pale);
       line-height: 1;
     }
+
     .report-card__score-lbl {
       font-size: 0.7rem;
       font-weight: 700;
@@ -101,6 +117,7 @@
       text-transform: uppercase;
       color: var(--muted-lt);
     }
+
     .report-card__title {
       font-family: var(--font-serif);
       font-size: 1.15rem;
@@ -109,6 +126,7 @@
       margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
     }
+
     .report-card__desc {
       font-size: 0.9rem;
       color: var(--muted-lt);
@@ -116,6 +134,7 @@
       flex: 1;
       margin-bottom: 1.5rem;
     }
+
     .report-card__actions {
       display: flex;
       gap: 0.75rem;
@@ -130,9 +149,10 @@
       text-align: center;
       transition: all var(--tr);
     }
+
     .upload-zone:hover {
       border-color: var(--green);
-      background: rgba(92,123,42,0.04);
+      background: rgba(92, 123, 42, 0.04);
     }
 
     /* ---- How it works ---- */
@@ -143,7 +163,11 @@
       padding: 2rem 0;
       border-bottom: 1px solid var(--border-dk);
     }
-    .step-item:last-child { border-bottom: none; }
+
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
     .step-n {
       font-family: var(--font-serif);
       font-size: 2rem;
@@ -152,7 +176,9 @@
       min-width: 2.5rem;
       line-height: 1;
     }
+
     .step-content {}
+
     .step-title {
       font-family: var(--font-serif);
       font-size: 1.2rem;
@@ -161,12 +187,54 @@
       margin-bottom: 0.4rem;
       letter-spacing: -0.01em;
     }
-    .step-desc { font-size: 0.9375rem; color: var(--muted-lt); line-height: 1.65; }
+
+    .step-desc {
+      font-size: 0.9375rem;
+      color: var(--muted-lt);
+      line-height: 1.65;
+    }
+    /* ---- Team card photo ---- */
+    .team-card__photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      background: var(--border-lt);
+    }
+
+    .team-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .team-card:hover .team-card__photo img {
+      transform: scale(1.04);
+    }
+
+    .team-card__photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--muted-dk);
+      background: var(--border-lt);
+    }
   </style>
 
-<style>
-@media (max-width:768px) { .responsive-split { grid-template-columns:1fr !important; gap:3rem !important; } }
-</style>
+  <style>
+    @media (max-width:768px) {
+      .responsive-split {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -182,7 +250,7 @@
         <li><a href="chi-siamo.html" class="nav__link active">Chi siamo</a></li>
         <li><a href="servizi.html" class="nav__link">Servizi</a></li>
         <li><a href="impact.html" class="nav__link">Impact</a></li>
-                <li><a href="contatti.html" class="nav__link">Contatti</a></li>
+        <li><a href="contatti.html" class="nav__link">Contatti</a></li>
       </ul>
       <a href="contatti.html" class="btn btn-primary nav__cta">Richiedi consulenza</a>
       <button class="nav__hamburger" id="hamburger" aria-label="Apri menu">
@@ -194,7 +262,7 @@
     <a href="chi-siamo.html" class="nav__mobile-link">Chi siamo</a>
     <a href="servizi.html" class="nav__mobile-link">Servizi</a>
     <a href="impact.html" class="nav__mobile-link">Impact</a>
-        <a href="contatti.html" class="nav__mobile-link">Contatti</a>
+    <a href="contatti.html" class="nav__mobile-link">Contatti</a>
     <div class="nav__mobile-cta"><a href="contatti.html" class="btn btn-primary">Richiedi consulenza</a></div>
   </div>
 
@@ -610,84 +678,54 @@
     </div>
   </section>
 
-  <!-- ============================================================
-     B CORP SECTION
-     ============================================================ -->
-  <section class="section th-cream" aria-label="Certificazione B Corp">
-    <div class="container">
-      <div class="sec-label"><span>B Corp Certification</span></div>
-      <h2 class="t-h2 mb-8 fade-up" style="color:var(--dark)">
-        Certificati B Corp con punteggio 86,7
-      </h2>
-      <div class="bcorp-block fade-up">
-        <div class="bcorp-block__score">
-          <div class="bcorp-block__scorenum" style="color:var(--dark)">86<span style="font-size:0.55em">,7</span></div>
-          <div class="bcorp-block__scorelbl" style="color:var(--muted-dk)">B Impact Score</div>
-          <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b-corp nero.png" alt="B Corp logo"
-            style="height:160px; width:auto; margin:0 auto 1rem" onerror="this.style.display='none'">
-        </div>
-        <div class="bcorp-block__text">
-          <h3 class="t-h3 mb-3" style="color:var(--dark)">Cosa significa essere una Società Benefit B Corp</h3>
-          <p style="color:var(--muted-dk)">
-            La certificazione B Corp è il riconoscimento più rigoroso a livello globale per le aziende che bilanciano
-            profitto e impatto positivo. EETRA ha ottenuto un punteggio di 86,7 — significativamente superiore alla
-            soglia minima di 80 punti — posizionandosi tra le prime B Corp italiane nel settore della consulenza.
-          </p>
-          <p style="color:var(--muted-dk)">
-            Come Società Benefit, il nostro statuto societario include formalmente l'impegno verso obiettivi di
-            beneficio comune, con piena trasparenza e rendicontazione annuale attraverso la Governance.
-          </p>
-          <p style="color:var(--muted-dk)">
-            Essere B Corp ci permette di supportare i nostri clienti nel percorso di certificazione con l'autorevolezza
-            di chi l'ha già percorso.
-          </p>
-          <div style="margin-top:1.75rem">
-            <a href="contatti.html" class="btn btn-primary">Ottieni la B Corp con noi <span class="arrow">→</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================================
      TEAM
      ============================================================ -->
-  <section class="section th-dark" aria-label="Il nostro team">
+  <section class="section th-cream" aria-label="Il nostro team">
     <div class="container">
-      <div class="sec-label sec-label--lt"><span>Il nostro team</span></div>
-      <h2 class="t-h2 mb-2 fade-up">
+      <div class="sec-label"><span>Il nostro team</span></div>
+      <h2 class="t-h2 mb-2 fade-up" style="color:var(--dark)">
         Professionisti certificati<br>con oltre 10 anni di esperienza ESG
       </h2>
       <p class="fade-up delay-1"
-        style="color:var(--muted-lt); font-size:1.0625rem; max-width:620px; margin-bottom:3.5rem; line-height:1.65">
+        style="color:var(--muted-dk); font-size:1.0625rem; max-width:620px; margin-bottom:3.5rem; line-height:1.65">
         Il team EETRA combina competenze ESG, architettura, ingegneria, diritto e comunicazione. Ogni membro è
         certificato nei principali protocolli internazionali.
       </p>
 
       <div class="grid-4 fade-up">
         <div class="team-card">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">CR</div></div>
+          <div class="team-card__photo">
+            <img src="team/Carlo Rossini.jpg" alt="Carlo Rossini" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Carlo Rossini</p>
             <p class="team-card__role">CEO & Partner</p>
           </div>
         </div>
         <div class="team-card delay-1">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">MC</div></div>
+          <div class="team-card__photo">
+            <div class="team-card__photo-placeholder">MC</div>
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Martina Castoldi</p>
             <p class="team-card__role">Partner</p>
           </div>
         </div>
         <div class="team-card delay-2">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">MF</div></div>
+          <div class="team-card__photo">
+            <img src="team/Michela Fancello.jpg" alt="Michela Fancello" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Michela Fancello</p>
             <p class="team-card__role">Partner</p>
           </div>
         </div>
         <div class="team-card delay-3">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">GR</div></div>
+          <div class="team-card__photo">
+            <img src="team/Guido Rossini.jpg" alt="Guido Rossini" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Guido Rossini</p>
             <p class="team-card__role">CFO Finance Lead</p>
@@ -698,7 +736,9 @@
           </div>
         </div>
         <div class="team-card">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">CF</div></div>
+          <div class="team-card__photo">
+            <img src="team/Chiara La Fortezza.jpg" alt="Chiara La Fortezza" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Chiara La Fortezza</p>
             <p class="team-card__role">Sustainability Player</p>
@@ -708,7 +748,9 @@
           </div>
         </div>
         <div class="team-card delay-1">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">AB</div></div>
+          <div class="team-card__photo">
+            <img src="team/Andrea Botti.jpg" alt="Andrea Botti" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Andrea Botti</p>
             <p class="team-card__role">CTO Technical Lead</p>
@@ -719,7 +761,9 @@
           </div>
         </div>
         <div class="team-card delay-2">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">GR</div></div>
+          <div class="team-card__photo">
+            <img src="team/Giulia Rossetti.jpg" alt="Giulia Rossetti" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Giulia Rossetti</p>
             <p class="team-card__role">Sustainability Player</p>
@@ -729,7 +773,9 @@
           </div>
         </div>
         <div class="team-card delay-3">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">LG</div></div>
+          <div class="team-card__photo">
+            <img src="team/Letizia Garbolino.jpg" alt="Letizia Garbolino" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Letizia Garbolino</p>
             <p class="team-card__role">Sustainability Expert</p>
@@ -742,7 +788,9 @@
           </div>
         </div>
         <div class="team-card">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">GB</div></div>
+          <div class="team-card__photo">
+            <img src="team/Gianluca Buccheri.jpg" alt="Gianluca Buccheri" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Gianluca Buccheri</p>
             <p class="team-card__role">Sustainability Player</p>
@@ -752,7 +800,9 @@
           </div>
         </div>
         <div class="team-card delay-1">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">CC</div></div>
+          <div class="team-card__photo">
+            <img src="team/Chiara Cortellazzi.jpg" alt="Chiara Cortellazzi" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Chiara Cortellazzi</p>
             <p class="team-card__role">Sustainability Expert</p>
@@ -764,7 +814,9 @@
           </div>
         </div>
         <div class="team-card delay-2">
-          <div class="team-card__photo"><div class="team-card__photo-placeholder">SG</div></div>
+          <div class="team-card__photo">
+            <img src="team/Souzan Goloburda.jpg" alt="Souzan Goloburda" loading="lazy">
+          </div>
           <div class="team-card__body">
             <p class="team-card__name">Souzan Goloburda</p>
             <p class="team-card__role">Sustainability Junior</p>
@@ -778,24 +830,24 @@
   <!-- ============================================================
      PARTNERSHIPS
      ============================================================ -->
-  <section class="section th-cream" aria-label="Partnership">
+  <section class="section th-dark" aria-label="Partnership">
     <div class="container">
       <div class="sec-label"><span>Partnership</span></div>
-      <h2 class="t-h2 mb-12 fade-up" style="color:var(--dark)">
+      <h2 class="t-h2 mb-12 fade-up" style="color:var(--off-white)">
         Collaborazioni d'impatto
       </h2>
 
       <div class="grid-2 fade-up" style="gap:4rem">
         <div>
-          <h3 class="t-h3 mb-4" style="color:var(--dark); font-size:1.5rem">Partnership Strategiche</h3>
-          <p style="color:var(--muted-dk); font-size:1.0625rem; line-height:1.65">
+          <h3 class="t-h3 mb-4" style="color:var(--green-pale); font-size:1.5rem">Partnership Strategiche</h3>
+          <p style="color:var(--muted-lt); font-size:1.0625rem; line-height:1.65">
             Collaboriamo con aziende e leader di settore per integrare soluzioni ESG all'avanguardia nei processi
             industriali e produttivi.
           </p>
         </div>
         <div>
-          <h3 class="t-h3 mb-4" style="color:var(--dark); font-size:1.5rem">Partnership Istituzionali</h3>
-          <p style="color:var(--muted-dk); font-size:1.0625rem; line-height:1.65">
+          <h3 class="t-h3 mb-4" style="color:var(--green-pale); font-size:1.5rem">Partnership Istituzionali</h3>
+          <p style="color:var(--muted-lt); font-size:1.0625rem; line-height:1.65">
             Partner accademici e istituzionali (Politecnico di Milano, IED, GBC Italia) per garantire rigore scientifico
             e aggiornamento normativo costante.
           </p>
@@ -803,59 +855,87 @@
       </div>
     </div>
   </section>
-  <section class="ticker-wrap" aria-label="le nostre collaborazioni" style="background: var(--white);">
+  <section class="ticker-wrap" aria-label="i nostri partner" style="background: var(--white);">
     <div class="ticker-hd">
       <div class="sec-label" style="justify-content:center">
-        <span>le nostre collaborazioni</span>
+        <span>i nostri partner</span>
       </div>
     </div>
 
     <div class="ticker-mask">
       <div class="ticker-track" aria-hidden="true">
         <!-- First set -->
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/benetton-group_logo.png" alt="Benetton Group">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/ENGIE.png" alt="ENGIE">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DNV Logo-800x400.png" alt="DNV">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/HILTI (1).png" alt="Hilti">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/BolognaFiere_logo.png" alt="Bologna Fiere">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/NUVEEN.png" alt="Nuveen">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Q8 (1).png" alt="Q8">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/savills.png" alt="Savills">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Systra.png" alt="Systra">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/IMQ.png" alt="IMQ">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Carlo Ratti ASS_logo.jpg"
-          alt="Carlo Ratti Associati">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Coldwell-Banke.png" alt="Coldwell Banker">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/habitech.png" alt="Habitech">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/FinintSGR_logo.jpg" alt="Finint SGR">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/evora.png" alt="Evora">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DREES and SOMMER.png" alt="Drees &amp; Sommer">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/sole 24 ore.png" alt="Sole 24 Ore">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/YARD REAAS.png" alt="YARD REAAS">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/POLIMI.png"
+          alt="Politecnico di Milano">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/GBC Italia_logo_02.png"
+          alt="GBC Italia">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/GRI_logo.png" alt="GRI">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/EcoVadis_logo.png" alt="EcoVadis">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Confindustria-Lombardia-logo.png"
+          alt="Confindustria Lombardia">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/UNIBO.png"
+          alt="Università di Bologna">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/SAPIENZA.png" alt="Sapienza">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/U.S. GBC_logo.png"
+          alt="US Green Building Council">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/ULI_logo.png"
+          alt="Urban Land Institute">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Assoimmobiliare_logo.jpg"
+          alt="Assoimmobiliare">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Arel_logo.png" alt="Arel">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Bwoman_logo.png" alt="B Woman">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Sustainability Makers_logo.png"
+          alt="Sustainability Makers">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/EuropeanClimatePAct_logo.png"
+          alt="European Climate Pact">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/4mainds_logo.png" alt="4Mainds">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/REVALU.png" alt="Revalu">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/Greenlife Coach_logo.png"
+          alt="Greenlife Coach">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/wala_logo.png" alt="Wala">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/esatek_logo.png" alt="Esatek">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/amcs_logo.png" alt="AMCS">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/TerzoSettore/Fondazione Libellula_logo.png"
+          alt="Fondazione Libellula">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/TerzoSettore/ANT_logo.jpg" alt="ANT">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AbbonamentiRiviste/materiaRinnovabile_logo.png"
+          alt="Materia Rinnovabile">
         <!-- Duplicate for infinite loop -->
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/benetton-group_logo.png" alt="Benetton Group">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/ENGIE.png" alt="ENGIE">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DNV Logo-800x400.png" alt="DNV">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/HILTI (1).png" alt="Hilti">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/BolognaFiere_logo.png" alt="Bologna Fiere">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/NUVEEN.png" alt="Nuveen">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Q8 (1).png" alt="Q8">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/savills.png" alt="Savills">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Systra.png" alt="Systra">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/IMQ.png" alt="IMQ">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Carlo Ratti ASS_logo.jpg"
-          alt="Carlo Ratti Associati">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Coldwell-Banke.png" alt="Coldwell Banker">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/habitech.png" alt="Habitech">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/FinintSGR_logo.jpg" alt="Finint SGR">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/evora.png" alt="Evora">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/DREES and SOMMER.png" alt="Drees &amp; Sommer">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/sole 24 ore.png" alt="Sole 24 Ore">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/YARD REAAS.png" alt="YARD REAAS">
-        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Clienti/Dussman.png" alt="Dussmann">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/POLIMI.png"
+          alt="Politecnico di Milano">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/GBC Italia_logo_02.png"
+          alt="GBC Italia">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/GRI_logo.png" alt="GRI">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/EcoVadis_logo.png" alt="EcoVadis">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Confindustria-Lombardia-logo.png"
+          alt="Confindustria Lombardia">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/UNIBO.png"
+          alt="Università di Bologna">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/SAPIENZA.png" alt="Sapienza">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/U.S. GBC_logo.png"
+          alt="US Green Building Council">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/ULI_logo.png"
+          alt="Urban Land Institute">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Assoimmobiliare_logo.jpg"
+          alt="Assoimmobiliare">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Arel_logo.png" alt="Arel">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Bwoman_logo.png" alt="B Woman">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/Sustainability Makers_logo.png"
+          alt="Sustainability Makers">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/Associazioni/EuropeanClimatePAct_logo.png"
+          alt="European Climate Pact">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/4mainds_logo.png" alt="4Mainds">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/REVALU.png" alt="Revalu">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/Greenlife Coach_logo.png"
+          alt="Greenlife Coach">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/wala_logo.png" alt="Wala">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/esatek_logo.png" alt="Esatek">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AziendePartners/amcs_logo.png" alt="AMCS">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/TerzoSettore/Fondazione Libellula_logo.png"
+          alt="Fondazione Libellula">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/TerzoSettore/ANT_logo.jpg" alt="ANT">
+        <img class="ticker-logo" src="infosito/01_Loghi/Loghi_Partners/AbbonamentiRiviste/materiaRinnovabile_logo.png"
+          alt="Materia Rinnovabile">
       </div>
     </div>
   </section>
@@ -884,37 +964,6 @@
   -->
 
   <!-- ============================================================
-     GOVERNANCE
-     ============================================================ -->
-  <section class="section th-cream" id="governance" aria-label="Governance">
-    <div class="container">
-      <div class="sec-label fade-up"><span>Governance</span></div>
-      <h2 class="t-h2 mb-4 fade-up" style="color:var(--dark)">
-        Il nostro impatto misurabile,<br>ogni anno
-      </h2>
-      <p class="fade-up delay-1" style="font-size:1.0625rem; color:var(--muted-dk); line-height:1.65; max-width:720px; margin-bottom:3rem">
-        Come Società Benefit certificata B Corp, EETRA pubblica ogni anno la Governance: un documento trasparente che rendiconta l'impatto ambientale, sociale e di governance generato dalla nostra attività e dai nostri progetti.
-      </p>
-
-      <!-- Stats strip -->
-      <div class="grid-3 fade-up" style="gap:0; border:1px solid var(--border-lt); border-radius:var(--r-md); margin-bottom:3.5rem">
-        <div style="padding:2rem 2.5rem; border-right:1px solid var(--border-lt)">
-          <div style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--green)">86,7</div>
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-dk); margin-top:0.3rem">Punteggio B Corp 2024</p>
-        </div>
-        <div style="padding:2rem 2.5rem; border-right:1px solid var(--border-lt)">
-          <div style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--green)">Annuale</div>
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-dk); margin-top:0.3rem">Frequenza di pubblicazione</p>
-        </div>
-        <div style="padding:2rem 2.5rem">
-          <div style="font-family:var(--font-serif); font-size:2.25rem; font-weight:700; color:var(--green)">PDF</div>
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-dk); margin-top:0.3rem">Formato download gratuito</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
      GOVERNANCE REPORTS
      ============================================================ -->
   <section class="section th-dark" id="reports" aria-label="Archivio Relazioni d'Impatto">
@@ -924,144 +973,15 @@
         Scarica le nostre<br>Relazioni d'Impatto
       </h2>
 
-      <div class="grid-3 fade-up">
-
-        <!-- Report 2024 (LATEST) -->
-        <article class="report-card">
-          <div class="report-card__cover">
-            <div class="report-card__cover-placeholder">
-              <div style="font-size:2.5rem; opacity:0.4">📄</div>
-              <div class="report-card__cover-year">2024</div>
-              <p class="report-card__cover-label">Governance</p>
-              <div style="display:inline-block; padding:0.3rem 0.9rem; border:1px solid rgba(92,123,42,0.4); border-radius:100px; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-pale)">Edizione più recente</div>
-            </div>
-            <div class="report-card__cover-bar"></div>
-          </div>
-          <div class="report-card__body">
-            <div class="report-card__score">
-              <span class="report-card__score-val">86,7</span>
-              <span class="report-card__score-lbl">B Corp Score</span>
-            </div>
-            <h3 class="report-card__title">Governance EETRA 2024</h3>
-            <p class="report-card__desc">
-              Il report annuale documenta l'impatto generato da EETRA nel 2024: progetti ESG completati, emissioni evitate, clienti supportati, formazione erogata e governance interna.
-            </p>
-            <div class="report-card__actions">
-              <a href="#" class="btn btn-primary" id="download-2024" download onclick="handleDownload(event, '2024')">
-                Download PDF <span class="arrow">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Report 2023 -->
-        <article class="report-card">
-          <div class="report-card__cover">
-            <div class="report-card__cover-placeholder">
-              <div style="font-size:2.5rem; opacity:0.3">📄</div>
-              <div class="report-card__cover-year" style="color:var(--muted-lt)">2023</div>
-              <p class="report-card__cover-label">Governance</p>
-            </div>
-          </div>
-          <div class="report-card__body">
-            <div class="report-card__score" style="opacity:0.8">
-              <span class="report-card__score-val" style="color:var(--muted-lt)">82,4</span>
-              <span class="report-card__score-lbl">B Corp Score</span>
-            </div>
-            <h3 class="report-card__title" style="color:var(--muted-lt)">Governance EETRA 2023</h3>
-            <p class="report-card__desc">
-              Report annuale 2023: espansione del team, nuove certificazioni LEED e BREEAM completate e primo anno come Sustainability Consultancy B Corp in Italia.
-            </p>
-            <div class="report-card__actions">
-              <a href="#" class="btn btn-outline" id="download-2023" download onclick="handleDownload(event, '2023')">
-                Download PDF <span class="arrow">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Report 2022 -->
-        <article class="report-card" style="opacity:0.65">
-          <div class="report-card__cover">
-            <div class="report-card__cover-placeholder">
-              <div style="font-size:2.5rem; opacity:0.2">📄</div>
-              <div class="report-card__cover-year" style="color:var(--muted-dk)">2022</div>
-              <p class="report-card__cover-label">Governance</p>
-            </div>
-          </div>
-          <div class="report-card__body">
-            <div class="report-card__score" style="opacity:0.6">
-              <span class="report-card__score-val" style="color:var(--muted-dk)">79,1</span>
-              <span class="report-card__score-lbl">B Corp Score</span>
-            </div>
-            <h3 class="report-card__title" style="color:var(--muted-dk)">Governance EETRA 2022</h3>
-            <p class="report-card__desc" style="color:var(--muted-dk)">
-              Report annuale 2022: consolidamento servizi ESG, avvio percorso B Corp, crescita del portafoglio clienti nel real estate sostenibile.
-            </p>
-            <div class="report-card__actions">
-              <a href="#" class="btn btn-outline" style="opacity:0.6">
-                Download PDF <span class="arrow">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
+      <div class="grid-3 fade-up" id="reports-grid">
+        <!-- Populated by report-manager.js -->
       </div>
     </div>
   </section>
-
-  <!-- ============================================================
-     COSA CONTIENE LA GOVERNANCE
-     ============================================================ -->
-  <section class="section th-cream" aria-label="Cosa contiene la governance">
-    <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start" class="responsive-split">
-        <div class="fade-up">
-          <div class="sec-label"><span>Il contenuto</span></div>
-          <h2 class="t-h2 mb-4" style="color:var(--dark)">
-            Cosa trovi nella<br>Governance
-          </h2>
-          <p style="font-size:1rem; color:var(--muted-dk); line-height:1.72; margin-bottom:1.25rem">
-            La Governance di EETRA è redatta secondo le linee guida per le Società Benefit e i requisiti B Corp. Non è un documento di marketing: è una rendicontazione trasparente e verificabile.
-          </p>
-          <p style="font-size:1rem; color:var(--muted-dk); line-height:1.72">
-            I dati vengono raccolti internamente, validati dal team ESG e sottoposti a verifica nell'ambito del processo di recertificazione B Corp annuale.
-          </p>
-        </div>
-
-        <div class="fade-up delay-1">
-          <div class="step-item">
-            <span class="step-n">01</span>
-            <div class="step-content">
-              <h4 class="step-title">Impatto ambientale</h4>
-              <p class="step-desc">Emissioni di CO₂, consumi energetici, riduzione emissioni generata dai progetti ESG per i clienti, certificazioni ambientali.</p>
-            </div>
-          </div>
-          <div class="step-item">
-            <span class="step-n">02</span>
-            <div class="step-content">
-              <h4 class="step-title">Impatto sociale</h4>
-              <p class="step-desc">Ore di formazione, professionisti formati, iniziative di welfare, diversità e inclusione del team.</p>
-            </div>
-          </div>
-          <div class="step-item">
-            <span class="step-n">03</span>
-            <div class="step-content">
-              <h4 class="step-title">Governance</h4>
-              <p class="step-desc">Struttura societaria, mission benefit, politiche di trasparenza, gestione dei fornitori secondo criteri ESG.</p>
-            </div>
-          </div>
-          <div class="step-item">
-            <span class="step-n">04</span>
-            <div class="step-content">
-              <h4 class="step-title">Punteggio B Corp</h4>
-              <p class="step-desc">B Impact Score complessivo e per categoria: Community, Environment, Workers, Customers, Governance.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <script src="js/report-manager.js"></script>
+  <script>
+    RM.renderInto('reports-grid');
+  </script>
 
   <!-- ============================================================
      CTA
@@ -1102,7 +1022,7 @@
             <a href="chi-siamo.html">Chi siamo</a>
             <a href="servizi.html">Servizi ESG</a>
             <a href="impact.html">Impact &amp; News</a>
-                        <a href="contatti.html">Contatti</a>
+            <a href="contatti.html">Contatti</a>
           </nav>
         </div>
         <div>
@@ -1137,15 +1057,15 @@
 
   <script src="js/main.js"></script>
 
-<script>
-function handleDownload(e, year) {
-  var link = document.getElementById('download-' + year);
-  if (!link || link.getAttribute('href') === '#') {
-    e.preventDefault();
-    alert('Il PDF della Relazione d\'Impatto ' + year + ' non è ancora stato caricato. Contattaci a info@eetra.it per riceverlo.');
-  }
-}
-</script>
+  <script>
+    function handleDownload(e, year) {
+      var link = document.getElementById('download-' + year);
+      if (!link || link.getAttribute('href') === '#') {
+        e.preventDefault();
+        alert('Il PDF della Relazione d\'Impatto ' + year + ' non è ancora stato caricato. Contattaci a info@eetra.it per riceverlo.');
+      }
+    }
+  </script>
 </body>
 
 </html>

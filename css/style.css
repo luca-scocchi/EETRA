@@ -1264,12 +1264,6 @@ p {
   border: 1px solid var(--border-dk);
   border-radius: var(--r-md);
   overflow: hidden;
-  transition: all var(--tr);
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .team-card__photo {
