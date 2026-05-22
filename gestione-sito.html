@@ -277,6 +277,39 @@
     }
     .empty-state__icon { font-size: 3rem; margin-bottom: 1rem; }
     .empty-state__text { color: var(--muted-lt); font-size: 0.9rem; }
+
+    /* ── SECTION TABS ── */
+    .section-pane { display: none; }
+    .section-pane.active { display: block; }
+
+    /* ── BLOG CARD ROW ── */
+    .blog-row__cover {
+      width: 56px; height: 56px; border-radius: 8px;
+      object-fit: cover; flex-shrink: 0;
+    }
+    .blog-row__cover-ph {
+      width: 56px; height: 56px; border-radius: 8px; flex-shrink: 0;
+      background: var(--dark-3); border: 1px dashed var(--border-dk);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .badge-cat {
+      display: inline-block; padding: 0.15rem 0.6rem;
+      background: rgba(92,123,42,0.15); color: var(--green-pale);
+      border-radius: 100px; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.07em;
+    }
+    .badge-draft {
+      display: inline-block; padding: 0.15rem 0.6rem;
+      background: rgba(224,180,85,0.15); color: #d4a017;
+      border-radius: 100px; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.07em;
+    }
+    /* colour chip for categories */
+    .cat-chip {
+      display: inline-block; padding: 0.15rem 0.65rem;
+      border-radius: 100px; font-size: 0.68rem; font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -295,31 +328,57 @@
 
     <!-- SIDEBAR -->
     <nav class="sidebar">
-      <div class="sidebar__item active" onclick="showSection('reports')">
+      <div class="sidebar__item active" id="nav-reports" onclick="showSection('reports')">
         <span class="sidebar__icon">📄</span> Report &amp; Relazioni
+      </div>
+      <div class="sidebar__item" id="nav-blog" onclick="showSection('blog')">
+        <span class="sidebar__icon">✍️</span> Blog / News
       </div>
     </nav>
 
     <!-- MAIN -->
     <main class="main" id="main-content">
-      <div class="section-hd">
-        <div>
-          <h1>Report &amp; Relazioni d'Impatto</h1>
-          <p>Gestisci le card mostrate nella pagina Chi Siamo</p>
+
+      <!-- ══ SECTION: REPORTS ══ -->
+      <div class="section-pane active" id="pane-reports">
+        <div class="section-hd">
+          <div>
+            <h1>Report &amp; Relazioni d'Impatto</h1>
+            <p>Gestisci le card mostrate nella pagina Chi Siamo</p>
+          </div>
+          <button class="btn-primary" onclick="openModal()">+ Aggiungi report</button>
         </div>
-        <button class="btn-primary" onclick="openModal()">+ Aggiungi report</button>
+        <div class="cards-list" id="cards-list">
+          <div class="empty-state">
+            <div class="empty-state__icon">⏳</div>
+            <p class="empty-state__text">Caricamento…</p>
+          </div>
+        </div>
       </div>
 
-      <div class="cards-list" id="cards-list">
-        <div class="empty-state">
-          <div class="empty-state__icon">⏳</div>
-          <p class="empty-state__text">Caricamento…</p>
+      <!-- ══ SECTION: BLOG ══ -->
+      <div class="section-pane" id="pane-blog">
+        <div class="section-hd">
+          <div>
+            <h1>Blog &amp; News ESG</h1>
+            <p>Gestisci gli articoli visibili in Impact &amp; News ESG</p>
+          </div>
+          <button class="btn-primary" onclick="openBlogModal()">+ Nuovo articolo</button>
+        </div>
+        <div class="cards-list" id="blog-list">
+          <div class="empty-state">
+            <div class="empty-state__icon">⏳</div>
+            <p class="empty-state__text">Caricamento…</p>
+          </div>
         </div>
       </div>
+
     </main>
   </div>
 
-  <!-- MODAL -->
+  <!-- ═══════════════════════════════
+       MODAL — REPORTS (unchanged)
+       ═══════════════════════════════ -->
   <div class="overlay" id="overlay" onclick="overlayClick(event)">
     <div class="modal" id="modal">
       <div class="modal__hd">
@@ -389,11 +448,294 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════
+       MODAL — BLOG POST
+       ═══════════════════════════════════════════════════════ -->
+  <div class="overlay" id="blog-overlay" onclick="blogOverlayClick(event)">
+    <div class="modal" id="blog-modal" style="max-width:640px">
+      <div class="modal__hd">
+        <h2 class="modal__title" id="blog-modal-title">Nuovo Articolo</h2>
+        <button class="modal__close" onclick="closeBlogModal()" aria-label="Chiudi">✕</button>
+      </div>
+
+      <form id="blog-form" onsubmit="saveBlogPost(event)">
+        <input type="hidden" id="bf-id">
+
+        <!-- Titolo -->
+        <div class="form-group">
+          <label class="form-label" for="bf-titolo">Titolo *</label>
+          <input class="form-input" id="bf-titolo" type="text" placeholder="Es. Guida CSRD 2025…" required>
+        </div>
+        <!-- Contenuto -->
+        <div class="form-group">
+          <label class="form-label" for="bf-estratto">Testo dell'Articolo *</label>
+          <textarea class="form-textarea" id="bf-estratto" rows="10" placeholder="Scrivi qui il contenuto completo dell'articolo…" required></textarea>
+        </div>
+
+        <!-- Categoria -->
+        <div class="form-group">
+          <label class="form-label" for="bf-categoria">Categoria *</label>
+          <select class="form-select" id="bf-categoria" onchange="onCatChange()" required>
+            <option value="">— Scegli —</option>
+            <option>CSRD &amp; ESRS</option>
+            <option>ESG Reporting</option>
+            <option>Carbon Footprint</option>
+            <option>Certificazioni</option>
+            <option>Formazione ESG</option>
+            <option>News</option>
+            <option>Case Study</option>
+            <option value="__custom__">Personalizzata…</option>
+          </select>
+        </div>
+
+        <!-- Categoria custom (hidden by default) -->
+        <div class="form-group" id="custom-cat-wrap" style="display:none;margin-top:1rem">
+          <label class="form-label" for="bf-cat-custom">Nome categoria personalizzata</label>
+          <input class="form-input" id="bf-cat-custom" type="text" placeholder="Es. Biodiversità">
+        </div>
+
+        <!-- Data + Tempo lettura -->
+        <div class="form-row" style="margin-top:1rem">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="bf-data">Data pubblicazione *</label>
+            <input class="form-input" id="bf-data" type="text" placeholder="Es. Maggio 2025" required>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="bf-tempo">Tempo lettura (min)</label>
+            <input class="form-input" id="bf-tempo" type="number" min="1" max="60" placeholder="Es. 10">
+          </div>
+        </div>
+
+        <!-- Link articolo -->
+        <div class="form-group">
+          <label class="form-label" for="bf-link">Link esterno (opzionale)</label>
+          <input class="form-input" id="bf-link" type="text" placeholder="https://…">
+        </div>
+
+        <!-- Immagine copertina -->
+        <div class="form-group">
+          <label class="form-label">Immagine di copertina</label>
+          <div class="upload-zone" id="blog-cover-zone" ondrop="onBlogCoverDrop(event)">
+            <input type="file" id="bf-cover" accept="image/*" onchange="onBlogCoverChange(event)">
+            <div class="upload-zone__icon">🖼️</div>
+            <p class="upload-zone__text">Trascina un'immagine o clicca per selezionarla</p>
+            <p class="upload-zone__filename" id="blog-cover-filename"></p>
+          </div>
+          <div id="blog-cover-preview-wrap" style="margin-top:0.75rem;display:none">
+            <img id="blog-cover-preview" src="" alt="Anteprima"
+              style="width:100%;max-height:180px;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border-dk)">
+            <button type="button" onclick="removeBlogCover()"
+              style="margin-top:0.4rem;font-size:0.75rem;color:#e05555;background:none;border:none;cursor:pointer">✕ Rimuovi immagine</button>
+          </div>
+        </div>
+
+        <!-- In evidenza + Pubblicato -->
+        <div class="form-group">
+
+          <div class="toggle-wrap">
+            <span class="toggle-label">Pubblicato (visibile sul sito)</span>
+            <label class="toggle">
+              <input type="checkbox" id="bf-pub" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <button type="button" class="btn-ghost" onclick="closeBlogModal()">Annulla</button>
+          <button type="submit" class="btn-primary" id="blog-save-btn">💾 Salva articolo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- TOASTS -->
   <div class="toast-wrap" id="toast-wrap"></div>
 
   <script src="js/report-manager.js"></script>
+  <script src="js/blog-manager.js"></script>
   <script>
+    /* ══════════════════════════════════════
+       SECTION SWITCHING
+       ══════════════════════════════════════ */
+    function showSection(name) {
+      document.querySelectorAll('.section-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sidebar__item').forEach(i => i.classList.remove('active'));
+      document.getElementById('pane-' + name).classList.add('active');
+      document.getElementById('nav-' + name).classList.add('active');
+      if (name === 'blog') loadBlogList();
+    }
+
+    /* ══════════════════════════════════════
+       BLOG LIST
+       ══════════════════════════════════════ */
+    async function loadBlogList() {
+      const list = document.getElementById('blog-list');
+      const posts = await BM.getAllPosts();
+      if (!posts.length) {
+        list.innerHTML = `<div class="empty-state">
+          <div class="empty-state__icon">✍️</div>
+          <p class="empty-state__text">Nessun articolo ancora. Aggiungine uno!</p>
+        </div>`;
+        return;
+      }
+      list.innerHTML = posts.map(post => {
+        const coverThumb = post.coverDataUrl
+          ? `<img src="${post.coverDataUrl}" class="blog-row__cover" alt="copertina">`
+          : `<div class="blog-row__cover-ph">🗞️</div>`;
+        const pubBadge = post.pubblicato !== false
+          ? '<span class="badge-latest">Pubblicato</span>'
+          : '<span class="badge-draft">Bozza</span>';
+        return `
+          <div class="card-row" id="blog-row-${post.id}">
+            ${coverThumb}
+            <div class="card-row__info">
+              <div class="card-row__title">${escHtml(post.titolo)} ${pubBadge}</div>
+              <div class="card-row__meta">
+                <span class="cat-chip" style="background:rgba(92,123,42,0.12);color:var(--green-pale)">${escHtml(post.categoria)}</span>
+                <span>${escHtml(post.data)}</span>
+                ${post.tempoLettura ? '<span>' + post.tempoLettura + ' min</span>' : ''}
+                ${post.linkUrl ? '<span style="color:var(--green-pale)">🔗 ' + escHtml(post.linkUrl.substring(0,40)) + (post.linkUrl.length>40?'…':'') + '</span>' : ''}
+              </div>
+            </div>
+            <div class="card-row__actions">
+              <button class="btn-ghost" onclick="editBlogPost('${post.id}')">✏️ Modifica</button>
+              <button class="btn-danger" onclick="deleteBlogPost('${post.id}')">🗑️</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function escHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    /* ══════════════════════════════════════
+       BLOG MODAL
+       ══════════════════════════════════════ */
+    let blogCoverDataUrl = null;
+    let blogRemoveCover  = false;
+
+    function openBlogModal() {
+      blogCoverDataUrl = null; blogRemoveCover = false;
+      document.getElementById('blog-form').reset();
+      document.getElementById('bf-pub').checked = true;
+      document.getElementById('blog-modal-title').textContent = 'Nuovo Articolo';
+      document.getElementById('blog-cover-preview-wrap').style.display = 'none';
+      document.getElementById('blog-cover-preview').src = '';
+      document.getElementById('blog-cover-filename').textContent = '';
+      document.getElementById('custom-cat-wrap').style.display = 'none';
+      document.getElementById('blog-overlay').classList.add('open');
+    }
+    function closeBlogModal() { document.getElementById('blog-overlay').classList.remove('open'); }
+    function blogOverlayClick(e) { if (e.target === document.getElementById('blog-overlay')) closeBlogModal(); }
+
+    function onCatChange() {
+      const v = document.getElementById('bf-categoria').value;
+      document.getElementById('custom-cat-wrap').style.display = v === '__custom__' ? 'block' : 'none';
+    }
+
+    async function editBlogPost(id) {
+      const post = await BM.getPost(id);
+      if (!post) return;
+      blogCoverDataUrl = null; blogRemoveCover = false;
+      document.getElementById('blog-form').reset();
+      document.getElementById('blog-modal-title').textContent = 'Modifica Articolo';
+      document.getElementById('bf-id').value       = post.id;
+      document.getElementById('bf-titolo').value   = post.titolo || '';
+      document.getElementById('bf-estratto').value = post.estratto || '';
+      document.getElementById('bf-data').value     = post.data || '';
+      document.getElementById('bf-tempo').value    = post.tempoLettura || '';
+      document.getElementById('bf-link').value     = post.linkUrl || '';
+      document.getElementById('bf-pub').checked       = post.pubblicato !== false;
+      // Categoria
+      const catSel = document.getElementById('bf-categoria');
+      const knownCats = Array.from(catSel.options).map(o => o.value);
+      if (knownCats.includes(post.categoria)) {
+        catSel.value = post.categoria;
+      } else {
+        catSel.value = '__custom__';
+        document.getElementById('bf-cat-custom').value = post.categoria || '';
+        document.getElementById('custom-cat-wrap').style.display = 'block';
+      }
+      if (post.coverDataUrl) {
+        document.getElementById('blog-cover-preview').src = post.coverDataUrl;
+        document.getElementById('blog-cover-preview-wrap').style.display = 'block';
+        document.getElementById('blog-cover-filename').textContent = '🖼️ Immagine salvata';
+      }
+      document.getElementById('blog-overlay').classList.add('open');
+    }
+
+    async function saveBlogPost(e) {
+      e.preventDefault();
+      const btn = document.getElementById('blog-save-btn');
+      btn.textContent = '⏳ Salvataggio…'; btn.disabled = true;
+      try {
+        const id = document.getElementById('bf-id').value || null;
+        const existing = id ? (await BM.getPost(id)) || {} : {};
+        let categoria = document.getElementById('bf-categoria').value;
+        if (categoria === '__custom__') categoria = document.getElementById('bf-cat-custom').value.trim();
+        // Build catSlug for filtering
+        const catSlug = categoria.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        let finalCover = existing.coverDataUrl || null;
+        if (blogCoverDataUrl) finalCover = blogCoverDataUrl;
+        if (blogRemoveCover)  finalCover = null;
+        await BM.savePost({
+          id: id || undefined,
+          titolo:       document.getElementById('bf-titolo').value.trim(),
+          estratto:     document.getElementById('bf-estratto').value.trim(),
+          categoria,
+          catSlug,
+          data:         document.getElementById('bf-data').value.trim(),
+          tempoLettura: parseInt(document.getElementById('bf-tempo').value) || null,
+          linkUrl:      document.getElementById('bf-link').value.trim(),
+          pubblicato:   document.getElementById('bf-pub').checked,
+          coverDataUrl: finalCover,
+          createdAt:    existing.createdAt || Date.now(),
+        });
+        closeBlogModal();
+        await loadBlogList();
+        toast('✅ Articolo salvato!', 'success');
+      } catch(err) { toast('❌ Errore: ' + err.message, 'error'); }
+      finally { btn.textContent = '💾 Salva articolo'; btn.disabled = false; }
+    }
+
+    async function deleteBlogPost(id) {
+      if (!confirm("Eliminare questo articolo? L\u2019operazione non \u00e8 reversibile.")) return;
+      await BM.deletePost(id);
+      await loadBlogList();
+      toast('🗑️ Articolo eliminato.', 'success');
+    }
+
+    /* ── Blog cover image handlers ── */
+    function onBlogCoverChange(e) {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        blogCoverDataUrl = ev.target.result; blogRemoveCover = false;
+        document.getElementById('blog-cover-preview').src = blogCoverDataUrl;
+        document.getElementById('blog-cover-preview-wrap').style.display = 'block';
+        document.getElementById('blog-cover-filename').textContent = '🖼️ ' + file.name;
+      };
+      reader.readAsDataURL(file);
+    }
+    function removeBlogCover() {
+      blogCoverDataUrl = null; blogRemoveCover = true;
+      document.getElementById('blog-cover-preview-wrap').style.display = 'none';
+      document.getElementById('blog-cover-preview').src = '';
+      document.getElementById('blog-cover-filename').textContent = '';
+      document.getElementById('bf-cover').value = '';
+    }
+    function onBlogCoverDrop(e) {
+      e.preventDefault(); document.getElementById('blog-cover-zone').classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) onBlogCoverChange({ target: { files: [file] } });
+    }
+    document.getElementById('blog-cover-zone').addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+    document.getElementById('blog-cover-zone').addEventListener('dragleave', e => e.currentTarget.classList.remove('dragover'));
+
+
     let pdfBuffer      = null;   // ArrayBuffer of new PDF
     let coverDataUrl   = null;   // base64 data URL of new cover image
     let removeCoverFlag = false; // user explicitly removed cover

@@ -4,7 +4,7 @@
 
 const RM = (() => {
   const DB_NAME = 'eetra-cms';
-  const DB_VER  = 1;
+  const DB_VER  = 2;   // must match blog-manager.js
 
   /* ── Open DB ── */
   function openDB() {
@@ -16,6 +16,8 @@ const RM = (() => {
           db.createObjectStore('cards', { keyPath: 'id' });
         if (!db.objectStoreNames.contains('pdfs'))
           db.createObjectStore('pdfs', { keyPath: 'id' });
+        if (!db.objectStoreNames.contains('posts'))
+          db.createObjectStore('posts', { keyPath: 'id' });
       };
       req.onsuccess = e => resolve(e.target.result);
       req.onerror   = e => reject(e.target.error);

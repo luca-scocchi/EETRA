@@ -1,333 +1,208 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impact | News ESG, Storie e Aggiornamenti Normativi | EETRA</title>
-  <meta name="description" content="EETRA Impact raccoglie news ESG, aggiornamenti CSRD/ESRS, case study di impatto positivo e storie di trasformazione rigenerativa di aziende e territori italiani.">
-    <link rel="preload" href="infosito/00_Fonts/SourceSerif4Variable-Roman.otf" as="font" type="font/otf" crossorigin>
+  <meta name="description"
+    content="EETRA Impact raccoglie news ESG, aggiornamenti CSRD/ESRS, case study di impatto positivo e storie di trasformazione rigenerativa di aziende e territori italiani.">
+  <link rel="preload" href="infosito/00_Fonts/SourceSerif4Variable-Roman.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="infosito/00_Fonts/Geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png">
   <style>
-    .impact-card-wrap { transition: opacity 0.3s ease; }
-    @media (max-width:768px) { .filter-bar { gap:0.375rem; } }
+    .impact-card-wrap {
+      transition: opacity 0.3s ease;
+    }
+
+    @media (max-width:768px) {
+      .filter-bar {
+        gap: 0.375rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav" role="navigation">
-  <div class="nav__inner">
-    <a href="index.html" class="nav__logo"><img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" alt="EETRA" onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'"></a>
-          <ul class="nav__links" role="list">
+  <!-- NAV -->
+  <nav class="nav" id="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png"
+          alt="EETRA" onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'"></a>
+      <ul class="nav__links" role="list">
         <li><a href="chi-siamo.html" class="nav__link">Chi siamo</a></li>
         <li><a href="servizi.html" class="nav__link">Servizi</a></li>
         <li><a href="impact.html" class="nav__link active">Impact</a></li>
-                <li><a href="contatti.html" class="nav__link">Contatti</a></li>
+        <li><a href="contatti.html" class="nav__link">Contatti</a></li>
       </ul>
-    <a href="contatti.html" class="btn btn-primary nav__cta">Richiedi consulenza</a>
-    <button class="nav__hamburger" id="hamburger" aria-label="Apri menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div class="nav__mobile" id="mobileMenu">
+      <a href="contatti.html" class="btn btn-primary nav__cta">Contattaci</a>
+      <button class="nav__hamburger" id="hamburger"
+        aria-label="Apri menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="mobileMenu">
     <a href="chi-siamo.html" class="nav__mobile-link">Chi siamo</a>
     <a href="servizi.html" class="nav__mobile-link">Servizi</a>
     <a href="impact.html" class="nav__mobile-link">Impact</a>
-        <a href="contatti.html" class="nav__mobile-link">Contatti</a>
-    <div class="nav__mobile-cta"><a href="contatti.html" class="btn btn-primary">Richiedi consulenza</a></div>
-</div>
-
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="container">
-    <div class="sec-label sec-label--lt"><span>Impact &amp; News ESG</span></div>
-    <h1 class="page-hero__title fade-up">
-      News ESG, aggiornamenti normativi<br>e storie di rigenerazione aziendale
-    </h1>
-    <p class="page-hero__sub fade-up delay-1">
-      Articoli di approfondimento, aggiornamenti su CSRD, ESRS, CBAM e case study di aziende italiane che hanno intrapreso con successo il percorso ESG.
-    </p>
+    <a href="contatti.html" class="nav__mobile-link">Contatti</a>
+    <div class="nav__mobile-cta"><a href="contatti.html" class="btn btn-primary">Contattaci</a></div>
   </div>
-</section>
 
-<!-- ============================================================
-     FEATURED ARTICLE
-     ============================================================ -->
-<section class="section-sm th-dark" style="border-top:1px solid var(--border-dk)">
-  <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; padding:3rem; border:1px solid var(--border-dk); border-radius:var(--r-lg)">
-      <div>
-        <span style="display:inline-block; padding:0.25rem 0.75rem; border-radius:100px; font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:rgba(92,123,42,0.15); color:var(--green-pale); border:1px solid rgba(92,123,42,0.25); margin-bottom:1.25rem">Articolo Pillar — In evidenza</span>
-        <h2 style="font-family:var(--font-serif); font-size:clamp(1.5rem,2.5vw,2.5rem); font-weight:600; color:var(--off-white); line-height:1.2; letter-spacing:-0.015em; margin-bottom:1rem">
-          Guida CSRD 2025: obblighi, scadenze e come adeguarsi entro i termini
-        </h2>
-        <p style="font-size:1rem; color:var(--muted-lt); line-height:1.7; margin-bottom:1.75rem">
-          La Corporate Sustainability Reporting Directive introduce nuovi obblighi di rendicontazione ESG per le aziende italiane. Chi è obbligato, quando e come adeguarsi: la guida completa di EETRA con tutte le scadenze 2025-2026.
-        </p>
-        <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap">
-          <a href="#article-csrd" class="btn btn-primary">Leggi l'articolo <span class="arrow">→</span></a>
-          <span style="font-size:0.8125rem; color:var(--muted-lt)">Aprile 2025 · 15 min lettura</span>
-        </div>
-      </div>
-      <div style="background:var(--dark-3); border-radius:var(--r-md); aspect-ratio:16/9; display:flex; align-items:center; justify-content:center">
-        <div style="text-align:center; padding:2rem">
-          <div style="font-size:3rem; margin-bottom:0.75rem">📋</div>
-          <p style="font-family:var(--font-serif); font-size:1.1rem; color:var(--off-white); font-weight:600">CSRD 2025</p>
-          <p style="font-size:0.875rem; color:var(--muted-lt)">Guida completa</p>
-        </div>
-      </div>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="sec-label sec-label--lt"><span>Impact &amp; News ESG</span></div>
+      <h1 class="page-hero__title fade-up">
+        News ESG, aggiornamenti normativi<br>e storie di rigenerazione aziendale
+      </h1>
+      <p class="page-hero__sub fade-up delay-1">
+        Articoli di approfondimento, aggiornamenti su CSRD, ESRS, CBAM e case study di aziende italiane che hanno
+        intrapreso con successo il percorso ESG.
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      ARTICLES GRID WITH FILTER
      ============================================================ -->
-<section class="section th-cream" aria-label="Tutti gli articoli Impact">
-  <div class="container">
-    <div class="flex-between mb-6" style="flex-wrap:wrap; gap:1.5rem">
-      <div>
-        <div class="sec-label"><span>Tutti gli articoli</span></div>
-        <h2 class="t-h2" style="color:var(--dark)">Approfondimenti ESG</h2>
+  <section class="section th-cream" aria-label="Tutti gli articoli Impact">
+    <div class="container">
+      <div class="flex-between mb-6" style="flex-wrap:wrap; gap:1.5rem">
+        <div>
+          <div class="sec-label"><span>Tutti gli articoli</span></div>
+          <h2 class="t-h2" style="color:var(--dark)">Approfondimenti ESG</h2>
+        </div>
       </div>
+
+      <!-- Filter bar — slugs match post.catSlug generated in gestione-sito.html -->
+      <div class="filter-bar" role="group" aria-label="Filtra articoli per categoria">
+        <button class="filter-btn active" data-filter="all">Tutti</button>
+        <button class="filter-btn" data-filter="csrd-esrs">CSRD &amp; ESRS</button>
+        <button class="filter-btn" data-filter="esg-reporting">ESG Reporting</button>
+        <button class="filter-btn" data-filter="carbon-footprint">Carbon Footprint</button>
+        <button class="filter-btn" data-filter="certificazioni">Certificazioni</button>
+        <button class="filter-btn" data-filter="formazione-esg">Formazione ESG</button>
+        <button class="filter-btn" data-filter="news">News</button>
+        <button class="filter-btn" data-filter="case-study">Case Study</button>
+      </div>
+
+      <!-- Dynamic articles grid — filled by blog-manager.js -->
+      <div class="grid-3" id="articlesGrid">
+        <div class="impact-card" style="opacity:0.4;pointer-events:none">
+          <div class="impact-card__body">
+            <span class="impact-card__cat">Caricamento…</span>
+            <h3 class="impact-card__title" style="height:1.2rem;background:var(--border-lt);border-radius:4px"></h3>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Filter bar -->
-    <div class="filter-bar" role="group" aria-label="Filtra articoli per categoria">
-      <button class="filter-btn active" data-filter="all">Tutti</button>
-      <button class="filter-btn" data-filter="csrd">CSRD &amp; ESRS</button>
-      <button class="filter-btn" data-filter="reporting">ESG Reporting</button>
-      <button class="filter-btn" data-filter="carbon">Carbon Footprint</button>
-      <button class="filter-btn" data-filter="certificazioni">Certificazioni</button>
-      <button class="filter-btn" data-filter="formazione">Formazione ESG</button>
-    </div>
-
-    <!-- Articles grid -->
-    <div class="grid-3" id="articlesGrid">
-
-      <!-- CSRD -->
-      <div class="impact-card-wrap fade-up" data-cat="csrd">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat">CSRD &amp; ESRS</span>
-            <p class="impact-card__date">Aprile 2025</p>
-            <h3 class="impact-card__title">Guida CSRD 2025: obblighi, scadenze e come adeguarsi</h3>
-            <p class="impact-card__exc">La CSRD introduce nuovi obblighi di rendicontazione ESG. Chi è obbligato, quando e come adeguarsi: la guida completa con tutte le scadenze 2025–2026.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">15 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- ESRS -->
-      <div class="impact-card-wrap fade-up delay-1" data-cat="csrd">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat">CSRD &amp; ESRS</span>
-            <p class="impact-card__date">Marzo 2025</p>
-            <h3 class="impact-card__title">ESRS: cosa sono gli standard europei di rendicontazione ESG</h3>
-            <p class="impact-card__exc">Gli European Sustainability Reporting Standards definiscono come le aziende devono rendicontare i propri impatti ESG. Guida completa ai 12 standard ESRS.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">12 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Double Materiality -->
-      <div class="impact-card-wrap fade-up delay-2" data-cat="csrd">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat">CSRD &amp; ESRS</span>
-            <p class="impact-card__date">Febbraio 2025</p>
-            <h3 class="impact-card__title">Double materiality: come condurre l'analisi di doppia materialità</h3>
-            <p class="impact-card__exc">La doppia materialità è il cuore della CSRD: come identificare i temi ESG rilevanti per la tua azienda e i tuoi stakeholder, con metodo e dati verificabili.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">8 min · Satellite</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- ESG Reporting -->
-      <div class="impact-card-wrap fade-up" data-cat="reporting">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat" style="background:#e0ead8; color:var(--green)">ESG Reporting</span>
-            <p class="impact-card__date">Marzo 2025</p>
-            <h3 class="impact-card__title">ESG Reporting: la guida completa per aziende italiane</h3>
-            <p class="impact-card__exc">Come strutturare un report ESG efficace, quali standard adottare (GRI, ESRS, VSME) e come comunicarlo agli stakeholder per massimizzarne il valore.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">18 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Bilancio -->
-      <div class="impact-card-wrap fade-up delay-1" data-cat="reporting">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat" style="background:#e0ead8; color:var(--green)">ESG Reporting</span>
-            <p class="impact-card__date">Gennaio 2025</p>
-            <h3 class="impact-card__title">Come redigere un bilancio di sostenibilità conforme GRI e VSME</h3>
-            <p class="impact-card__exc">Guida pratica alla redazione del bilancio di sostenibilità: dalla raccolta dei dati alla struttura narrativa, con esempi tratti da aziende italiane reali.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">14 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Carbon Footprint -->
-      <div class="impact-card-wrap fade-up delay-2" data-cat="carbon">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat" style="background:#d8e8e4; color:#2a6b5c">Carbon Footprint</span>
-            <p class="impact-card__date">Febbraio 2025</p>
-            <h3 class="impact-card__title">Carbon footprint aziendale: guida al calcolo Scope 1, 2 e 3</h3>
-            <p class="impact-card__exc">Come misurare le emissioni di CO₂ della tua azienda seguendo il GHG Protocol. Dalla raccolta dati alla costruzione del piano di decarbonizzazione net zero.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">20 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- CBAM -->
-      <div class="impact-card-wrap fade-up" data-cat="carbon">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat" style="background:#d8e8e4; color:#2a6b5c">Carbon Footprint</span>
-            <p class="impact-card__date">Gennaio 2025</p>
-            <h3 class="impact-card__title">CBAM 2025: obblighi per aziende italiane che importano da paesi terzi</h3>
-            <p class="impact-card__exc">Il Carbon Border Adjustment Mechanism è pienamente operativo. Cosa devono fare le aziende italiane importatrici di acciaio, cemento, alluminio, fertilizzanti e idrogeno.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">10 min · Satellite</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- B Corp -->
-      <div class="impact-card-wrap fade-up delay-1" data-cat="certificazioni">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat" style="background:#e8f0d8; color:var(--green)">Certificazioni</span>
-            <p class="impact-card__date">Dicembre 2024</p>
-            <h3 class="impact-card__title">Certificazione B Corp per PMI italiane: il percorso guidato</h3>
-            <p class="impact-card__exc">Come ottenere la certificazione B Corp partendo dal B Impact Assessment. La guida completa di EETRA, già certificata con punteggio 86,7, per accompagnare le PMI nel percorso.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">16 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Sustainability Manager -->
-      <div class="impact-card-wrap fade-up delay-2" data-cat="formazione">
-        <article class="impact-card">
-          <div class="impact-card__body">
-            <span class="impact-card__cat" style="background:#f0e8d8; color:#8a5c2a">Formazione ESG</span>
-            <p class="impact-card__date">Novembre 2024</p>
-            <h3 class="impact-card__title">Sustainability Manager: chi è, cosa fa e come diventarlo</h3>
-            <p class="impact-card__exc">Il ruolo del Sustainability Manager è sempre più cruciale nelle aziende italiane. Competenze richieste, percorsi formativi e certificazione PDR 109: tutto quello che devi sapere.</p>
-          </div>
-          <div class="impact-card__ft">
-            <span style="font-size:0.8rem; color:var(--muted-dk)">11 min · Pillar</span>
-            <a href="#" class="btn btn-ghost-dk" style="font-size:0.875rem">Leggi <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-
-    </div><!-- /grid -->
-  </div>
-</section>
-
-<!-- ============================================================
+  <!-- ============================================================
      IN-PAGE CTA BANNER
      ============================================================ -->
-<section class="section-sm th-dark" style="border-top:1px solid var(--border-dk); border-bottom:1px solid var(--border-dk)">
-  <div class="container">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; padding:2rem; border:1px solid var(--border-dk); border-radius:var(--r-lg)">
-      <div>
-        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-pale); margin-bottom:0.5rem">Hai bisogno di supporto?</p>
-        <p style="font-family:var(--font-serif); font-size:1.45rem; font-weight:600; color:var(--off-white); line-height:1.25">Richiedi una consulenza ESG personalizzata con EETRA</p>
-      </div>
-      <a href="contatti.html" class="btn btn-primary" style="flex-shrink:0">Contattaci <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- CTA -->
-<section class="section-xl th-dark cta-sec">
-  <div class="cta-sec__bg" aria-hidden="true"></div>
-  <div class="container cta-sec__content">
-    <h2 class="cta-sec__title fade-up">Vuoi saperne di più?</h2>
-    <p class="cta-sec__sub fade-up delay-1">Contattaci per una consulenza ESG o iscriviti alla nostra newsletter per ricevere aggiornamenti normativi direttamente nella tua inbox.</p>
-    <div class="cta-sec__btns fade-up delay-2">
-      <a href="contatti.html" class="btn btn-primary">Richiedi consulenza <span class="arrow">→</span></a>
-      </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-04.png" alt="EETRA" class="footer__logo-img" onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
-        <p class="footer__tagline">Società di consulenza ESG certificata B Corp. Guidiamo aziende e PMI nella transizione rigenerativa.</p>
-        <div class="footer__contact-row"><span>📍</span><span>Via Plinio 43, 20129 Milano</span></div>
-        <div class="footer__contact-row"><span>📧</span><a href="mailto:info@eetra.it">info@eetra.it</a></div>
-        <div class="footer__contact-row"><span>📞</span><a href="tel:+390225565011">+39 02 25565011</a></div>
-      </div>
-      <div>
-        <p class="footer__col-ttl">Navigazione</p>
-        <nav class="footer__nav">
-          <a href="chi-siamo.html">Chi siamo</a>
-          <a href="servizi.html">Servizi ESG</a>
-          <a href="impact.html">Impact &amp; News</a>
-                    <a href="contatti.html">Contatti</a>
-        </nav>
-      </div>
-      <div>
-        <p class="footer__col-ttl">Categorie</p>
-        <nav class="footer__nav">
-          <a href="#">CSRD &amp; ESRS</a>
-          <a href="#">ESG Reporting</a>
-          <a href="#">Carbon Footprint</a>
-          <a href="#">Certificazioni</a>
-          <a href="#">Formazione ESG</a>
-        </nav>
-      </div>
-      <div>
-        <p class="footer__col-ttl">Certificazioni</p>
-        <div class="footer__cert-row">
-          <img class="footer__cert-img" src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b corp bianco.png" alt="B Corp Certified">
+  <section class="section-sm th-dark"
+    style="border-top:1px solid var(--border-dk); border-bottom:1px solid var(--border-dk)">
+    <div class="container">
+      <div
+        style="display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; padding:2rem; border:1px solid var(--border-dk); border-radius:var(--r-lg)">
+        <div>
+          <p
+            style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-pale); margin-bottom:0.5rem">
+            Hai bisogno di supporto?</p>
+          <p
+            style="font-family:var(--font-serif); font-size:1.45rem; font-weight:600; color:var(--off-white); line-height:1.25">
+            Richiedi una consulenza ESG personalizzata con EETRA</p>
         </div>
-        <p style="font-size:0.8375rem; margin-top:1.25rem; line-height:1.6; color:var(--muted-lt)">EETRA Srl SB — Società Benefit<br>Via Plinio 43, Milano</p>
+        <a href="contatti.html" class="btn btn-primary" style="flex-shrink:0">Contattaci <span
+            class="arrow">→</span></a>
       </div>
     </div>
-    <div class="footer__bottom">
-      <span class="footer__copy">© 2026 EETRA Srl SB — Tutti i diritti riservati</span>
-      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<script src="js/main.js"></script>
+
+
+  <!-- CTA -->
+  <section class="section-xl th-dark cta-sec">
+    <div class="cta-sec__bg" aria-hidden="true"></div>
+    <div class="container cta-sec__content">
+      <h2 class="cta-sec__title fade-up">Vuoi saperne di più?</h2>
+      <p class="cta-sec__sub fade-up delay-1">Contattaci per una consulenza ESG o iscriviti alla nostra newsletter per
+        ricevere aggiornamenti normativi direttamente nella tua inbox.</p>
+      <div class="cta-sec__btns fade-up delay-2">
+        <a href="contatti.html" class="btn btn-primary">Richiedi consulenza <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-04.png" alt="EETRA" class="footer__logo-img"
+            onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+          <p class="footer__tagline">Società di consulenza ESG certificata B Corp. Guidiamo aziende e PMI nella
+            transizione rigenerativa.</p>
+          <div class="footer__contact-row"><span>📍</span><span>Via Plinio 43, 20129 Milano</span></div>
+          <div class="footer__contact-row"><span>📧</span><a href="mailto:info@eetra.it">info@eetra.it</a></div>
+          <div class="footer__contact-row"><span>📞</span><a href="tel:+390225565011">+39 02 25565011</a></div>
+        </div>
+        <div>
+          <p class="footer__col-ttl">Navigazione</p>
+          <nav class="footer__nav">
+            <a href="chi-siamo.html">Chi siamo</a>
+            <a href="servizi.html">Servizi ESG</a>
+            <a href="impact.html">Impact &amp; News</a>
+            <a href="contatti.html">Contatti</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer__col-ttl">Categorie</p>
+          <nav class="footer__nav">
+            <a href="#">CSRD &amp; ESRS</a>
+            <a href="#">ESG Reporting</a>
+            <a href="#">Carbon Footprint</a>
+            <a href="#">Certificazioni</a>
+            <a href="#">Formazione ESG</a>
+          </nav>
+        </div>
+        <div>
+          <p class="footer__col-ttl">Certificazioni</p>
+          <div class="footer__cert-row">
+            <img class="footer__cert-img"
+              src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b corp bianco.png" alt="B Corp Certified">
+          </div>
+          <p style="font-size:0.8375rem; margin-top:1.25rem; line-height:1.6; color:var(--muted-lt)">EETRA Srl SB —
+            Società Benefit<br>Via Plinio 43, Milano</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2026 EETRA Srl SB — Tutti i diritti riservati</span>
+        <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/blog-manager.js"></script>
+  <script>
+    /* ── Load posts (renderInto auto-inits the reader modal) ── */
+    BM.renderInto('articlesGrid');
+
+    /* ── Filter buttons ── */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        BM.renderInto('articlesGrid', { filterCat: cat === 'all' ? null : cat });
+      });
+    });
+  </script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
