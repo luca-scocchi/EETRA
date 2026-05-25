@@ -193,6 +193,7 @@
       color: var(--muted-lt);
       line-height: 1.65;
     }
+
     /* ---- Team card photo ---- */
     .team-card__photo {
       aspect-ratio: 4 / 5;
@@ -209,6 +210,21 @@
       object-position: top center;
       display: block;
       filter: grayscale(100%) contrast(1.05) brightness(1.02);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+
+    .team-card:hover .team-img,
+    .team-card:hover .team-card__photo img {
+      filter: none;
+      transform: scale(1.05);
+    }
+
+    .team-card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
     }
 
     .team-card__photo-placeholder {
@@ -695,7 +711,7 @@
       <div class="grid-4 fade-up">
         <div class="team-card">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Carlo Rossini.jpg" alt="Carlo Rossini" loading="lazy">
+            <img class="team-img" src="Staff/Carlo Rossini.png" alt="Carlo Rossini" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Carlo Rossini</p>
@@ -704,7 +720,7 @@
         </div>
         <div class="team-card delay-1">
           <div class="team-card__photo">
-            <div class="team-card__photo-placeholder">MC</div>
+            <img class="team-img" src="Staff/Martina Castoldi.png" alt="Martina Castoldi" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Martina Castoldi</p>
@@ -713,7 +729,7 @@
         </div>
         <div class="team-card delay-2">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Michela Fancello.jpg" alt="Michela Fancello" loading="lazy">
+            <img class="team-img" src="Staff/Michela Fancello.png" alt="Michela Fancello" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Michela Fancello</p>
@@ -722,7 +738,7 @@
         </div>
         <div class="team-card delay-3">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Guido Rossini.jpg" alt="Guido Rossini" loading="lazy">
+            <img class="team-img" src="Staff/Guido Rossini.png" alt="Guido Rossini" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Guido Rossini</p>
@@ -735,7 +751,7 @@
         </div>
         <div class="team-card">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Chiara La Fortezza.jpg" alt="Chiara La Fortezza" loading="lazy">
+            <img class="team-img" src="Staff/Chiara la Fortezza.png" alt="Chiara La Fortezza" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Chiara La Fortezza</p>
@@ -747,7 +763,7 @@
         </div>
         <div class="team-card delay-1">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Andrea Botti.jpg" alt="Andrea Botti" loading="lazy">
+            <img class="team-img" src="Staff/Andrea Botti.png" alt="Andrea Botti" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Andrea Botti</p>
@@ -760,7 +776,7 @@
         </div>
         <div class="team-card delay-2">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Giulia Rossetti.jpg" alt="Giulia Rossetti" loading="lazy">
+            <img class="team-img" src="Staff/Giulia Rossetti.png" alt="Giulia Rossetti" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Giulia Rossetti</p>
@@ -772,7 +788,7 @@
         </div>
         <div class="team-card delay-3">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Letizia Garbolino.jpg" alt="Letizia Garbolino" loading="lazy">
+            <img class="team-img" src="Staff/Letizia Garbolino.png" alt="Letizia Garbolino" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Letizia Garbolino</p>
@@ -787,7 +803,7 @@
         </div>
         <div class="team-card">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Gianluca Buccheri.jpg" alt="Gianluca Buccheri" loading="lazy">
+            <img class="team-img" src="Staff/Gianluca Buccheri.png" alt="Gianluca Buccheri" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Gianluca Buccheri</p>
@@ -799,7 +815,7 @@
         </div>
         <div class="team-card delay-1">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Chiara Cortellazzi.jpg" alt="Chiara Cortellazzi" loading="lazy">
+            <img class="team-img" src="Staff/Chiara Cortellazzi.png" alt="Chiara Cortellazzi" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Chiara Cortellazzi</p>
@@ -813,7 +829,7 @@
         </div>
         <div class="team-card delay-2">
           <div class="team-card__photo">
-            <img class="team-img" src="team/Souzan Goloburda.jpg" alt="Souzan Goloburda" loading="lazy">
+            <img class="team-img" src="Staff/Souzan Goloburda.png" alt="Souzan Goloburda" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Souzan Goloburda</p>
