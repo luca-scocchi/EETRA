@@ -242,6 +242,30 @@
   </style>
 
   <style>
+    /* Compact team cards for 5-col layout */
+    .team-card__body {
+      padding: 1rem 0.85rem;
+    }
+    .team-card__name {
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+    .team-card__role {
+      font-size: 0.75rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width:1024px) {
+      .team-grid-5 {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+    @media (max-width:640px) {
+      .team-grid-5 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+      }
+    }
     @media (max-width:768px) {
       .responsive-split {
         grid-template-columns: 1fr !important;
@@ -708,132 +732,135 @@
         certificato nei principali protocolli internazionali.
       </p>
 
-      <div class="grid-4 fade-up">
+      <div class="fade-up team-grid-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:1.5rem;">
+        <!-- 1. Botti -->
         <div class="team-card">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Carlo Rossini.png" alt="Carlo Rossini" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Carlo Rossini</p>
-            <p class="team-card__role">CEO & Partner</p>
-          </div>
-        </div>
-        <div class="team-card delay-1">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Martina Castoldi.png" alt="Martina Castoldi" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Martina Castoldi</p>
-            <p class="team-card__role">Partner</p>
-          </div>
-        </div>
-        <div class="team-card delay-2">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Michela Fancello.png" alt="Michela Fancello" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Michela Fancello</p>
-            <p class="team-card__role">Partner</p>
-          </div>
-        </div>
-        <div class="team-card delay-3">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Guido Rossini.png" alt="Guido Rossini" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Guido Rossini</p>
-            <p class="team-card__role">CFO Finance Lead</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">LEED AP EBOM</span>
-              <span class="cert-badge">EGE</span>
-            </div>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Chiara la Fortezza.png" alt="Chiara La Fortezza" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Chiara La Fortezza</p>
-            <p class="team-card__role">Sustainability Player</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">B Leader</span>
-            </div>
-          </div>
-        </div>
-        <div class="team-card delay-1">
           <div class="team-card__photo">
             <img class="team-img" src="Staff/Andrea Botti.png" alt="Andrea Botti" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Andrea Botti</p>
-            <p class="team-card__role">CTO Technical Lead</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">LEED AP BD+C</span>
-              <span class="cert-badge">PhD</span>
-            </div>
+            <p class="team-card__role">Innovation | Technical Lead</p>
           </div>
         </div>
-        <div class="team-card delay-2">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Giulia Rossetti.png" alt="Giulia Rossetti" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Giulia Rossetti</p>
-            <p class="team-card__role">Sustainability Player</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">LEED GA</span>
-            </div>
-          </div>
-        </div>
-        <div class="team-card delay-3">
-          <div class="team-card__photo">
-            <img class="team-img" src="Staff/Letizia Garbolino.png" alt="Letizia Garbolino" loading="lazy">
-          </div>
-          <div class="team-card__body">
-            <p class="team-card__name">Letizia Garbolino</p>
-            <p class="team-card__role">Sustainability Expert</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">LEED AP ID+C</span>
-              <span class="cert-badge">WELL AP</span>
-              <span class="cert-badge">SITES AP</span>
-              <span class="cert-badge">Access4you</span>
-            </div>
-          </div>
-        </div>
-        <div class="team-card">
+        <!-- 2. Buccheri -->
+        <div class="team-card delay-1">
           <div class="team-card__photo">
             <img class="team-img" src="Staff/Gianluca Buccheri.png" alt="Gianluca Buccheri" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Gianluca Buccheri</p>
-            <p class="team-card__role">Sustainability Player</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">LEED GA</span>
-            </div>
+            <p class="team-card__role">Sustainability Specialist</p>
           </div>
         </div>
-        <div class="team-card delay-1">
+        <!-- 3. Castoldi -->
+        <div class="team-card delay-2">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Martina Castoldi.png" alt="Martina Castoldi" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Martina Castoldi</p>
+            <p class="team-card__role">Impact &amp; Communication | Partner</p>
+          </div>
+        </div>
+        <!-- 4. Cortellazzi -->
+        <div class="team-card delay-3">
           <div class="team-card__photo">
             <img class="team-img" src="Staff/Chiara Cortellazzi.png" alt="Chiara Cortellazzi" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Chiara Cortellazzi</p>
             <p class="team-card__role">Sustainability Expert</p>
-            <div class="team-card__certs">
-              <span class="cert-badge">LEED AP BD+C</span>
-              <span class="cert-badge">WELL AP</span>
-              <span class="cert-badge">Wiredscore AP</span>
-            </div>
           </div>
         </div>
+        <!-- 5. Dibra -->
+        <div class="team-card">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Merkur Dibra.png" alt="Merkur Dibra" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Merkur Dibra</p>
+            <p class="team-card__role">Sustainability Specialist</p>
+          </div>
+        </div>
+        <!-- 6. Fancello -->
+        <div class="team-card delay-1">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Michela Fancello.png" alt="Michela Fancello" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Michela Fancello</p>
+            <p class="team-card__role">Tender | Partner</p>
+          </div>
+        </div>
+        <!-- 7. Garbolino -->
         <div class="team-card delay-2">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Letizia Garbolino.png" alt="Letizia Garbolino" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Letizia Garbolino</p>
+            <p class="team-card__role">Sustainability Expert</p>
+          </div>
+        </div>
+        <!-- 8. Goloburda -->
+        <div class="team-card delay-3">
           <div class="team-card__photo">
             <img class="team-img" src="Staff/Souzan Goloburda.png" alt="Souzan Goloburda" loading="lazy">
           </div>
           <div class="team-card__body">
             <p class="team-card__name">Souzan Goloburda</p>
-            <p class="team-card__role">Sustainability Junior</p>
+            <p class="team-card__role">Sustainability Player</p>
+          </div>
+        </div>
+        <!-- 9. La Fortezza -->
+        <div class="team-card">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Chiara la Fortezza.png" alt="Chiara La Fortezza" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Chiara La Fortezza</p>
+            <p class="team-card__role">Sustainability Specialist</p>
+          </div>
+        </div>
+        <!-- 10. Mirazi -->
+        <div class="team-card delay-1">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Farzaneh Mirazi.png" alt="Farzaneh Mirazi" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Farzaneh Mirazi</p>
+            <p class="team-card__role">Sustainability Specialist</p>
+          </div>
+        </div>
+        <!-- 11. Rossetti -->
+        <div class="team-card delay-2">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Giulia Rossetti.png" alt="Giulia Rossetti" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Giulia Rossetti</p>
+            <p class="team-card__role">Sustainability Specialist</p>
+          </div>
+        </div>
+        <!-- 12. Rossini Carlo -->
+        <div class="team-card delay-3">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Carlo Rossini.png" alt="Carlo Rossini" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Carlo Rossini</p>
+            <p class="team-card__role">CEO | Partner</p>
+          </div>
+        </div>
+        <!-- 13. Rossini Guido -->
+        <div class="team-card">
+          <div class="team-card__photo">
+            <img class="team-img" src="Staff/Guido Rossini.png" alt="Guido Rossini" loading="lazy">
+          </div>
+          <div class="team-card__body">
+            <p class="team-card__name">Guido Rossini</p>
+            <p class="team-card__role">Operation Lead</p>
           </div>
         </div>
       </div>
