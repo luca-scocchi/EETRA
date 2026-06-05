@@ -1551,71 +1551,145 @@ p {
 
 .service-bu-header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  margin-bottom: 4rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 3.5rem;
 }
 
 .service-bu-img {
   border-radius: var(--r-md);
   overflow: hidden;
-  aspect-ratio: 16/9;
+  flex-shrink: 0;
 }
 
 .service-bu-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform var(--tr-slow);
 }
 
-.service-list {}
+.service-bu-header:hover .service-bu-img img {
+  transform: scale(1.04);
+}
 
-.service-item {
+/* Premium Table-like Service List */
+.service-table {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.service-table-header {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 3rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--green);
+  margin-bottom: 1rem;
+}
+
+.service-table-header__col {
+  font-family: var(--font-sans);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.th-dark .service-table-header {
+  border-bottom-color: var(--green-pale);
+}
+
+.th-dark .service-table-header__col {
+  color: var(--green-pale);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 3rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--border-dk);
+  transition: background-color var(--tr), padding-left var(--tr), border-bottom-color var(--tr);
+}
+
+.th-cream .service-row {
+  border-bottom-color: var(--border-lt);
+}
+
+.service-row:hover {
+  border-bottom-color: var(--green-hover);
+}
+
+.th-dark .service-row:hover {
+  border-bottom-color: var(--green-pale);
+}
+
+.service-row__name-col {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--border-dk);
+  gap: 1.25rem;
 }
 
-.service-item:first-child {
-  border-top: 1px solid var(--border-dk);
-}
-
-.service-item__n {
+.service-row__number {
   font-family: var(--font-serif);
-  font-size: 0.875rem;
-  color: var(--muted-lt);
-  min-width: 1.75rem;
-  padding-top: 0.25rem;
-}
-
-.service-item__content {
-  flex: 1;
-}
-
-.service-item__title {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
+  color: var(--green);
+  margin-top: 0.25rem;
+}
+
+.th-dark .service-row__number {
+  color: var(--green-pale);
+}
+
+.service-row__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
   color: var(--off-white);
-  margin-bottom: 0.4rem;
   letter-spacing: -0.01em;
 }
 
-.service-item__title--dk {
+.th-cream .service-row__title {
   color: var(--dark);
 }
 
-.service-item__desc {
-  font-size: 0.9375rem;
-  color: var(--muted-lt);
-  line-height: 1.65;
+.service-row__desc-col {
+  display: flex;
+  align-items: flex-start;
 }
 
-.service-item__desc--dk {
+.service-row__desc {
+  font-size: 0.9875rem;
+  line-height: 1.7;
+  color: var(--muted-lt);
+  margin: 0;
+}
+
+.th-cream .service-row__desc {
   color: var(--muted-dk);
+}
+
+@media (max-width: 900px) {
+  .service-table-header {
+    display: none;
+  }
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1.75rem 0;
+  }
+  .service-row__name-col {
+    gap: 0.75rem;
+  }
+  .service-row__title {
+    font-size: 1.25rem;
+  }
 }
 
 /* ---------- ACADEMY CARDS ---------- */
