@@ -1,0 +1,35 @@
+[
+    {
+        "id": "card-2024",
+        "anno": "2024",
+        "titolo": "Governance EETRA 2024",
+        "descrizione": "Il report annuale documenta l'impatto generato da EETRA nel 2024: progetti ESG completati, emissioni evitate, clienti supportati, formazione erogata e governance interna.",
+        "isLatest": true,
+        "coverDataUrl": null,
+        "pdfPath": "governance/Relazione-di-Impatto-22_EETRA.pdf",
+        "pdfId": null,
+        "createdAt": 3
+    },
+    {
+        "id": "card-2023",
+        "anno": "2023",
+        "titolo": "Governance EETRA 2023",
+        "descrizione": "Report annuale 2023: espansione del team, nuove certificazioni LEED e BREEAM completate e primo anno come Sustainability Consultancy B Corp in Italia.",
+        "isLatest": false,
+        "coverDataUrl": null,
+        "pdfPath": "governance/Relazione-di-impatto-2023.pdf",
+        "pdfId": null,
+        "createdAt": 2
+    },
+    {
+        "id": "card-2022",
+        "anno": "2022",
+        "titolo": "Governance EETRA 2022",
+        "descrizione": "Report annuale 2022: consolidamento servizi ESG, avvio percorso B Corp, crescita del portafoglio clienti nel real estate sostenibile.",
+        "isLatest": false,
+        "coverDataUrl": null,
+        "pdfPath": "governance/Relazione-di-Impatto-22_EETRA.pdf",
+        "pdfId": null,
+        "createdAt": 1
+    }
+]

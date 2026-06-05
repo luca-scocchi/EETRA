@@ -141,6 +141,196 @@
       flex-wrap: wrap;
     }
 
+    /* ---- Governance section: compact sub-sections ---- */
+    /* 4-col grid for Relazioni (smaller cards) */
+    .grid-4-reports {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1200px) {
+      .grid-4-reports { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid-4-reports { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .grid-4-reports { grid-template-columns: 1fr; }
+    }
+
+    /* Smaller cover for compact relazioni cards */
+    .grid-4-reports .report-card__cover {
+      aspect-ratio: 3/4;
+    }
+    .grid-4-reports .report-card__cover-year {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+    .grid-4-reports .report-card__body {
+      padding: 1.25rem;
+    }
+    .grid-4-reports .report-card__title {
+      font-size: 1rem;
+    }
+    .grid-4-reports .report-card__desc {
+      font-size: 0.825rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Sub-section header for secondary doc types */
+    .gov-sub-section {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border-dk);
+    }
+    .gov-sub-section__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .gov-sub-section__icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .gov-sub-section__title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--off-white);
+      letter-spacing: -0.01em;
+    }
+    .gov-sub-section__desc {
+      font-size: 0.875rem;
+      color: var(--muted-lt);
+      line-height: 1.6;
+      margin-top: 0.25rem;
+    }
+
+    /* Horizontal compact doc row (for codice-etico etc.) */
+    .gov-doc-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .gov-doc-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--dark-2);
+      border: 1px solid var(--border-dk);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
+      transition: all var(--tr);
+    }
+    .gov-doc-item:hover {
+      border-color: rgba(92, 123, 42, 0.4);
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .gov-doc-item__year {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green-pale);
+      min-width: 3.5rem;
+      text-align: center;
+      line-height: 1;
+    }
+    .gov-doc-item__year--icon {
+      font-size: 1.75rem;
+    }
+    .gov-doc-item__info {
+      flex: 1;
+      min-width: 0;
+    }
+    .gov-doc-item__title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--off-white);
+      margin-bottom: 0.2rem;
+    }
+    .gov-doc-item__desc {
+      font-size: 0.8125rem;
+      color: var(--muted-lt);
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .gov-doc-item__btn {
+      flex-shrink: 0;
+    }
+    .gov-doc-empty {
+      padding: 2rem 1.5rem;
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: var(--r-md);
+      text-align: center;
+      color: var(--muted-lt);
+      font-size: 0.875rem;
+    }
+
+    /* Cover thumbnail inside compact row */
+    .gov-doc-item__cover {
+      flex-shrink: 0;
+      width: 56px;
+      height: 72px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--dark-3);
+      border: 1px solid var(--border-dk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gov-doc-item__cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gov-doc-item__cover-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      width: 100%;
+      height: 100%;
+      padding: 4px;
+    }
+    .gov-doc-item__cover-year {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--green-pale);
+      line-height: 1;
+    }
+    .gov-doc-item__cover-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--green-pale));
+    }
+    .gov-latest-badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid rgba(92,123,42,0.5);
+      border-radius: 100px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-pale);
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    @media (max-width: 640px) {
+      .gov-doc-item { flex-wrap: wrap; }
+      .gov-doc-item__desc { white-space: normal; }
+    }
+
     /* ---- Upload section (placeholder) ---- */
     .upload-zone {
       border: 2px dashed var(--border-dk);
@@ -1368,21 +1558,179 @@
   <!-- ============================================================
      GOVERNANCE REPORTS
      ============================================================ -->
-  <section class="section th-dark" id="reports" aria-label="Archivio Relazioni d'Impatto">
+  <section class="section th-dark" id="reports" aria-label="Archivio Documenti di Governance">
     <div class="container">
-      <div class="sec-label sec-label--lt"><span>Archivio report</span></div>
+      <div class="sec-label sec-label--lt"><span>governance</span></div>
       <h2 class="t-h2 mb-8 fade-up">
-        Scarica le nostre<br>Relazioni d'Impatto
+        Documenti di<br>Governance
       </h2>
 
-      <div class="grid-3 fade-up" id="reports-grid">
-        <!-- Populated by report-manager.js -->
+      <!-- Relazioni d'Impatto -->
+      <div class="gov-sub-section fade-up" id="sec-relazioni" style="margin-top:0;padding-top:0;border-top:none">
+        <div class="gov-sub-section__header">
+          <span class="gov-sub-section__icon">📋</span>
+          <div>
+            <div class="gov-sub-section__title">Relazioni d'Impatto</div>
+            <div class="gov-sub-section__desc">I report annuali che documentano l'impatto generato da EETRA.</div>
+          </div>
+        </div>
+        <div class="gov-doc-row" id="reports-relazioni">
+          <!-- Populated by governance-manager.js -->
+        </div>
       </div>
+
+      <!-- Codice Etico -->
+      <div class="gov-sub-section fade-up" id="sec-codice-etico">
+        <div class="gov-sub-section__header">
+          <span class="gov-sub-section__icon">⚖️</span>
+          <div>
+            <div class="gov-sub-section__title">Codice Etico</div>
+            <div class="gov-sub-section__desc">Principi e valori che guidano la condotta aziendale di EETRA.</div>
+          </div>
+        </div>
+        <div class="gov-doc-row" id="reports-codice-etico">
+          <!-- Populated by governance-manager.js -->
+        </div>
+      </div>
+
+      <!-- Politica Mobilità -->
+      <div class="gov-sub-section fade-up" id="sec-mobilita">
+        <div class="gov-sub-section__header">
+          <span class="gov-sub-section__icon">🚴</span>
+          <div>
+            <div class="gov-sub-section__title">Politica Mobilità Sostenibile</div>
+            <div class="gov-sub-section__desc">Le linee guida EETRA per una mobilità aziendale a basso impatto.</div>
+          </div>
+        </div>
+        <div class="gov-doc-row" id="reports-mobilita">
+          <!-- Populated by governance-manager.js -->
+        </div>
+      </div>
+
+      <!-- Politica DE&I -->
+      <div class="gov-sub-section fade-up" id="sec-parita">
+        <div class="gov-sub-section__header">
+          <span class="gov-sub-section__icon">🤝</span>
+          <div>
+            <div class="gov-sub-section__title">Politica DE&amp;I</div>
+            <div class="gov-sub-section__desc">Diversità, equità e inclusione: il nostro impegno documentato.</div>
+          </div>
+        </div>
+        <div class="gov-doc-row" id="reports-parita">
+          <!-- Populated by governance-manager.js -->
+        </div>
+      </div>
+
+      <!-- Custom governance sections (dynamic) -->
+      <div id="gov-custom-sections-container"></div>
+
     </div>
   </section>
-  <script src="js/report-manager.js"></script>
+  <script src="js/governance-manager.js"></script>
   <script>
-    RM.renderInto('reports-grid');
+    (async function() {
+      // Helper: render compact row items with cover thumbnail + latest badge
+      async function renderCompactSection(sectionKey, containerId) {
+        const el = document.getElementById(containerId);
+        if (!el) return;
+        const docs = await GM.getDocs(sectionKey);
+        if (!window.__gmDocs) window.__gmDocs = {};
+        docs.forEach(d => { window.__gmDocs[d.id] = d; });
+        if (!docs.length) {
+          el.innerHTML = `<div class="gov-doc-empty">📄 Nessun documento pubblicato in questa sezione.</div>`;
+          return;
+        }
+        el.innerHTML = docs.map(d => {
+          const hasPdf = d.pdfId || d.pdfPath;
+
+          // Cover thumbnail: image or year placeholder
+          const coverHtml = d.coverDataUrl
+            ? `<div class="gov-doc-item__cover">
+                <img src="${d.coverDataUrl}" alt="Copertina ${d.titolo || ''}">
+               </div>`
+            : `<div class="gov-doc-item__cover">
+                <div class="gov-doc-item__cover-placeholder">
+                  ${d.anno ? `<span class="gov-doc-item__cover-year">${d.anno}</span>` : '📄'}
+                </div>
+                <div class="gov-doc-item__cover-bar"></div>
+               </div>`;
+
+          // Latest badge
+          const latestBadge = d.isLatest
+            ? `<span class="gov-latest-badge">Più recente</span>`
+            : '';
+
+          const btnHtml = hasPdf
+            ? `<button class="btn btn-outline gov-doc-item__btn" style="padding:0.5rem 1rem;font-size:0.8rem" onclick="GM.downloadDoc(window.__gmDocs['${d.id}'])">Download <span class="arrow">→</span></button>`
+            : `<button class="btn btn-outline gov-doc-item__btn" disabled style="padding:0.5rem 1rem;font-size:0.8rem;opacity:0.4;cursor:not-allowed">PDF non disponibile</button>`;
+
+          return `<article class="gov-doc-item" data-id="${d.id}">
+            ${coverHtml}
+            <div class="gov-doc-item__info">
+              <div class="gov-doc-item__title">${d.titolo || ''}${latestBadge}</div>
+              <div class="gov-doc-item__desc">${d.descrizione || ''}</div>
+            </div>
+            ${btnHtml}
+          </article>`;
+        }).join('');
+      }
+
+      // Render Relazioni d'Impatto (same compact row format as others)
+      await renderCompactSection('relazioni', 'reports-relazioni');
+
+      // Render other fixed sections as compact rows
+      await renderCompactSection('codice-etico', 'reports-codice-etico');
+      await renderCompactSection('mobilita', 'reports-mobilita');
+      await renderCompactSection('parita', 'reports-parita');
+
+      // Render custom governance sections
+      const customSections = await GM.getCustomSections();
+      const customContainer = document.getElementById('gov-custom-sections-container');
+      if (customContainer && customSections.length) {
+        for (const cs of customSections) {
+          const secId = 'gov-custom-' + cs.id;
+          const rowId = 'gov-custom-row-' + cs.id;
+          const icon = cs.icon || '📂';
+          customContainer.insertAdjacentHTML('beforeend', `
+            <div class="gov-sub-section fade-up" id="${secId}">
+              <div class="gov-sub-section__header">
+                <span class="gov-sub-section__icon">${icon}</span>
+                <div>
+                  <div class="gov-sub-section__title">${cs.titolo || cs.label}</div>
+                  <div class="gov-sub-section__desc">${cs.descrizione || ''}</div>
+                </div>
+              </div>
+              <div class="gov-doc-row" id="${rowId}"></div>
+            </div>`);
+          // Render custom docs as compact rows
+          const rowEl = document.getElementById(rowId);
+          const customDocs = await GM.getCustomDocs(cs.slug);
+          if (!window.__gmDocs) window.__gmDocs = {};
+          customDocs.forEach(d => { window.__gmDocs[d.id] = d; });
+          if (!customDocs.length) {
+            rowEl.innerHTML = `<div class="gov-doc-empty">📄 Nessun documento pubblicato in questa sezione.</div>`;
+          } else {
+            rowEl.innerHTML = customDocs.map(d => {
+              const hasPdf = d.pdfId || d.pdfPath;
+              const yearOrIcon = d.anno
+                ? `<div class="gov-doc-item__year">${d.anno}</div>`
+                : `<div class="gov-doc-item__year gov-doc-item__year--icon">📄</div>`;
+              const btnHtml = hasPdf
+                ? `<button class="btn btn-outline gov-doc-item__btn" style="padding:0.5rem 1rem;font-size:0.8rem" onclick="GM.downloadDoc(window.__gmDocs['${d.id}'])">Download <span class="arrow">→</span></button>`
+                : `<button class="btn btn-outline gov-doc-item__btn" disabled style="padding:0.5rem 1rem;font-size:0.8rem;opacity:0.4;cursor:not-allowed">PDF non disponibile</button>`;
+              return `<article class="gov-doc-item" data-id="${d.id}">
+                ${yearOrIcon}
+                <div class="gov-doc-item__info">
+                  <div class="gov-doc-item__title">${d.titolo || ''}</div>
+                  <div class="gov-doc-item__desc">${d.descrizione || ''}</div>
+                </div>
+                ${btnHtml}
+              </article>`;
+            }).join('');
+          }
+        }
+      }
+    })();
   </script>
 
   <!-- ============================================================

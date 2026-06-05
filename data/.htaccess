@@ -1,0 +1,3 @@
+# Impedisce a chiunque di accedere direttamente a questa cartella tramite browser
+Order Deny,Allow
+Deny from all

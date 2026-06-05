@@ -1,0 +1,8 @@
+# Disabilita il listato delle cartelle
+Options -Indexes
+
+# Impedisce l'esecuzione di script PHP all'interno della cartella uploads
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+</Files>

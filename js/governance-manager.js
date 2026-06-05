@@ -1,114 +1,127 @@
 /* =========================================================
-   EETRA Governance Manager v2
-   Fixed stores : relazioni, codice-etico, mobilita, parita
-   Custom stores: gov-custom-sections, gov-custom-docs
-   Each document: { id, titolo, descrizione, anno?, coverDataUrl, pdfId, pdfPath, isLatest, createdAt }
-   Each custom section: { id, slug, label, icon, titolo, descrizione,
-                          step1titolo, step1desc, step2titolo, step2desc,
-                          step3titolo, step3desc, ordine, createdAt }
+   EETRA Governance Manager v3 (PHP Backend Edition)
    ========================================================= */
 
 const GM = (() => {
-  const DB_NAME = 'eetra-gov';
-  const DB_VER  = 2;           // bumped to add custom-sections + custom-docs stores
-
   const FIXED_SECTIONS = ['relazioni', 'codice-etico', 'mobilita', 'parita'];
 
-  /* ── Open / upgrade DB ── */
-  function openDB() {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, DB_VER);
-      req.onupgradeneeded = e => {
-        const db = e.target.result;
-        // Fixed section document stores (one per section)
-        FIXED_SECTIONS.forEach(s => {
-          if (!db.objectStoreNames.contains('gov-' + s))
-            db.createObjectStore('gov-' + s, { keyPath: 'id' });
-        });
-        // Shared PDF binary store
-        if (!db.objectStoreNames.contains('gov-pdfs'))
-          db.createObjectStore('gov-pdfs', { keyPath: 'id' });
-        // NEW v2 – custom section metadata
-        if (!db.objectStoreNames.contains('gov-custom-sections'))
-          db.createObjectStore('gov-custom-sections', { keyPath: 'id' });
-        // NEW v2 – all documents for custom sections in one store, indexed by .section (slug)
-        if (!db.objectStoreNames.contains('gov-custom-docs')) {
-          const st = db.createObjectStore('gov-custom-docs', { keyPath: 'id' });
-          st.createIndex('by-section', 'section', { unique: false });
-        }
-      };
-      req.onsuccess = e => resolve(e.target.result);
-      req.onerror   = e => reject(e.target.error);
-    });
-  }
-
-  /* simple single-store transaction helper */
-  function tx(store, mode, fn) {
-    return openDB().then(db => new Promise((resolve, reject) => {
-      const req = fn(db.transaction(store, mode).objectStore(store));
-      req.onsuccess = () => resolve(req.result);
-      req.onerror   = () => reject(req.error);
-    }));
-  }
-
-  /* ── Default documents for fixed sections ── */
-  const DEFAULTS = {
-    'relazioni': [
-      {
-        id: 'rel-2024', anno: '2024',
-        titolo: 'Relazione d\'Impatto EETRA 2024',
-        descrizione: 'Il report annuale documenta l\'impatto generato da EETRA nel 2024: progetti ESG completati, emissioni evitate, clienti supportati, formazione erogata e governance interna.',
-        isLatest: true, coverDataUrl: null,
-        pdfPath: 'governance/Relazione-di-Impatto-2024-EETRA.pdf', pdfId: null, createdAt: 3
-      },
-      {
-        id: 'rel-2023', anno: '2023',
-        titolo: 'Relazione d\'Impatto EETRA 2023',
-        descrizione: 'Report annuale 2023: espansione del team, nuove certificazioni LEED e BREEAM completate e primo anno come Sustainability Consultancy B Corp in Italia.',
-        isLatest: false, coverDataUrl: null,
-        pdfPath: 'governance/Relazione-di-impatto-2023.pdf', pdfId: null, createdAt: 2
-      },
-      {
-        id: 'rel-2022', anno: '2022',
-        titolo: 'Relazione d\'Impatto EETRA 2022',
-        descrizione: 'Report annuale 2022: consolidamento servizi ESG, avvio percorso B Corp, crescita del portafoglio clienti nel real estate sostenibile.',
-        isLatest: false, coverDataUrl: null,
-        pdfPath: 'governance/Relazione-di-Impatto-22_EETRA.pdf', pdfId: null, createdAt: 1
+  // Helper utility to convert Data URLs to Blobs (for in-memory covers)
+  function dataURLtoBlob(dataurl) {
+    try {
+      const arr = dataurl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      let n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
       }
-    ],
-    'codice-etico': [],
-    'mobilita':     [],
-    'parita':       []
-  };
+      return new Blob([u8arr], { type: mime });
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Helper to detect if the server is serving raw PHP text instead of executing it
+  async function checkPhpExecution(res) {
+    const text = await res.clone().text();
+    if (text.trim().startsWith('<?php')) {
+      alert("⚠️ ERRORE DI CONFIGURAZIONE LOCALE\n\nStai usando un server locale statico (Python) che non supporta l'esecuzione di codice PHP.\nI file PHP vengono serviti come semplice testo invece di essere eseguiti.\n\nIl pannello funzionerà perfettamente non appena caricherai il sito sul tuo server hosting reale (con supporto PHP)!");
+      throw new Error('PHP_NOT_SUPPORTED');
+    }
+  }
+
+  // Unified fetch requester with auto handling of 401 unauthorized
+  async function request(url, opts = {}) {
+    opts.credentials = 'same-origin';
+    const res = await fetch(url, opts);
+    await checkPhpExecution(res);
+    
+    if (res.status === 401) {
+      // Prompt for password if not authenticated and we are in administration
+      if (window.location.pathname.includes('gestione-sito.html')) {
+        const password = prompt('Sessione scaduta o accesso non autorizzato. Inserisci la password amministratore:');
+        if (password) {
+          const authRes = await fetch('api/auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'login', password })
+          });
+          await checkPhpExecution(authRes);
+          const authJson = await authRes.json();
+          if (authJson.ok) {
+            // Retry the original request
+            return request(url, opts);
+          } else {
+            alert('Password errata. Ricarica la pagina per riprovare.');
+          }
+        }
+      }
+      throw new Error('Accesso non autorizzato. Effettua il login.');
+    }
+
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || json.ok === false) {
+      throw new Error(json.error || 'Errore di comunicazione col server.');
+    }
+    return json;
+  }
+
+  let pendingPdfBlob = null;
 
   /* ══════════════════════════════════════
      FIXED SECTION CRUD
      ══════════════════════════════════════ */
 
   async function getDocs(section) {
-    let docs = await tx('gov-' + section, 'readonly', s => s.getAll());
-    if (!docs.length && DEFAULTS[section] && DEFAULTS[section].length) {
-      for (const d of DEFAULTS[section]) await tx('gov-' + section, 'readwrite', s => s.put(d));
-      docs = DEFAULTS[section];
-    }
-    return docs.slice().sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    const json = await request('api/list.php?section=' + encodeURIComponent(section));
+    return json.docs || [];
   }
 
   async function saveDoc(section, doc) {
-    if (!doc.id)        doc.id        = 'gov-' + section + '-' + Date.now().toString(36);
-    if (!doc.createdAt) doc.createdAt = Date.now();
-    await tx('gov-' + section, 'readwrite', s => s.put(doc));
-    return doc;
+    const formData = new FormData();
+    formData.append('cms_type', 'governance');
+    formData.append('section', section);
+    formData.append('id', doc.id || '');
+    formData.append('titolo', doc.titolo || '');
+    formData.append('anno', doc.anno || '');
+    formData.append('descrizione', doc.descrizione || '');
+    formData.append('isLatest', doc.isLatest ? '1' : '0');
+
+    if (pendingPdfBlob) {
+      formData.append('file', pendingPdfBlob, 'documento.pdf');
+      pendingPdfBlob = null; // consume PDF blob
+    }
+
+    if (doc.coverDataUrl) {
+      if (doc.coverDataUrl.startsWith('data:')) {
+        const coverBlob = dataURLtoBlob(doc.coverDataUrl);
+        if (coverBlob) {
+          formData.append('cover', coverBlob, 'cover.png');
+        }
+      }
+    } else {
+      formData.append('removeCover', '1');
+    }
+
+    const json = await request('api/upload.php', {
+      method: 'POST',
+      body: formData
+    });
+    return json.doc;
   }
 
   async function getDoc(section, id) {
-    return tx('gov-' + section, 'readonly', s => s.get(id));
+    const docs = await getDocs(section);
+    return docs.find(d => d.id === id) || null;
   }
 
   async function deleteDoc(section, id) {
-    const doc = await getDoc(section, id);
-    if (doc && doc.pdfId) await tx('gov-pdfs', 'readwrite', s => s.delete(doc.pdfId));
-    await tx('gov-' + section, 'readwrite', s => s.delete(id));
+    await request('api/delete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'doc', section, id, cms_type: 'governance' })
+    });
   }
 
   /* ══════════════════════════════════════
@@ -116,40 +129,46 @@ const GM = (() => {
      ══════════════════════════════════════ */
 
   async function getCustomSections() {
-    const list = await tx('gov-custom-sections', 'readonly', s => s.getAll());
-    return list.slice().sort((a, b) => (a.ordine || a.createdAt || 0) - (b.ordine || b.createdAt || 0));
+    const json = await request('api/list.php?custom_sections=1');
+    return json.sections || [];
   }
 
   async function saveCustomSection(sec) {
-    if (!sec.id) sec.id = 'cs-' + Date.now().toString(36);
-    if (!sec.createdAt) sec.createdAt = Date.now();
-    if (!sec.slug) {
-      sec.slug = (sec.label || 'sezione')
-        .toLowerCase()
-        .replace(/[àáâã]/g,'a').replace(/[èéêë]/g,'e')
-        .replace(/[ìíîï]/g,'i').replace(/[òóôõ]/g,'o')
-        .replace(/[ùúûü]/g,'u')
-        .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    }
-    await tx('gov-custom-sections', 'readwrite', s => s.put(sec));
-    return sec;
+    const formData = new FormData();
+    formData.append('cms_type', 'governance');
+    formData.append('type', 'section');
+    formData.append('id', sec.id || '');
+    formData.append('slug', sec.slug || '');
+    formData.append('label', sec.label || '');
+    formData.append('icon', sec.icon || '');
+    formData.append('titolo', sec.titolo || '');
+    formData.append('descrizione', sec.descrizione || '');
+    formData.append('step1titolo', sec.step1titolo || '');
+    formData.append('step1desc', sec.step1desc || '');
+    formData.append('step2titolo', sec.step2titolo || '');
+    formData.append('step2desc', sec.step2desc || '');
+    formData.append('step3titolo', sec.step3titolo || '');
+    formData.append('step3desc', sec.step3desc || '');
+    if (sec.ordine !== undefined) formData.append('ordine', sec.ordine);
+
+    const json = await request('api/upload.php', {
+      method: 'POST',
+      body: formData
+    });
+    return json.section;
   }
 
   async function getCustomSection(id) {
-    return tx('gov-custom-sections', 'readonly', s => s.get(id));
+    const sections = await getCustomSections();
+    return sections.find(s => s.id === id) || null;
   }
 
   async function deleteCustomSection(id) {
-    const sec = await getCustomSection(id);
-    if (sec) {
-      // delete all documents belonging to this section slug
-      const docs = await getCustomDocs(sec.slug);
-      for (const d of docs) {
-        if (d.pdfId) await tx('gov-pdfs', 'readwrite', s => s.delete(d.pdfId));
-        await tx('gov-custom-docs', 'readwrite', s => s.delete(d.id));
-      }
-    }
-    await tx('gov-custom-sections', 'readwrite', s => s.delete(id));
+    await request('api/delete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'section', id, cms_type: 'governance' })
+    });
   }
 
   /* ══════════════════════════════════════
@@ -157,60 +176,76 @@ const GM = (() => {
      ══════════════════════════════════════ */
 
   async function getCustomDocs(sectionSlug) {
-    const db = await openDB();
-    return new Promise((resolve, reject) => {
-      const t   = db.transaction('gov-custom-docs', 'readonly');
-      const idx = t.objectStore('gov-custom-docs').index('by-section');
-      const req = idx.getAll(sectionSlug);
-      req.onsuccess = () =>
-        resolve((req.result || []).slice().sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0)));
-      req.onerror = () => reject(req.error);
-    });
+    const json = await request('api/list.php?section=cs-' + encodeURIComponent(sectionSlug));
+    return json.docs || [];
   }
 
   async function saveCustomDoc(sectionSlug, doc) {
-    doc.section = sectionSlug;
-    if (!doc.id)        doc.id        = 'cd-' + Date.now().toString(36);
-    if (!doc.createdAt) doc.createdAt = Date.now();
-    await tx('gov-custom-docs', 'readwrite', s => s.put(doc));
-    return doc;
+    return saveDoc('cs-' + sectionSlug, doc);
   }
 
   async function getCustomDoc(id) {
-    return tx('gov-custom-docs', 'readonly', s => s.get(id));
+    const json = await request('api/list.php?all=1');
+    const customDocsObj = json.data['custom-docs'] || {};
+    for (const slug in customDocsObj) {
+      const found = customDocsObj[slug].find(d => d.id === id);
+      if (found) return found;
+    }
+    return null;
   }
 
   async function deleteCustomDoc(id) {
     const doc = await getCustomDoc(id);
-    if (doc && doc.pdfId) await tx('gov-pdfs', 'readwrite', s => s.delete(doc.pdfId));
-    await tx('gov-custom-docs', 'readwrite', s => s.delete(id));
+    if (!doc) throw new Error('Documento custom non trovato.');
+    await deleteDoc('cs-' + doc.section, id);
   }
 
   /* ══════════════════════════════════════
-     SHARED PDF STORE
+     SHARED PDF STORE (IN-MEMORY PENDING UPLOAD)
      ══════════════════════════════════════ */
 
   async function savePDF(arrayBuffer) {
-    const id = 'gpdf-' + Date.now().toString(36);
-    await tx('gov-pdfs', 'readwrite', s => s.put({ id, data: arrayBuffer }));
-    return id;
+    pendingPdfBlob = new Blob([arrayBuffer], { type: 'application/pdf' });
+    return 'pending-pdf';
   }
 
-  async function downloadDoc(doc) {
-    if (doc.pdfId) {
-      const rec = await tx('gov-pdfs', 'readonly', s => s.get(doc.pdfId));
-      if (rec) {
-        const url = URL.createObjectURL(new Blob([rec.data], { type: 'application/pdf' }));
-        const a = Object.assign(document.createElement('a'), { href: url, download: doc.titolo + '.pdf' });
-        a.click(); URL.revokeObjectURL(url); return;
-      }
-    }
+  function downloadDoc(doc) {
     if (doc.pdfPath) {
-      const a = Object.assign(document.createElement('a'), { href: doc.pdfPath, download: doc.titolo + '.pdf' });
+      const a = Object.assign(document.createElement('a'), {
+        href: doc.pdfPath,
+        download: doc.titolo + '.pdf'
+      });
       a.click();
     } else {
       alert('Nessun PDF disponibile per questo documento.');
     }
+  }
+
+  /* ══════════════════════════════════════
+     AUTH SERVICES
+     ══════════════════════════════════════ */
+  async function login(password) {
+    const json = await request('api/auth.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'login', password })
+    });
+    return json.ok;
+  }
+
+  async function logout() {
+    await request('api/auth.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'logout' })
+    });
+  }
+
+  async function checkAuth() {
+    const res = await fetch('api/auth.php');
+    await checkPhpExecution(res);
+    const json = await res.json().catch(() => ({}));
+    return !!json.authenticated;
   }
 
   /* ══════════════════════════════════════
@@ -238,7 +273,7 @@ const GM = (() => {
            <div class="report-card__cover-bar"></div>
          </div>`;
     const btnCls = doc.isLatest ? 'btn btn-primary' : 'btn btn-outline';
-    const hasPdf = doc.pdfId || doc.pdfPath;
+    const hasPdf = doc.pdfPath;
     return `
       <article class="report-card gov-doc-card" data-id="${doc.id}" style="cursor:default">
         <div class="report-card__cover" style="position:relative">
@@ -270,7 +305,6 @@ const GM = (() => {
     return labels[section] || section;
   }
 
-  /* Render fixed-section docs into a container element */
   async function renderInto(containerId, section) {
     const el = document.getElementById(containerId);
     if (!el) return;
@@ -287,7 +321,6 @@ const GM = (() => {
     el.innerHTML = docs.map(d => docCardHTML(d, sectionLabel(section))).join('');
   }
 
-  /* Render custom-section docs into a container element */
   async function renderCustomInto(containerId, sectionSlug, labelStr) {
     const el = document.getElementById(containerId);
     if (!el) return;
@@ -304,19 +337,13 @@ const GM = (() => {
     el.innerHTML = docs.map(d => docCardHTML(d, labelStr)).join('');
   }
 
-  /* ── Public API ── */
   return {
-    /* fixed sections */
     getDocs, saveDoc, getDoc, deleteDoc,
-    /* custom sections metadata */
     getCustomSections, saveCustomSection, getCustomSection, deleteCustomSection,
-    /* custom section documents */
     getCustomDocs, saveCustomDoc, getCustomDoc, deleteCustomDoc,
-    /* pdf + download */
     savePDF, downloadDoc,
-    /* rendering */
+    login, logout, checkAuth,
     docCardHTML, renderInto, renderCustomInto,
-    /* helpers */
     SECTIONS: FIXED_SECTIONS, sectionLabel
   };
 })();

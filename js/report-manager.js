@@ -1,107 +1,100 @@
 /* =========================================================
-   EETRA Report Manager — shared IndexedDB logic
+   EETRA Report Manager — PHP Backend Edition
    ========================================================= */
 
 const RM = (() => {
-  const DB_NAME = 'eetra-cms';
-  const DB_VER  = 2;   // must match blog-manager.js
-
-  /* ── Open DB ── */
-  function openDB() {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, DB_VER);
-      req.onupgradeneeded = e => {
-        const db = e.target.result;
-        if (!db.objectStoreNames.contains('cards'))
-          db.createObjectStore('cards', { keyPath: 'id' });
-        if (!db.objectStoreNames.contains('pdfs'))
-          db.createObjectStore('pdfs', { keyPath: 'id' });
-        if (!db.objectStoreNames.contains('posts'))
-          db.createObjectStore('posts', { keyPath: 'id' });
-      };
-      req.onsuccess = e => resolve(e.target.result);
-      req.onerror   = e => reject(e.target.error);
-    });
-  }
-
-  function tx(store, mode, fn) {
-    return openDB().then(db => new Promise((resolve, reject) => {
-      const req = fn(db.transaction(store, mode).objectStore(store));
-      req.onsuccess = () => resolve(req.result);
-      req.onerror   = () => reject(req.error);
-    }));
-  }
-
-  /* ── Default cards (used on first load) ── */
-  const DEFAULTS = [
-    {
-      id: 'card-2024', anno: '2024',
-      titolo: 'Governance EETRA 2024',
-      descrizione: "Il report annuale documenta l'impatto generato da EETRA nel 2024: progetti ESG completati, emissioni evitate, clienti supportati, formazione erogata e governance interna.",
-      isLatest: true, coverDataUrl: null,
-      pdfPath: 'governance/Relazione-di-Impatto-22_EETRA.pdf', pdfId: null, createdAt: 3
-    },
-    {
-      id: 'card-2023', anno: '2023',
-      titolo: 'Governance EETRA 2023',
-      descrizione: "Report annuale 2023: espansione del team, nuove certificazioni LEED e BREEAM completate e primo anno come Sustainability Consultancy B Corp in Italia.",
-      isLatest: false, coverDataUrl: null,
-      pdfPath: 'governance/Relazione-di-impatto-2023.pdf', pdfId: null, createdAt: 2
-    },
-    {
-      id: 'card-2022', anno: '2022',
-      titolo: 'Governance EETRA 2022',
-      descrizione: "Report annuale 2022: consolidamento servizi ESG, avvio percorso B Corp, crescita del portafoglio clienti nel real estate sostenibile.",
-      isLatest: false, coverDataUrl: null,
-      pdfPath: 'governance/Relazione-di-Impatto-22_EETRA.pdf', pdfId: null, createdAt: 1
+  // Helper utility to convert Data URLs to Blobs (for in-memory covers)
+  function dataURLtoBlob(dataurl) {
+    try {
+      const arr = dataurl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      let n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new Blob([u8arr], { type: mime });
+    } catch (e) {
+      return null;
     }
-  ];
+  }
+
+  // Unified fetch request handler
+  async function request(url, opts = {}) {
+    opts.credentials = 'same-origin';
+    const res = await fetch(url, opts);
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || json.ok === false) {
+      throw new Error(json.error || 'Errore di comunicazione col server.');
+    }
+    return json;
+  }
+
+  let pendingPdfBlob = null;
 
   /* ── Public API ── */
   async function getCards() {
-    let cards = await tx('cards', 'readonly', s => s.getAll());
-    if (!cards.length) {
-      for (const c of DEFAULTS) await tx('cards', 'readwrite', s => s.put(c));
-      cards = DEFAULTS;
-    }
-    return cards.slice().sort((a, b) => b.createdAt - a.createdAt);
+    const json = await request('api/list.php?type=reports');
+    return json.reports || [];
   }
 
   async function saveCard(card) {
-    if (!card.id)        card.id        = 'card-' + Date.now().toString(36);
-    if (!card.createdAt) card.createdAt = Date.now();
-    await tx('cards', 'readwrite', s => s.put(card));
-    return card;
+    const formData = new FormData();
+    formData.append('cms_type', 'report');
+    formData.append('id', card.id || '');
+    formData.append('anno', card.anno || '');
+    formData.append('titolo', card.titolo || '');
+    formData.append('descrizione', card.descrizione || '');
+    formData.append('isLatest', card.isLatest ? '1' : '0');
+
+    if (pendingPdfBlob) {
+      formData.append('file', pendingPdfBlob, 'documento.pdf');
+      pendingPdfBlob = null; // consume PDF blob
+    }
+
+    if (card.coverDataUrl) {
+      if (card.coverDataUrl.startsWith('data:')) {
+        const coverBlob = dataURLtoBlob(card.coverDataUrl);
+        if (coverBlob) {
+          formData.append('cover', coverBlob, 'cover.png');
+        }
+      }
+    } else {
+      formData.append('removeCover', '1');
+    }
+
+    const json = await request('api/upload.php', {
+      method: 'POST',
+      body: formData
+    });
+    return json.report;
   }
 
   async function getCard(id) {
-    return tx('cards', 'readonly', s => s.get(id));
+    const cards = await getCards();
+    return cards.find(c => c.id === id) || null;
   }
 
   async function deleteCard(id) {
-    const card = await getCard(id);
-    if (card && card.pdfId) await tx('pdfs', 'readwrite', s => s.delete(card.pdfId));
-    await tx('cards', 'readwrite', s => s.delete(id));
+    await request('api/delete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, cms_type: 'report' })
+    });
   }
 
   async function savePDF(arrayBuffer) {
-    const id = 'pdf-' + Date.now().toString(36);
-    await tx('pdfs', 'readwrite', s => s.put({ id, data: arrayBuffer }));
-    return id;
+    pendingPdfBlob = new Blob([arrayBuffer], { type: 'application/pdf' });
+    return 'pending-pdf';
   }
 
   async function downloadCard(card) {
-    if (card.pdfId) {
-      const rec = await tx('pdfs', 'readonly', s => s.get(card.pdfId));
-      if (rec) {
-        const url = URL.createObjectURL(new Blob([rec.data], { type: 'application/pdf' }));
-        const a = Object.assign(document.createElement('a'), { href: url, download: card.titolo + '.pdf' });
-        a.click(); URL.revokeObjectURL(url); return;
-      }
-    }
     if (card.pdfPath) {
       const a = Object.assign(document.createElement('a'), { href: card.pdfPath, download: card.titolo + '.pdf' });
       a.click();
+    } else {
+      alert('Nessun PDF disponibile per questo report.');
     }
   }
 

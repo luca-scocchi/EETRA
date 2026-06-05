@@ -321,7 +321,10 @@
            onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'" alt="EETRA">
     </a>
     <span class="topbar__title">Gestione Sito</span>
-    <a href="chi-siamo.html" class="topbar__link">← Torna al sito</a>
+    <div style="display: flex; gap: 0.75rem; align-items: center;">
+      <a href="chi-siamo.html" class="topbar__link">← Torna al sito</a>
+      <button onclick="handleLogout()" class="topbar__link" style="background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;">Esci 🚪</button>
+    </div>
   </header>
 
   <div class="page">
@@ -1467,7 +1470,42 @@
     }
 
     /* ── Init ── */
-    loadList();
+    async function initDashboard() {
+      const authenticated = await GM.checkAuth();
+      if (!authenticated) {
+        document.getElementById('login-screen').style.display = 'flex';
+      } else {
+        document.getElementById('login-screen').style.display = 'none';
+        loadList();
+      }
+    }
+
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('login-btn');
+      const pw  = document.getElementById('login-password').value;
+      btn.textContent = '⏳ Verifica…'; btn.disabled = true;
+      try {
+        const ok = await GM.login(pw);
+        if (ok) {
+          document.getElementById('login-screen').style.display = 'none';
+          loadList();
+          toast('🔓 Accesso consentito', 'success');
+        }
+      } catch(err) {
+        toast('❌ Password errata o errore', 'error');
+      } finally {
+        btn.textContent = 'Accedi'; btn.disabled = false;
+      }
+    }
+
+    async function handleLogout() {
+      if (!confirm('Vuoi uscire dalla sessione di amministrazione?')) return;
+      await GM.logout();
+      window.location.reload();
+    }
+
+    initDashboard();
 
     /* ── Governance drag helpers (deferred) ── */
     document.addEventListener('DOMContentLoaded', () => {
@@ -1483,5 +1521,21 @@
       }
     });
   </script>
+
+  <!-- SCHERMATA LOGIN -->
+  <div id="login-screen" style="display:none; position:fixed; inset:0; background:var(--dark-1); z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; padding:2rem;">
+    <div style="background:var(--dark-2); border:1px solid var(--border-dk); border-radius:var(--r-lg); padding:3rem; width:100%; max-width:400px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,0.4);">
+      <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'" alt="EETRA" style="height:60px; margin-bottom:2rem;">
+      <h2 style="font-size:1.2rem; font-weight:600; margin-bottom:0.5rem;">Accesso Amministratore</h2>
+      <p style="font-size:0.85rem; color:var(--muted-lt); margin-bottom:2rem;">Inserisci la password di gestione per procedere.</p>
+      <form onsubmit="handleLoginSubmit(event)">
+        <div class="form-group" style="text-align:left;">
+          <label class="form-label" for="login-password">Password</label>
+          <input class="form-input" id="login-password" type="password" placeholder="••••••••" required autofocus style="text-align:center;">
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:1.5rem;" id="login-btn">Accedi</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

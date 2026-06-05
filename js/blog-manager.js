@@ -1,36 +1,34 @@
 /* =========================================================
-   EETRA Blog Manager — IndexedDB storage for blog posts
-   Uses the existing .impact-card CSS classes from style.css
+   EETRA Blog Manager — PHP Backend Edition
    ========================================================= */
 
 const BM = (() => {
-  const DB_NAME = 'eetra-cms';
-  const DB_VER  = 2;
-
-  /* ── Open / upgrade DB ── */
-  function openDB() {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, DB_VER);
-      req.onupgradeneeded = e => {
-        const db = e.target.result;
-        if (!db.objectStoreNames.contains('cards'))
-          db.createObjectStore('cards', { keyPath: 'id' });
-        if (!db.objectStoreNames.contains('pdfs'))
-          db.createObjectStore('pdfs', { keyPath: 'id' });
-        if (!db.objectStoreNames.contains('posts'))
-          db.createObjectStore('posts', { keyPath: 'id' });
-      };
-      req.onsuccess = e => resolve(e.target.result);
-      req.onerror   = e => reject(e.target.error);
-    });
+  // Helper utility to convert Data URLs to Blobs (for in-memory covers)
+  function dataURLtoBlob(dataurl) {
+    try {
+      const arr = dataurl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      let n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new Blob([u8arr], { type: mime });
+    } catch (e) {
+      return null;
+    }
   }
 
-  function tx(store, mode, fn) {
-    return openDB().then(db => new Promise((resolve, reject) => {
-      const req = fn(db.transaction(store, mode).objectStore(store));
-      req.onsuccess = () => resolve(req.result);
-      req.onerror   = () => reject(req.error);
-    }));
+  // Unified fetch request handler
+  async function request(url, opts = {}) {
+    opts.credentials = 'same-origin';
+    const res = await fetch(url, opts);
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok || json.ok === false) {
+      throw new Error(json.error || 'Errore di comunicazione col server.');
+    }
+    return json;
   }
 
   /* ── Escape HTML ── */
@@ -105,13 +103,12 @@ const BM = (() => {
 
   /* ── Init (idempotent) ── */
   async function init() {
-    await openDB();
     injectModalHTML();
   }
 
   /* ── Open full-post reader ── */
   async function openPost(id) {
-    injectModalHTML(); // ensure modal is in DOM
+    injectModalHTML();
     const post = await getPost(id);
     if (!post) return;
 
@@ -159,40 +156,66 @@ const BM = (() => {
 
   /** All published posts, newest first */
   async function getPosts() {
-    const posts = await tx('posts', 'readonly', s => s.getAll());
+    const json = await request('api/list.php?type=blog');
+    const posts = json.posts || [];
     return posts
-      .filter(p => p.pubblicato !== false)
-      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      .filter(p => p.pubblicato !== false);
   }
 
   /** All posts including drafts (admin) */
   async function getAllPosts() {
-    const posts = await tx('posts', 'readonly', s => s.getAll());
-    return posts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    const json = await request('api/list.php?type=blog');
+    return json.posts || [];
   }
 
   async function savePost(post) {
-    if (!post.id)        post.id        = 'post-' + Date.now().toString(36);
-    if (!post.createdAt) post.createdAt = Date.now();
-    await tx('posts', 'readwrite', s => s.put(post));
-    return post;
+    const formData = new FormData();
+    formData.append('cms_type', 'blog');
+    formData.append('id', post.id || '');
+    formData.append('titolo', post.titolo || '');
+    formData.append('estratto', post.estratto || '');
+    formData.append('categoria', post.categoria || '');
+    formData.append('catSlug', post.catSlug || '');
+    formData.append('data', post.data || '');
+    if (post.tempoLettura !== null && post.tempoLettura !== undefined) {
+      formData.append('tempoLettura', post.tempoLettura);
+    }
+    formData.append('linkUrl', post.linkUrl || '');
+    formData.append('pubblicato', post.pubblicato ? '1' : '0');
+
+    if (post.coverDataUrl) {
+      if (post.coverDataUrl.startsWith('data:')) {
+        const coverBlob = dataURLtoBlob(post.coverDataUrl);
+        if (coverBlob) {
+          formData.append('cover', coverBlob, 'cover.png');
+        }
+      }
+    } else {
+      formData.append('removeCover', '1');
+    }
+
+    const json = await request('api/upload.php', {
+      method: 'POST',
+      body: formData
+    });
+    return json.post;
   }
 
   async function getPost(id) {
-    return tx('posts', 'readonly', s => s.get(id));
+    const posts = await getAllPosts();
+    return posts.find(p => p.id === id) || null;
   }
 
   async function deletePost(id) {
-    await tx('posts', 'readwrite', s => s.delete(id));
+    await request('api/delete.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, cms_type: 'blog' })
+    });
   }
 
-  /**
-   * Render published posts into a container.
-   * @param {string} containerId
-   * @param {{ limit?: number|null, filterCat?: string|null }} opts
-   */
   async function renderInto(containerId, { limit = null, filterCat = null } = {}) {
-    injectModalHTML(); // ensure modal available
+    injectModalHTML();
     const el = document.getElementById(containerId);
     if (!el) return;
     let posts = await getPosts();
