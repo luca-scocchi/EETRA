@@ -246,10 +246,12 @@
     .team-card__body {
       padding: 1rem 0.85rem;
     }
+
     .team-card__name {
       font-size: 0.9rem;
       margin-bottom: 0.15rem;
     }
+
     .team-card__role {
       font-size: 0.75rem;
       margin-bottom: 0;
@@ -260,6 +262,7 @@
         grid-template-columns: repeat(3, 1fr) !important;
       }
     }
+
     @media (max-width:640px) {
       .team-grid-5 {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -299,6 +302,139 @@
         gap: 3rem !important;
       }
     }
+
+    /* ---- Premium Why Choose Us Cards ---- */
+    .premium-why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .premium-why-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border-dk);
+      border-radius: var(--r-lg);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Elegant indicator bar at the top of each card */
+    .premium-why-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--green-pale));
+      opacity: 0;
+      transition: opacity var(--tr);
+    }
+
+    .premium-why-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(181, 210, 130, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .premium-why-card:hover::before {
+      opacity: 1;
+    }
+
+    .premium-why-card__meta {
+      font-size: 0.725rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-pale);
+      margin-bottom: 1.5rem;
+    }
+
+    .premium-why-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--off-white);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+
+    .premium-why-card__desc {
+      font-size: 0.95rem;
+      color: var(--muted-lt);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .premium-why-card__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: auto;
+    }
+
+    .premium-why-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-dk);
+    }
+
+    .premium-why-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .premium-why-item__icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--green-pale);
+      margin-top: 0.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--tr);
+    }
+
+    .premium-why-card:hover .premium-why-item__icon {
+      transform: scale(1.1);
+    }
+
+    .premium-why-item__content {
+      flex: 1;
+    }
+
+    .premium-why-item__title {
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--off-white);
+      margin-bottom: 0.25rem;
+    }
+
+    .premium-why-item__text {
+      font-size: 0.875rem;
+      color: var(--muted-lt);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .premium-why-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .premium-why-card {
+        padding: 2.25rem;
+      }
+    }
   </style>
 </head>
 
@@ -308,13 +444,12 @@
   <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo" aria-label="EETRA — Home">
-        <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" alt="EETRA logo"
-          onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
+        <img src="infosito/01_Loghi/Logo EETRA/LOGO BCORP/Logo Bianco (1) (1) (3).svg" alt="EETRA logo">
       </a>
       <ul class="nav__links" role="list">
         <li><a href="chi-siamo.html" class="nav__link active">Chi siamo</a></li>
         <li><a href="servizi.html" class="nav__link">Servizi</a></li>
-        <li><a href="impact.html" class="nav__link">Impact</a></li>
+        <li><a href="news.html" class="nav__link">News</a></li>
         <li><a href="contatti.html" class="nav__link">Contatti</a></li>
       </ul>
       <a href="contatti.html" class="btn btn-primary nav__cta">Contattaci</a>
@@ -326,7 +461,7 @@
   <div class="nav__mobile" id="mobileMenu">
     <a href="chi-siamo.html" class="nav__mobile-link">Chi siamo</a>
     <a href="servizi.html" class="nav__mobile-link">Servizi</a>
-    <a href="impact.html" class="nav__mobile-link">Impact</a>
+    <a href="news.html" class="nav__mobile-link">News</a>
     <a href="contatti.html" class="nav__mobile-link">Contatti</a>
     <div class="nav__mobile-cta"><a href="contatti.html" class="btn btn-primary">Contattaci</a></div>
   </div>
@@ -350,8 +485,11 @@
 
       <div style="border-top:1px solid var(--border-dk); padding-top:2.5rem; margin-top:3rem" class="fade-up delay-1">
         <p class="page-hero__sub" style="margin-bottom:0">
-          Crediamo nella transizione da un'economia estrattiva a un'economia rigenerativa.
-          Un futuro in cui ogni impresa contribuisce alla generazione di valore condiviso e duraturo.
+          Crediamo nella transizione da un'<strong style="color:var(--green-pale); font-weight:700">economia
+            estrattiva</strong> a un'<strong style="color:var(--green-pale); font-weight:700">economia
+            rigenerativa</strong>.
+          Un futuro in cui ogni impresa contribuisce alla generazione di <strong
+            style="color:var(--green-pale); font-weight:700">valore condiviso e duraturo</strong>.
         </p>
       </div>
 
@@ -400,10 +538,13 @@
           <ul style="list-style:none; padding:0; margin:0">
             <li
               style="padding:1.5rem 0; border-bottom:1px solid var(--border-lt); color:var(--muted-dk); line-height:1.7; font-size:1.0625rem">
-              Nel progettare percorsi di cambiamento sistemico, attraverso consulenza, formazione e strumenti operativi;
+              Nel progettare percorsi di <strong style="color:var(--green); font-weight:700">cambiamento
+                sistemico</strong>, attraverso <strong style="color:var(--green); font-weight:700">consulenza,
+                formazione</strong> e strumenti operativi;
             </li>
             <li style="padding:1.5rem 0; color:var(--muted-dk); line-height:1.7; font-size:1.0625rem">
-              Nel misurare, migliorare e comunicare il proprio impatto positivo.
+              Nel <strong style="color:var(--green); font-weight:700">misurare, migliorare e comunicare</strong> il
+              proprio <strong style="color:var(--green); font-weight:700">impatto positivo</strong>.
             </li>
           </ul>
         </div>
@@ -418,22 +559,29 @@
      ============================================================ -->
   <section class="section mission-bg-section" aria-label="Missione e visione">
     <div class="container">
-      <div class="mission-content fade-up">
+      <div class="mission-content fade-up"
+        style="background:rgba(20,24,13,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); padding:3.5rem; border-radius:var(--r-lg); border:1px solid rgba(197,217,156,0.12); max-width:820px; margin:0 auto">
         <div class="sec-label sec-label--lt"><span>La nostra missione</span></div>
         <h2 class="t-h2 mb-4">
-          Rigenerare il sistema economico attraverso la sostenibilità
+          Rigenerare il sistema economico attraverso la <em
+            style="color:var(--green-pale); font-style:italic">sostenibilità</em>
         </h2>
-        <p>
-          EETRA nasce con una missione chiara: trasformare la sostenibilità da obbligo normativo a valore competitivo.
-          Siamo convinti che le migliori aziende del futuro saranno quelle che integrano le dimensioni ambientale,
-          sociale e di governance nel cuore del loro modello di business.
+        <p style="font-size:1.0625rem; color:var(--muted-lt); line-height:1.8; margin-bottom:1.5rem">
+          EETRA nasce con una missione chiara: <strong style="color:var(--green-pale); font-weight:700">trasformare la
+            sostenibilità da obbligo normativo a valore competitivo</strong>.
+          Siamo convinti che le migliori aziende del futuro saranno quelle che integrano le dimensioni
+          <strong style="color:var(--green-pale); font-weight:700">ambientale, sociale e di governance</strong> nel
+          cuore del loro modello di business.
         </p>
-        <p>
-          Il nostro approccio è rigoroso, misurabile e pragmatico: ogni percorso ESG inizia con un'analisi accurata
-          della realtà aziendale e si traduce in azioni concrete, certificate e verificabili.
+        <p style="font-size:1.0625rem; color:var(--muted-lt); line-height:1.8; margin-bottom:1.5rem">
+          Il nostro approccio è <strong style="color:var(--green-pale); font-weight:700">rigoroso, misurabile e
+            pragmatico</strong>: ogni percorso ESG inizia con un'analisi accurata
+          della realtà aziendale e si traduce in <strong style="color:var(--green-pale); font-weight:700">azioni
+            concrete, certificate e verificabili</strong>.
         </p>
-        <p>
-          Essere una Società Benefit certificata B Corp non è solo una certificazione: è la prova che pratichiamo
+        <p style="font-size:1.0625rem; color:var(--muted-lt); line-height:1.8; margin-bottom:0">
+          Essere una <strong style="color:var(--green-pale); font-weight:700">Società Benefit certificata
+            B&nbsp;Corp</strong> non è solo una certificazione: è la prova che pratichiamo
           quello che consigliamo ai nostri clienti.
         </p>
         <div style="margin-top:2.5rem; display:flex; gap:1rem; flex-wrap:wrap">
@@ -452,88 +600,163 @@
 
       <div class="sec-label sec-label--lt fade-up"><span>Perchè sceglierci?</span></div>
 
-      <div class="grid-2 fade-up"
-        style="gap:5rem; align-items:start; margin-top:2rem; border-bottom:1px solid var(--border-dk); padding-bottom:4rem; margin-bottom:4rem">
+      <!-- Header row / intro -->
+      <div class="fade-up" style="max-width: 820px; margin-bottom: 3.5rem;">
+        <h2 class="t-h2" style="color:var(--off-white); margin-bottom:1.5rem; line-height: 1.15">
+          <em style="color:var(--green-pale); font-style:italic">Rigenerare</em> significa rendere le imprese più capaci
+          di <em style="color:var(--green-pale); font-style:italic">competere nel lungo periodo.</em>
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--muted-lt); line-height: 1.65; max-width: 680px;">
+          Accompagniamo le aziende nella transizione verso modelli di business sostenibili, combinando rigore
+          metodologico, competenze multidisciplinari e soluzioni digitali.
+        </p>
+      </div>
 
-        <!-- LEFT — big statement -->
-        <div>
-          <h2 class="t-h2" style="color:var(--off-white); margin-bottom:2.5rem">
-            <em style="color:var(--green-pale); font-style:italic">Rigenerare</em> significa
-            rendere le imprese
-            più capaci di <em style="color:var(--green-pale); font-style:italic">competere
-              nel lungo periodo.</em>
-          </h2>
-          <div style="border-top:1px solid var(--border-dk); padding-top:2rem">
-            <h3 class="t-h3" style="color:var(--muted-lt); font-weight:400; line-height:1.35">
-              Abbiamo<br>gli strumenti<br>per farlo.
-            </h3>
+      <!-- Premium Cards Grid -->
+      <div class="premium-why-grid">
+
+        <!-- Card 1: Valore ESG -->
+        <div class="premium-why-card fade-up delay-1">
+          <div class="premium-why-card__meta">Valore ESG per le Imprese</div>
+          <h3 class="premium-why-card__title">Perché integrare i criteri ESG?</h3>
+          <p class="premium-why-card__desc">
+            Misurare e governare gli aspetti ambientali, sociali e di governance non è solo conformità, ma un fattore
+            abilitante per la crescita duratura.
+          </p>
+
+          <div class="premium-why-card__list">
+            <!-- Item 1: Mitigazione dei rischi -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Mitigazione dei Rischi</h4>
+                <p class="premium-why-item__text">Riduzione controllata dei rischi reputazionali, operativi e finanziari
+                  legati a fattori climatici e regolatori.</p>
+              </div>
+            </div>
+
+            <!-- Item 2: Adattabilità Strategica -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10" />
+                  <polyline points="1 20 1 14 7 14" />
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Adattabilità Strategica</h4>
+                <p class="premium-why-item__text">Maggiore agilità e prontezza nel rispondere alle evoluzioni normative
+                  nazionali ed europee (CSRD).</p>
+              </div>
+            </div>
+
+            <!-- Item 3: Fiducia e Continuità -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Fiducia degli Stakeholder</h4>
+                <p class="premium-why-item__text">Consolidamento delle relazioni di filiera e rafforzamento della
+                  fiducia con investitori, dipendenti e comunità.</p>
+              </div>
+            </div>
+
+            <!-- Item 4: Vantaggio Competitivo -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Posizionamento Distintivo</h4>
+                <p class="premium-why-item__text">Differenziazione competitiva sul mercato grazie a credenziali ESG
+                  verificate e ad un impatto positivo misurato.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- RIGHT — two sub-columns -->
-        <div class="grid-2" style="gap:3rem; align-items:start">
+        <!-- Card 2: Metodo EETRA -->
+        <div class="premium-why-card fade-up delay-2">
+          <div class="premium-why-card__meta">Il Metodo EETRA</div>
+          <h3 class="premium-why-card__title">Come facciamo la differenza?</h3>
+          <p class="premium-why-card__desc">
+            Traduciamo la visione rigenerativa in vantaggi economici e operativi, affiancando l'impresa con un approccio
+            pragmatico e scientifico.
+          </p>
 
-          <!-- Col A -->
-          <div>
-            <div class="sec-label sec-label--lt" style="margin-bottom:1.5rem"><span>&nbsp;</span></div>
-            <p style="font-size:0.875rem; line-height:1.7; color:var(--muted-lt); margin-bottom:1.5rem">
-              Le imprese che integrano criteri ESG nei propri processi decisionali:
-            </p>
-            <ul style="list-style:none; padding:0; margin:0">
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; border-bottom:1px solid var(--border-dk); color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                ridimensionano i rischi reputazionali, operativi e finanziari;
-              </li>
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; border-bottom:1px solid var(--border-dk); color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                aumentano la capacità di adattarsi ai cambiamenti di mercato e regolatori;
-              </li>
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; border-bottom:1px solid var(--border-dk); color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                rafforzano la continuità operativa e la fiducia degli stakeholders;
-              </li>
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                migliorano il proprio posizionamento competitivo, distinguendosi nel mercato.
-              </li>
-            </ul>
+          <div class="premium-why-card__list">
+            <!-- Item 1: Roadmap Coerenti -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Roadmap Coerenti e Scalabili</h4>
+                <p class="premium-why-item__text">Definizione di piani d'action realistici e misurabili, che crescono
+                  insieme alla maturità aziendale.</p>
+              </div>
+            </div>
+
+            <!-- Item 2: Cultura e Trasparenza -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Cultura Organizzativa e Trasparenza</h4>
+                <p class="premium-why-item__text">Integrazione dei valori di sostenibilità nel DNA aziendale e
+                  valorizzazione della comunicazione onesta.</p>
+              </div>
+            </div>
+
+            <!-- Item 3: Connessione di Performance -->
+            <div class="premium-why-item">
+              <div class="premium-why-item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+              </div>
+              <div class="premium-why-item__content">
+                <h4 class="premium-why-item__title">Integrazione della Performance</h4>
+                <p class="premium-why-item__text">Unione strategica tra adempimento dei criteri ESG, riduzione reale del
+                  rischio e performance economica.</p>
+              </div>
+            </div>
           </div>
-
-          <!-- Col B -->
-          <div>
-            <div class="sec-label sec-label--lt" style="margin-bottom:1.5rem"><span>&nbsp;</span></div>
-            <p style="font-size:0.875rem; line-height:1.7; color:var(--muted-lt); margin-bottom:1.5rem">
-              In questo contesto, il nostro lavoro è tradurre la visione rigenerativa in leve strategiche per la
-              competitività:
-            </p>
-            <ul style="list-style:none; padding:0; margin:0">
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; border-bottom:1px solid var(--border-dk); color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                progettando roadmap coerenti e scalabili;
-              </li>
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; border-bottom:1px solid var(--border-dk); color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                valorizzando la cultura organizzativa e la comunicazione trasparente;
-              </li>
-              <li
-                style="display:flex; gap:0.75rem; align-items:flex-start; padding:0.875rem 0; color:var(--muted-lt); font-size:0.9375rem; line-height:1.65">
-                <span style="color:var(--green-hover); flex-shrink:0; margin-top:0.15rem">•</span>
-                accompagnando ogni cliente nel connettere sostenibilità, riduzione del rischio e performance economica.
-              </li>
-            </ul>
-          </div>
-
         </div>
+
       </div>
 
       <!-- CTA row -->
-      <div class="fade-up delay-1" style="display:flex; gap:1rem; flex-wrap:wrap">
+      <div class="fade-up delay-3" style="display:flex; gap:1rem; flex-wrap:wrap">
         <a href="contatti.html" class="btn btn-primary">Richiedi consulenza <span class="arrow">→</span></a>
         <a href="servizi.html" class="btn btn-outline">Scopri i servizi</a>
       </div>
@@ -564,28 +787,33 @@
             <ul style="list-style:none; padding:0; margin:0">
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                <strong style="display:block; font-weight:600">LEED AP BD+C</strong>
+                <strong style="display:block; font-weight:600; color:var(--dark)">LEED AP BD+C</strong>
                 <span style="color:var(--muted-dk); font-size:0.825rem">Building Design and Construction</span>
               </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                <strong style="display:block; font-weight:600">LEED AP ID+C</strong>
+                <strong style="display:block; font-weight:600; color:var(--dark)">LEED AP ID+C</strong>
                 <span style="color:var(--muted-dk); font-size:0.825rem">Interior Design and Construction</span>
               </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                LEED Commissioning Authority</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">LEED Commissioning Authority</strong>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                WELL AP</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">WELL AP</strong>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                ENVISION SP</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">ENVISION SP</strong>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                BREEAM AP</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">BREEAM AP</strong>
+              </li>
               <li style="padding:0.6rem 0; font-size:0.9rem; color:var(--dark); line-height:1.6">
-                BREEAM Assessor (International) for:<br>
+                <strong style="display:block; font-weight:600; color:var(--dark)">BREEAM Assessor
+                  (International)</strong>
                 <span style="color:var(--muted-dk); padding-left:1rem; display:block">In Use</span>
                 <span style="color:var(--muted-dk); padding-left:1rem; display:block">Refurbishment and Fit-Out</span>
                 <span style="color:var(--muted-dk); padding-left:1rem; display:block">New Construction</span>
@@ -599,20 +827,33 @@
             <ul style="list-style:none; padding:0; margin:0">
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                Esperto CAM | ISO IEC 17024</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">Esperto CAM</strong>
+                <span style="color:var(--muted-dk); font-size:0.825rem">ISO IEC 17024</span>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                Esperto in Gestione Dell'Energia EGE secondo UNI 11339</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">Esperto in Gestione Dell'Energia
+                  EGE</strong>
+                <span style="color:var(--muted-dk); font-size:0.825rem">secondo UNI 11339</span>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                Sustainability Manager PDR 109</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">Sustainability Manager</strong>
+                <span style="color:var(--muted-dk); font-size:0.825rem">PDR 109</span>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                Auditor PDR 125 Parità di Genere</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">Auditor Parità di Genere</strong>
+                <span style="color:var(--muted-dk); font-size:0.825rem">PDR 125</span>
+              </li>
               <li
                 style="padding:0.6rem 0; border-bottom:1px solid var(--border-lt); font-size:0.9rem; color:var(--dark); line-height:1.5">
-                GRI Expert</li>
-              <li style="padding:0.6rem 0; font-size:0.9rem; color:var(--dark); font-weight:600">B Leaders | Bcorp</li>
+                <strong style="display:block; font-weight:600; color:var(--dark)">GRI Expert</strong>
+              </li>
+              <li style="padding:0.6rem 0; font-size:0.9rem; color:var(--dark); line-height:1.5">
+                <strong style="display:block; font-weight:600; color:var(--dark)">B Leaders</strong>
+                <span style="color:var(--muted-dk); font-size:0.825rem">B Corp Certified</span>
+              </li>
             </ul>
           </div>
 
@@ -624,32 +865,33 @@
             style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; align-items:center; justify-items:center">
 
             <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/LEED AP BD+C/Color/leed-bd+c_rgb.png"
-              alt="LEED AP BD+C" style="max-height:88px; width:auto">
+              alt="LEED AP BD+C" style="height:68px; width:auto; object-fit:contain">
 
             <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/LEED AP ID+C/Color/leed-id+c_rgb.png"
-              alt="LEED AP ID+C" style="max-height:88px; width:auto">
-
-            <img
-              src="infosito/01_Loghi/Loghi_Accreditamenti Personali/Envision SP/certificazione-envision-senza-sfondo.png"
-              alt="Envision SP" style="max-height:88px; width:auto">
-
-            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/WELL AP/WELL AP.png" alt="WELL AP"
-              style="max-height:88px; width:auto">
-
-            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/BREEAM AP/bream_ap.png" alt="BREEAM AP"
-              style="max-height:88px; width:auto">
-
-            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/Wiredscore AP/WiredScoreAP.png"
-              alt="WiredScore AP" style="max-height:72px; width:auto">
-
-            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b_leaders.png" alt="B Leaders"
-              style="max-height:72px; width:auto">
-
-            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/Fitwel Ambassador/fitwel ambassadors.png"
-              alt="Fitwel Ambassador" style="max-height:72px; width:auto">
+              alt="LEED AP ID+C" style="height:68px; width:auto; object-fit:contain">
 
             <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/LEED AP O+M/credential-cert-om.png"
-              alt="LEED AP O+M" style="max-height:72px; width:auto">
+              alt="LEED AP O+M" style="height:68px; width:auto; object-fit:contain">
+            <img
+              src="infosito/01_Loghi/Loghi_Accreditamenti Personali/Envision SP/certificazione-envision-senza-sfondo.png"
+              alt="Envision SP" style="height:68px; width:auto; object-fit:contain">
+
+            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/WELL AP/WELL AP.png" alt="WELL AP"
+              style="height:68px; width:auto; object-fit:contain">
+
+            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/BREEAM AP/bream_ap.png" alt="BREEAM AP"
+              style="height:68px; width:auto; object-fit:contain">
+
+            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/Wiredscore AP/WiredScoreAP.png"
+              alt="WiredScore AP" style="height:68px; width:auto; object-fit:contain">
+
+            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/B Leaders/b_leaders.png" alt="B Leaders"
+              style="height:68px; width:auto; object-fit:contain">
+
+            <img src="infosito/01_Loghi/Loghi_Accreditamenti Personali/Fitwel Ambassador/fitwel ambassadors.png"
+              alt="Fitwel Ambassador" style="height:68px; width:auto; object-fit:contain">
+
+
 
           </div>
         </div>
@@ -768,8 +1010,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Andrea Botti</p>
             <p class="team-card__role">Innovation | Technical Lead</p>
-            <a href="https://www.linkedin.com/in/bottiandrea/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Andrea Botti">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/bottiandrea/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Andrea Botti">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -781,8 +1027,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Gianluca Buccheri</p>
             <p class="team-card__role">Sustainability Specialist</p>
-            <a href="https://www.linkedin.com/in/gianluca-buccheri-121abb260/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Gianluca Buccheri">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/gianluca-buccheri-121abb260/" class="team-card__linkedin"
+              target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Gianluca Buccheri">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -794,8 +1044,13 @@
           <div class="team-card__body">
             <p class="team-card__name">Martina Castoldi</p>
             <p class="team-card__role">Impact &amp; Communication | Partner</p>
-            <a href="https://www.linkedin.com/in/martina-castoldi-7312681aa/?skipRedirect=true" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Martina Castoldi">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/martina-castoldi-7312681aa/?skipRedirect=true"
+              class="team-card__linkedin" target="_blank" rel="noopener noreferrer"
+              aria-label="Profilo LinkedIn di Martina Castoldi">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -807,8 +1062,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Chiara Cortellazzi</p>
             <p class="team-card__role">Sustainability Expert</p>
-            <a href="https://www.linkedin.com/in/chiara-cortellazzi-9a74a8237/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Chiara Cortellazzi">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/chiara-cortellazzi-9a74a8237/" class="team-card__linkedin"
+              target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Chiara Cortellazzi">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -820,8 +1079,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Merkur Dibra</p>
             <p class="team-card__role">Sustainability Specialist</p>
-            <a href="https://www.linkedin.com/in/merkur-dibra-988274232/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Merkur Dibra">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/merkur-dibra-988274232/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Merkur Dibra">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -833,8 +1096,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Michela Fancello</p>
             <p class="team-card__role">Tender | Partner</p>
-            <a href="https://www.linkedin.com/in/michela-fancello-8b526153/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Michela Fancello">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/michela-fancello-8b526153/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Michela Fancello">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -846,8 +1113,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Letizia Garbolino</p>
             <p class="team-card__role">Sustainability Expert</p>
-            <a href="https://www.linkedin.com/in/l-garbolino/?locale=it" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Letizia Garbolino">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/l-garbolino/?locale=it" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Letizia Garbolino">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -859,8 +1130,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Souzan Goloburda</p>
             <p class="team-card__role">Sustainability Player</p>
-            <a href="https://www.linkedin.com/in/souzan-goloburda-29590217a/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Souzan Goloburda">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/souzan-goloburda-29590217a/" class="team-card__linkedin"
+              target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Souzan Goloburda">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -872,8 +1147,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Chiara La Fortezza</p>
             <p class="team-card__role">Sustainability Specialist</p>
-            <a href="https://www.linkedin.com/in/chiara-la-fortezza-bb341b263/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Chiara La Fortezza">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/chiara-la-fortezza-bb341b263/" class="team-card__linkedin"
+              target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Chiara La Fortezza">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -885,8 +1164,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Farzaneh Mirazi</p>
             <p class="team-card__role">Sustainability Specialist</p>
-            <a href="https://www.linkedin.com/in/farzaneh-mirazi-11f36911/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Farzaneh Mirazi">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/farzaneh-mirazi-11f36911/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Farzaneh Mirazi">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -898,8 +1181,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Giulia Rossetti</p>
             <p class="team-card__role">Sustainability Specialist</p>
-            <a href="https://www.linkedin.com/in/giulia-rossetti-a003901b5/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Giulia Rossetti">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/giulia-rossetti-a003901b5/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Giulia Rossetti">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -911,8 +1198,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Carlo Rossini</p>
             <p class="team-card__role">CEO | Partner</p>
-            <a href="https://www.linkedin.com/in/carlo-rossini/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Carlo Rossini">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/carlo-rossini/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Carlo Rossini">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -924,8 +1215,12 @@
           <div class="team-card__body">
             <p class="team-card__name">Guido Rossini</p>
             <p class="team-card__role">Operation Lead</p>
-            <a href="https://www.linkedin.com/in/guido-rossini-144b3476/" class="team-card__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn di Guido Rossini">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/guido-rossini-144b3476/" class="team-card__linkedin" target="_blank"
+              rel="noopener noreferrer" aria-label="Profilo LinkedIn di Guido Rossini">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -1115,7 +1410,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-04.png" alt="EETRA" class="footer__logo-img"
+          <img src="infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-02.png" alt="EETRA" class="footer__logo-img"
             onerror="this.src='infosito/01_Loghi/Logo EETRA/GRAPHICHE SINGOLE-01.png'">
           <p class="footer__tagline">Società di consulenza ESG certificata B Corp. Guidiamo aziende e PMI nella
             transizione rigenerativa.</p>
@@ -1128,7 +1423,7 @@
           <nav class="footer__nav">
             <a href="chi-siamo.html">Chi siamo</a>
             <a href="servizi.html">Servizi ESG</a>
-            <a href="impact.html">Impact &amp; News</a>
+            <a href="news.html">News</a>
             <a href="contatti.html">Contatti</a>
           </nav>
         </div>

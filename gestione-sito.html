@@ -331,6 +331,9 @@
       <div class="sidebar__item active" id="nav-reports" onclick="showSection('reports')">
         <span class="sidebar__icon">📄</span> Report &amp; Relazioni
       </div>
+      <div class="sidebar__item" id="nav-governance" onclick="showSection('governance')">
+        <span class="sidebar__icon">🏛️</span> Governance
+      </div>
       <div class="sidebar__item" id="nav-blog" onclick="showSection('blog')">
         <span class="sidebar__icon">✍️</span> Blog / News
       </div>
@@ -352,6 +355,48 @@
           <div class="empty-state">
             <div class="empty-state__icon">⏳</div>
             <p class="empty-state__text">Caricamento…</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ SECTION: GOVERNANCE ══ -->
+      <div class="section-pane" id="pane-governance">
+        <div class="section-hd">
+          <div>
+            <h1>Governance Aziendale</h1>
+            <p>Gestisci i documenti e le sezioni mostrate in governance.html</p>
+          </div>
+          <div style="display:flex;gap:0.5rem">
+            <button class="btn-primary" id="gov-add-doc-btn" onclick="openGovModal()">+ Aggiungi documento</button>
+            <button class="btn-ghost" id="gov-add-sec-btn" onclick="openSectionModal()" style="display:none">+ Nuova Sezione</button>
+          </div>
+        </div>
+
+        <!-- Governance sub-tabs -->
+        <div id="gov-tab-bar" style="display:flex;gap:0;flex-wrap:wrap;border-bottom:1px solid var(--border-dk);margin-bottom:2rem;overflow-x:auto">
+          <button class="sidebar__item active" id="gnav-relazioni" onclick="switchGovSection('relazioni')" style="border-radius:0;border-left:none;padding:0.75rem 1.25rem;white-space:nowrap">📊 Relazioni d&apos;Impatto</button>
+          <button class="sidebar__item" id="gnav-codice-etico" onclick="switchGovSection('codice-etico')" style="border-radius:0;border-left:none;padding:0.75rem 1.25rem;white-space:nowrap">📋 Codice Etico</button>
+          <button class="sidebar__item" id="gnav-mobilita" onclick="switchGovSection('mobilita')" style="border-radius:0;border-left:none;padding:0.75rem 1.25rem;white-space:nowrap">🚲 Politica Mobilità</button>
+          <button class="sidebar__item" id="gnav-parita" onclick="switchGovSection('parita')" style="border-radius:0;border-left:none;padding:0.75rem 1.25rem;white-space:nowrap">⚖️ Parità &amp; DE&amp;I</button>
+          <!-- custom section tabs injected by loadCustomGovTabs() -->
+          <button class="sidebar__item" id="gnav-__manage__" onclick="switchGovSection('__manage__')" style="border-radius:0;border-left:none;padding:0.75rem 1.25rem;white-space:nowrap;margin-left:auto">⚙️ Sezioni Custom</button>
+        </div>
+
+        <!-- Document list (shown for all sections except manage mode) -->
+        <div class="cards-list" id="gov-list">
+          <div class="empty-state">
+            <div class="empty-state__icon">⏳</div>
+            <p class="empty-state__text">Caricamento…</p>
+          </div>
+        </div>
+
+        <!-- Sections management panel (shown in __manage__ mode) -->
+        <div id="gov-sections-panel" style="display:none">
+          <div class="cards-list" id="gov-sections-list">
+            <div class="empty-state">
+              <div class="empty-state__icon">⏳</div>
+              <p class="empty-state__text">Caricamento sezioni…</p>
+            </div>
           </div>
         </div>
       </div>
@@ -443,6 +488,81 @@
         <div class="modal__footer">
           <button type="button" class="btn-ghost" onclick="closeModal()">Annulla</button>
           <button type="submit" class="btn-primary" id="save-btn">💾 Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MODAL — GOVERNANCE DOCUMENT
+       ═══════════════════════════════════════════════════════ -->
+  <div class="overlay" id="gov-overlay" onclick="govOverlayClick(event)">
+    <div class="modal" id="gov-modal">
+      <div class="modal__hd">
+        <div>
+          <h2 class="modal__title" id="gov-modal-title">Aggiungi Documento</h2>
+          <p style="font-size:0.75rem;color:var(--muted-lt);margin-top:0.25rem">Sezione: <strong id="gov-section-label" style="color:var(--green-pale)"></strong></p>
+        </div>
+        <button class="modal__close" onclick="closeGovModal()" aria-label="Chiudi">✕</button>
+      </div>
+
+      <form id="gov-form" onsubmit="saveGovDoc(event)">
+        <input type="hidden" id="gf-id">
+
+        <div class="form-group">
+          <label class="form-label" for="gf-titolo">Titolo *</label>
+          <input class="form-input" id="gf-titolo" type="text" placeholder="Es. Codice Etico EETRA 2025" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="gf-anno">Anno (opzionale)</label>
+          <input class="form-input" id="gf-anno" type="text" placeholder="Es. 2025" maxlength="4">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="gf-desc">Descrizione</label>
+          <textarea class="form-textarea" id="gf-desc" rows="3" placeholder="Breve descrizione del documento…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Immagine di copertina</label>
+          <div class="upload-zone" id="gov-cover-zone" ondrop="onGovDropCover(event)">
+            <input type="file" id="gf-cover" accept="image/*" onchange="onGovCoverChange(event)">
+            <div class="upload-zone__icon">🖼️</div>
+            <p class="upload-zone__text">Trascina un'immagine qui o clicca per selezionarla</p>
+            <p class="upload-zone__filename" id="gov-cover-filename"></p>
+          </div>
+          <div id="gov-cover-preview-wrap" style="margin-top:0.75rem;display:none">
+            <img id="gov-cover-preview" src="" alt="Anteprima"
+              style="width:100%;max-height:160px;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border-dk)">
+            <button type="button" onclick="removeGovCover()"
+              style="margin-top:0.4rem;font-size:0.75rem;color:#e05555;background:none;border:none;cursor:pointer">✕ Rimuovi immagine</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">File PDF *</label>
+          <div class="upload-zone" id="gov-upload-zone" ondrop="onGovDropPdf(event)">
+            <input type="file" id="gf-pdf" accept="application/pdf" onchange="onGovPdfChange(event)">
+            <div class="upload-zone__icon">📎</div>
+            <p class="upload-zone__text">Trascina il PDF qui o clicca per selezionarlo</p>
+            <p class="upload-zone__filename" id="gov-pdf-filename"></p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="toggle-wrap">
+            <span class="toggle-label">Contrassegna come "Più recente"</span>
+            <label class="toggle">
+              <input type="checkbox" id="gf-latest">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <button type="button" class="btn-ghost" onclick="closeGovModal()">Annulla</button>
+          <button type="submit" class="btn-primary" id="gov-save-btn">💾 Salva</button>
         </div>
       </form>
     </div>
@@ -549,11 +669,89 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════
+       MODAL — CUSTOM SECTION (create / edit)
+       ═══════════════════════════════════════════════════════ -->
+  <div class="overlay" id="sec-overlay" onclick="secOverlayClick(event)">
+    <div class="modal" id="sec-modal" style="max-width:620px">
+      <div class="modal__hd">
+        <h2 class="modal__title" id="sec-modal-title">Nuova Sezione</h2>
+        <button class="modal__close" onclick="closeSectionModal()" aria-label="Chiudi">✕</button>
+      </div>
+
+      <form id="sec-form" onsubmit="saveSectionForm(event)">
+        <input type="hidden" id="sf-id">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sf-label">Nome tab * <span style="font-weight:400;color:var(--muted-dk)">(visibile nella barra)</span></label>
+            <input class="form-input" id="sf-label" type="text" placeholder="Es. Report Sostenibilità" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sf-icon">Icona emoji</label>
+            <input class="form-input" id="sf-icon" type="text" placeholder="📊" maxlength="4" style="font-size:1.3rem;text-align:center">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sf-titolo">Titolo sezione * <span style="font-weight:400;color:var(--muted-dk)">(heading nella pagina)</span></label>
+          <input class="form-input" id="sf-titolo" type="text" placeholder="Es. Report di Sostenibilità" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sf-desc">Descrizione</label>
+          <textarea class="form-textarea" id="sf-desc" rows="3" placeholder="Testo introduttivo visibile in governance.html sotto il titolo della sezione…"></textarea>
+        </div>
+
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted-lt);margin:1.5rem 0 0.75rem;padding-top:1.25rem;border-top:1px solid var(--border-dk)">
+          Punti chiave (opzionali — mostrati a destra dell'intro)
+        </p>
+
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="sf-s1t">Punto 1 — Titolo</label>
+            <input class="form-input" id="sf-s1t" type="text" placeholder="Es. Obiettivi climatici">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="sf-s1d">Punto 1 — Descrizione</label>
+            <input class="form-input" id="sf-s1d" type="text" placeholder="…">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:0.75rem">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="sf-s2t">Punto 2 — Titolo</label>
+            <input class="form-input" id="sf-s2t" type="text" placeholder="Es. Risultati 2024">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="sf-s2d">Punto 2 — Descrizione</label>
+            <input class="form-input" id="sf-s2d" type="text" placeholder="…">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:0.75rem">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="sf-s3t">Punto 3 — Titolo</label>
+            <input class="form-input" id="sf-s3t" type="text" placeholder="Es. Certificazioni">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="sf-s3d">Punto 3 — Descrizione</label>
+            <input class="form-input" id="sf-s3d" type="text" placeholder="…">
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <button type="button" class="btn-ghost" onclick="closeSectionModal()">Annulla</button>
+          <button type="submit" class="btn-primary" id="sec-save-btn">💾 Salva Sezione</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- TOASTS -->
   <div class="toast-wrap" id="toast-wrap"></div>
 
   <script src="js/report-manager.js"></script>
   <script src="js/blog-manager.js"></script>
+  <script src="js/governance-manager.js"></script>
   <script>
     /* ══════════════════════════════════════
        SECTION SWITCHING
@@ -564,6 +762,373 @@
       document.getElementById('pane-' + name).classList.add('active');
       document.getElementById('nav-' + name).classList.add('active');
       if (name === 'blog') loadBlogList();
+      if (name === 'governance') {
+        loadCustomGovTabs().then(() => loadGovList());
+      }
+    }
+
+    /* ══════════════════════════════════════
+       GOVERNANCE
+       ══════════════════════════════════════ */
+    let currentGovSection    = 'relazioni'; // 'relazioni'|'codice-etico'|'mobilita'|'parita'|'cs-{slug}'|'__manage__'
+    let isCustomGovSection   = false;
+    let currentCustomSecId   = null;        // ID of the active custom section metadata record
+    let govPdfBuffer         = null;
+    let govCoverDataUrl      = null;
+    let govRemoveCoverFlag   = false;
+
+    /* — Populate custom section tabs in the tab-bar — */
+    async function loadCustomGovTabs() {
+      const sections = await GM.getCustomSections();
+      window.__govCustomSections = sections;
+      // Remove previously injected custom tabs
+      document.querySelectorAll('#gov-tab-bar [data-custom-tab]').forEach(b => b.remove());
+      const tabBar    = document.getElementById('gov-tab-bar');
+      const manageBtn = document.getElementById('gnav-__manage__');
+      sections.forEach(sec => {
+        const btn = document.createElement('button');
+        btn.className         = 'sidebar__item';
+        btn.id                = 'gnav-cs-' + sec.slug;
+        btn.dataset.customTab = sec.id;
+        btn.style.cssText     = 'border-radius:0;border-left:none;padding:0.75rem 1.25rem;white-space:nowrap';
+        btn.textContent       = (sec.icon || '📁') + ' ' + sec.label;
+        btn.addEventListener('click', () => switchGovSection('cs-' + sec.slug));
+        tabBar.insertBefore(btn, manageBtn);
+      });
+    }
+
+    /* — Switch between gov sections (fixed, custom, manage) — */
+    function switchGovSection(section) {
+      currentGovSection  = section;
+      isCustomGovSection = section.startsWith('cs-');
+      const isManage     = section === '__manage__';
+
+      // Update active tab highlight
+      document.querySelectorAll('[id^="gnav-"]').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('gnav-' + section);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Toggle panels and header buttons
+      const govList       = document.getElementById('gov-list');
+      const sectionsPanel = document.getElementById('gov-sections-panel');
+      const addDocBtn     = document.getElementById('gov-add-doc-btn');
+      const addSecBtn     = document.getElementById('gov-add-sec-btn');
+
+      if (isManage) {
+        govList.style.display       = 'none';
+        sectionsPanel.style.display = 'block';
+        addDocBtn.style.display     = 'none';
+        addSecBtn.style.display     = 'inline-flex';
+        loadSectionsManage();
+      } else {
+        govList.style.display       = 'flex';
+        govList.style.flexDirection = 'column';
+        sectionsPanel.style.display = 'none';
+        addDocBtn.style.display     = 'inline-flex';
+        addSecBtn.style.display     = 'none';
+        if (isCustomGovSection) {
+          const slug = section.slice(3);
+          const sec  = (window.__govCustomSections || []).find(s => s.slug === slug);
+          currentCustomSecId = sec ? sec.id : null;
+        } else {
+          currentCustomSecId = null;
+        }
+        loadGovList();
+      }
+    }
+
+    async function loadGovList() {
+      const list = document.getElementById('gov-list');
+      list.innerHTML = `<div class="empty-state"><div class="empty-state__icon">⏳</div><p class="empty-state__text">Caricamento…</p></div>`;
+      let docs;
+      if (isCustomGovSection) {
+        docs = await GM.getCustomDocs(currentGovSection.slice(3));
+      } else {
+        docs = await GM.getDocs(currentGovSection);
+      }
+      if (!docs.length) {
+        list.innerHTML = `<div class="empty-state">
+          <div class="empty-state__icon">📭</div>
+          <p class="empty-state__text">Nessun documento in questa sezione. Aggiungine uno!</p>
+        </div>`;
+        return;
+      }
+      list.innerHTML = docs.map(d => `
+        <div class="card-row" id="gov-row-${d.id}">
+          ${d.coverDataUrl
+            ? `<img src="${d.coverDataUrl}" alt="copertina" style="width:56px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0">`
+            : `<div style="width:56px;height:64px;background:var(--dark-3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📄</div>`}
+          <div class="card-row__info">
+            <div class="card-row__title">
+              ${escHtml(d.titolo)}
+              ${d.isLatest ? '<span class="badge-latest">Più recente</span>' : ''}
+            </div>
+            <div class="card-row__meta">
+              ${d.anno ? `<span style="color:var(--green-pale)">${escHtml(d.anno)}</span>` : ''}
+              ${(d.pdfId || d.pdfPath) ? '<span class="badge-pdf">📄 PDF collegato</span>' : '<span style="color:#e05555">⚠️ Nessun PDF</span>'}
+            </div>
+          </div>
+          <div class="card-row__actions">
+            <button class="btn-ghost" onclick="editGovDoc('${d.id}')">✏️ Modifica</button>
+            <button class="btn-danger" onclick="deleteGovDoc('${d.id}')">🗑️</button>
+          </div>
+        </div>`).join('');
+    }
+
+    function openGovModal() {
+      govPdfBuffer = null; govCoverDataUrl = null; govRemoveCoverFlag = false;
+      document.getElementById('gov-form').reset();
+      document.getElementById('gf-id').value = '';
+      document.getElementById('gov-modal-title').textContent = 'Aggiungi Documento';
+      document.getElementById('gov-pdf-filename').textContent = '';
+      document.getElementById('gov-cover-filename').textContent = '';
+      document.getElementById('gov-cover-preview-wrap').style.display = 'none';
+      document.getElementById('gov-cover-preview').src = '';
+      // Section label in modal header
+      let label;
+      if (isCustomGovSection) {
+        const slug = currentGovSection.slice(3);
+        label = (window.__govCustomSections || []).find(s => s.slug === slug)?.label || slug;
+      } else {
+        label = GM.sectionLabel(currentGovSection);
+      }
+      document.getElementById('gov-section-label').textContent = label;
+      document.getElementById('gov-overlay').classList.add('open');
+    }
+
+    function closeGovModal() { document.getElementById('gov-overlay').classList.remove('open'); }
+    function govOverlayClick(e) { if (e.target === document.getElementById('gov-overlay')) closeGovModal(); }
+
+    async function editGovDoc(id) {
+      const doc = isCustomGovSection
+        ? await GM.getCustomDoc(id)
+        : await GM.getDoc(currentGovSection, id);
+      if (!doc) return;
+      govPdfBuffer = null; govCoverDataUrl = null; govRemoveCoverFlag = false;
+      document.getElementById('gov-form').reset();
+      document.getElementById('gov-modal-title').textContent = 'Modifica Documento';
+      let label;
+      if (isCustomGovSection) {
+        const slug = currentGovSection.slice(3);
+        label = (window.__govCustomSections || []).find(s => s.slug === slug)?.label || slug;
+      } else {
+        label = GM.sectionLabel(currentGovSection);
+      }
+      document.getElementById('gov-section-label').textContent = label;
+      document.getElementById('gf-id').value        = doc.id;
+      document.getElementById('gf-titolo').value    = doc.titolo || '';
+      document.getElementById('gf-anno').value      = doc.anno || '';
+      document.getElementById('gf-desc').value      = doc.descrizione || '';
+      document.getElementById('gf-latest').checked  = !!doc.isLatest;
+      document.getElementById('gov-pdf-filename').textContent = (doc.pdfId || doc.pdfPath)
+        ? '📄 ' + (doc.pdfPath ? doc.pdfPath.split('/').pop() : 'PDF in memoria') : '';
+      if (doc.coverDataUrl) {
+        document.getElementById('gov-cover-preview').src = doc.coverDataUrl;
+        document.getElementById('gov-cover-preview-wrap').style.display = 'block';
+        document.getElementById('gov-cover-filename').textContent = '🖼️ Immagine salvata';
+      }
+      document.getElementById('gov-overlay').classList.add('open');
+    }
+
+    async function saveGovDoc(e) {
+      e.preventDefault();
+      const btn = document.getElementById('gov-save-btn');
+      btn.textContent = '⏳ Salvataggio…'; btn.disabled = true;
+      try {
+        const id = document.getElementById('gf-id').value || null;
+        let existing = {};
+        if (id) {
+          existing = isCustomGovSection
+            ? (await GM.getCustomDoc(id)) || {}
+            : (await GM.getDoc(currentGovSection, id)) || {};
+        }
+        const isLatest = document.getElementById('gf-latest').checked;
+        if (isLatest) {
+          const allDocs = isCustomGovSection
+            ? await GM.getCustomDocs(currentGovSection.slice(3))
+            : await GM.getDocs(currentGovSection);
+          for (const d of allDocs) {
+            if (d.id !== id && d.isLatest) {
+              if (isCustomGovSection) {
+                await GM.saveCustomDoc(currentGovSection.slice(3), { ...d, isLatest: false });
+              } else {
+                await GM.saveDoc(currentGovSection, { ...d, isLatest: false });
+              }
+            }
+          }
+        }
+        let pdfId = existing.pdfId || null, pdfPath = existing.pdfPath || null;
+        if (govPdfBuffer) { pdfId = await GM.savePDF(govPdfBuffer); pdfPath = null; }
+        let finalCover = existing.coverDataUrl || null;
+        if (govCoverDataUrl)    finalCover = govCoverDataUrl;
+        if (govRemoveCoverFlag) finalCover = null;
+        const docData = {
+          id: id || undefined,
+          titolo:       document.getElementById('gf-titolo').value.trim(),
+          anno:         document.getElementById('gf-anno').value.trim(),
+          descrizione:  document.getElementById('gf-desc').value.trim(),
+          isLatest, pdfId, pdfPath,
+          coverDataUrl: finalCover,
+          createdAt:    existing.createdAt || Date.now()
+        };
+        if (isCustomGovSection) {
+          await GM.saveCustomDoc(currentGovSection.slice(3), docData);
+        } else {
+          await GM.saveDoc(currentGovSection, docData);
+        }
+        closeGovModal();
+        await loadGovList();
+        toast('✅ Documento salvato!', 'success');
+      } catch(err) { toast('❌ Errore: ' + err.message, 'error'); }
+      finally { btn.textContent = '💾 Salva'; btn.disabled = false; }
+    }
+
+    async function deleteGovDoc(id) {
+      if (!confirm('Eliminare questo documento? L\'operazione non è reversibile.')) return;
+      if (isCustomGovSection) {
+        await GM.deleteCustomDoc(id);
+      } else {
+        await GM.deleteDoc(currentGovSection, id);
+      }
+      await loadGovList();
+      toast('🗑️ Documento eliminato.', 'success');
+    }
+
+    /* cover / pdf upload handlers (unchanged logic, same IDs) */
+    function onGovCoverChange(e) {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        govCoverDataUrl = ev.target.result; govRemoveCoverFlag = false;
+        document.getElementById('gov-cover-preview').src = govCoverDataUrl;
+        document.getElementById('gov-cover-preview-wrap').style.display = 'block';
+        document.getElementById('gov-cover-filename').textContent = '🖼️ ' + file.name;
+      };
+      reader.readAsDataURL(file);
+    }
+    function removeGovCover() {
+      govCoverDataUrl = null; govRemoveCoverFlag = true;
+      document.getElementById('gov-cover-preview-wrap').style.display = 'none';
+      document.getElementById('gov-cover-preview').src = '';
+      document.getElementById('gov-cover-filename').textContent = '';
+      document.getElementById('gf-cover').value = '';
+    }
+    function onGovPdfChange(e) {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => { govPdfBuffer = ev.target.result; document.getElementById('gov-pdf-filename').textContent = '📄 ' + file.name; };
+      reader.readAsArrayBuffer(file);
+    }
+    function onGovDropCover(e) {
+      e.preventDefault(); document.getElementById('gov-cover-zone').classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) onGovCoverChange({ target: { files: [file] } });
+    }
+    function onGovDropPdf(e) {
+      e.preventDefault(); document.getElementById('gov-upload-zone').classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type === 'application/pdf') onGovPdfChange({ target: { files: [file] } });
+    }
+
+    /* ══════════════════════════════════════
+       SECTIONS MANAGEMENT
+       ══════════════════════════════════════ */
+    async function loadSectionsManage() {
+      const list     = document.getElementById('gov-sections-list');
+      const sections = await GM.getCustomSections();
+      window.__govCustomSections = sections;
+      if (!sections.length) {
+        list.innerHTML = `<div class="empty-state">
+          <div class="empty-state__icon">📂</div>
+          <p class="empty-state__text">Nessuna sezione custom. Usa &laquo;+&nbsp;Nuova Sezione&raquo; per aggiungerne una!</p>
+        </div>`;
+        return;
+      }
+      list.innerHTML = sections.map(sec => `
+        <div class="card-row" id="sec-row-${sec.id}">
+          <div style="font-size:2rem;min-width:3rem;text-align:center;flex-shrink:0">${escHtml(sec.icon || '📁')}</div>
+          <div class="card-row__info">
+            <div class="card-row__title">${escHtml(sec.label)}</div>
+            <div class="card-row__meta">
+              <span>${escHtml(sec.titolo || '')}</span>
+              ${sec.descrizione ? `<span>${escHtml(sec.descrizione.substring(0,70))}…</span>` : ''}
+            </div>
+          </div>
+          <div class="card-row__actions">
+            <button class="btn-ghost" onclick="editSection('${sec.id}')">✏️ Modifica</button>
+            <button class="btn-danger" onclick="deleteSection('${sec.id}')">🗑️</button>
+          </div>
+        </div>`).join('');
+    }
+
+    /* — Section modal open / close — */
+    function openSectionModal() {
+      document.getElementById('sec-form').reset();
+      document.getElementById('sf-id').value = '';
+      document.getElementById('sec-modal-title').textContent = 'Nuova Sezione';
+      document.getElementById('sec-overlay').classList.add('open');
+    }
+    function closeSectionModal() { document.getElementById('sec-overlay').classList.remove('open'); }
+    function secOverlayClick(e)  { if (e.target === document.getElementById('sec-overlay')) closeSectionModal(); }
+
+    async function editSection(id) {
+      const sec = await GM.getCustomSection(id);
+      if (!sec) return;
+      document.getElementById('sec-form').reset();
+      document.getElementById('sec-modal-title').textContent = 'Modifica Sezione';
+      document.getElementById('sf-id').value     = sec.id;
+      document.getElementById('sf-label').value  = sec.label || '';
+      document.getElementById('sf-icon').value   = sec.icon  || '';
+      document.getElementById('sf-titolo').value = sec.titolo || '';
+      document.getElementById('sf-desc').value   = sec.descrizione || '';
+      document.getElementById('sf-s1t').value    = sec.step1titolo || '';
+      document.getElementById('sf-s1d').value    = sec.step1desc   || '';
+      document.getElementById('sf-s2t').value    = sec.step2titolo || '';
+      document.getElementById('sf-s2d').value    = sec.step2desc   || '';
+      document.getElementById('sf-s3t').value    = sec.step3titolo || '';
+      document.getElementById('sf-s3d').value    = sec.step3desc   || '';
+      document.getElementById('sec-overlay').classList.add('open');
+    }
+
+    async function saveSectionForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('sec-save-btn');
+      btn.textContent = '⏳ Salvataggio…'; btn.disabled = true;
+      try {
+        const id       = document.getElementById('sf-id').value || null;
+        const existing = id ? (await GM.getCustomSection(id)) || {} : {};
+        await GM.saveCustomSection({
+          id: id || undefined,
+          label:       document.getElementById('sf-label').value.trim(),
+          icon:        document.getElementById('sf-icon').value.trim(),
+          titolo:      document.getElementById('sf-titolo').value.trim(),
+          descrizione: document.getElementById('sf-desc').value.trim(),
+          step1titolo: document.getElementById('sf-s1t').value.trim(),
+          step1desc:   document.getElementById('sf-s1d').value.trim(),
+          step2titolo: document.getElementById('sf-s2t').value.trim(),
+          step2desc:   document.getElementById('sf-s2d').value.trim(),
+          step3titolo: document.getElementById('sf-s3t').value.trim(),
+          step3desc:   document.getElementById('sf-s3d').value.trim(),
+          slug:        existing.slug    || null,
+          ordine:      existing.ordine  || Date.now(),
+          createdAt:   existing.createdAt || Date.now(),
+        });
+        closeSectionModal();
+        await loadCustomGovTabs();
+        await loadSectionsManage();
+        toast('✅ Sezione salvata!', 'success');
+      } catch(err) { toast('❌ Errore: ' + err.message, 'error'); }
+      finally { btn.textContent = '💾 Salva Sezione'; btn.disabled = false; }
+    }
+
+    async function deleteSection(id) {
+      if (!confirm('Eliminare questa sezione e tutti i suoi documenti? L\'operazione non è reversibile.')) return;
+      await GM.deleteCustomSection(id);
+      // If we were viewing this section, go back to relazioni
+      if (currentCustomSecId === id) switchGovSection('relazioni');
+      await loadCustomGovTabs();
+      await loadSectionsManage();
+      toast('🗑️ Sezione eliminata.', 'success');
     }
 
     /* ══════════════════════════════════════
@@ -903,6 +1468,20 @@
 
     /* ── Init ── */
     loadList();
+
+    /* ── Governance drag helpers (deferred) ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const gc = document.getElementById('gov-cover-zone');
+      const gu = document.getElementById('gov-upload-zone');
+      if (gc) {
+        gc.addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+        gc.addEventListener('dragleave', e => e.currentTarget.classList.remove('dragover'));
+      }
+      if (gu) {
+        gu.addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+        gu.addEventListener('dragleave', e => e.currentTarget.classList.remove('dragover'));
+      }
+    });
   </script>
 </body>
 </html>

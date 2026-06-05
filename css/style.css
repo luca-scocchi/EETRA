@@ -440,7 +440,7 @@ p {
 }
 
 .nav__logo img {
-  height: 130px;
+  height: 40px;
   width: auto;
   transition: height 0.3s ease;
 }
@@ -889,15 +889,18 @@ p {
 }
 
 .ticker-logo {
-  height: 80px; /* Increased height for better visibility */
+  height: 80px;
+  /* Increased height for better visibility */
   width: auto;
-  max-width: 250px; /* Increased max-width to allow wide logos to be taller */
+  max-width: 250px;
+  /* Increased max-width to allow wide logos to be taller */
   object-fit: contain;
   opacity: 0.8;
   filter: grayscale(1);
   transition: all var(--tr);
   flex-shrink: 0;
-  padding: 0 1.5rem; /* More horizontal spacing between logos */
+  padding: 0 1.5rem;
+  /* More horizontal spacing between logos */
 }
 
 .ticker-logo:hover {
@@ -917,12 +920,14 @@ p {
   transition: all var(--tr);
   cursor: pointer;
 }
+
 .impact-card__img {
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--cream-2);
 }
+
 .impact-card__img img {
   width: 100%;
   height: 100%;
@@ -930,6 +935,7 @@ p {
   object-position: center center;
   transition: transform var(--tr-slow);
 }
+
 .impact-card:hover .impact-card__img img {
   transform: scale(1.04);
 }
@@ -1036,7 +1042,7 @@ p {
   position: relative;
   transform: translateY(20px);
   transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
 }
 
 .bm-modal--open .bm-modal__container {
@@ -1057,7 +1063,7 @@ p {
   color: var(--dark);
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all var(--tr);
 }
 
@@ -1094,10 +1100,22 @@ p {
 }
 
 @media (max-width: 768px) {
-  .bm-modal { padding: 0; }
-  .bm-modal__container { max-height: 100vh; border-radius: 0; }
-  .bm-modal__inner { padding: 2rem 1.5rem; }
-  .bm-modal__hero { height: 280px; }
+  .bm-modal {
+    padding: 0;
+  }
+
+  .bm-modal__container {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .bm-modal__inner {
+    padding: 2rem 1.5rem;
+  }
+
+  .bm-modal__hero {
+    height: 280px;
+  }
 }
 
 .bm-modal__meta {
@@ -1121,16 +1139,20 @@ p {
   font-size: 1.125rem;
   line-height: 1.8;
   color: var(--dark-2);
-  white-space: pre-wrap; /* Preserve line breaks */
+  white-space: pre-wrap;
+  /* Preserve line breaks */
 }
 
-.bm-modal__text p { margin-bottom: 1.5rem; }
+.bm-modal__text p {
+  margin-bottom: 1.5rem;
+}
 
 .bm-modal__footer {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border-lt);
 }
+
 /* ---------- CTA SECTION ---------- */
 .cta-sec {
   position: relative;
@@ -1190,8 +1212,7 @@ p {
 }
 
 .footer__logo-img {
-  height: 50
-  px;
+  height: 70px;
   width: auto;
   margin-bottom: 1.25rem;
   opacity: 0.85;
@@ -2015,11 +2036,11 @@ p {
   }
 
   .nav__logo img {
-    height: 64px;
+    height: 32px;
   }
 
   .footer__logo-img {
-    height: 30px;
+    height: 45px;
   }
 
   .nav__links,

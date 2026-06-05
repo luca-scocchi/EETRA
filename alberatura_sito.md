@@ -11,7 +11,7 @@ Sito Eetra/
 ├── 📄 chi-siamo.html                # Chi Siamo
 ├── 📄 servizi.html                  # Servizi
 ├── 📄 academy.html                  # Academy
-├── 📄 impact.html                   # Impact
+├── 📄 news.html                     # News
 ├── 📄 relazioni-di-impatto.html     # Relazioni di Impatto
 ├── 📄 contatti.html                 # Contatti
 │
@@ -109,7 +109,7 @@ Sito Eetra/
 | Chi Siamo | `chi-siamo.html` | Presentazione aziendale, valori, B Corp score |
 | Servizi | `servizi.html` | Business unit e offerta di servizi |
 | Academy | `academy.html` | Formazione e corsi EETRA Academy |
-| Impact | `impact.html` | Impatto ambientale e sociale |
+| News | `news.html` | Impatto ambientale, sociale e news ESG |
 | Relazioni di Impatto | `relazioni-di-impatto.html` | Report e relazioni annuali |
 | Contatti | `contatti.html` | Form di contatto e informazioni |
 

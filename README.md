@@ -8,7 +8,7 @@ Sito Eetra/
 ├── chi-siamo.html                # Chi siamo, team, B Corp, accreditamenti
 ├── servizi.html                  # Hub servizi (4 Business Unit)
 ├── academy.html                  # EETRA Academy — corsi ESG
-├── impact.html                   # News ESG, articoli, archivio
+├── news.html                     # News ESG, articoli, archivio
 ├── relazioni-di-impatto.html     # Report annuali B Corp (PDF download)
 ├── contatti.html                 # Form contatto + info sede
 ├── css/
@@ -43,8 +43,8 @@ I font sono caricati da `infosito/00_Fonts/`:
 
 ## Aggiungere contenuti
 
-### Articoli Impact
-Aggiungi nuovi blocchi `.impact-card-wrap` nella griglia di `impact.html`.
+### Articoli News
+Aggiungi nuovi blocchi `.impact-card-wrap` nella griglia di `news.html`.
 Usa `data-cat="csrd|reporting|carbon|certificazioni|formazione"` per il filtro.
 
 ### Report PDF (Relazione d'Impatto)
