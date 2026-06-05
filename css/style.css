@@ -1557,21 +1557,58 @@ p {
   margin-bottom: 3.5rem;
 }
 
+.service-bu-header--reverse {
+  grid-template-columns: 1fr 1.3fr;
+}
+
 .service-bu-img {
-  border-radius: var(--r-md);
-  overflow: hidden;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 16 / 11;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  justify-self: end;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease;
+}
+
+.service-bu-header--reverse .service-bu-img {
+  justify-self: start;
+}
+
+.th-cream .service-bu-img {
+  background: rgba(92, 123, 42, 0.015);
+  border: 1px solid rgba(92, 123, 42, 0.06);
+  box-shadow: none;
 }
 
 .service-bu-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform var(--tr-slow);
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover effects */
+.service-bu-header:hover .service-bu-img {
+  transform: translateY(-5px);
+  border-color: rgba(168, 192, 96, 0.25);
+  box-shadow: 0 15px 30px rgba(168, 192, 96, 0.08);
+}
+
+.th-cream .service-bu-header:hover .service-bu-img {
+  border-color: rgba(92, 123, 42, 0.2);
+  box-shadow: 0 15px 30px rgba(92, 123, 42, 0.06);
 }
 
 .service-bu-header:hover .service-bu-img img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 /* Premium Table-like Service List */
@@ -2094,9 +2131,14 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .service-bu-header {
+  .service-bu-header,
+  .service-bu-header--reverse {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .service-bu-header--reverse .service-bu-img {
+    order: 2;
   }
 
   .contact-grid {
